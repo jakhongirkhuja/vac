@@ -1,0 +1,35 @@
+.page_footer{
+    color: $white-1;
+    height: 75px;
+    border-top: 0.5px solid $white-1;
+    width: 100%;
+    &__items{
+        padding-left: 100px;
+        padding-right: 100px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        &-lang__choose{
+            display: flex;
+            align-items: center;
+            img:first-child{
+                margin-right: 10px;
+            }
+            img:last-child{
+                margin-left: 15px;
+            }
+        }
+        &-socials{
+            display: flex;
+            a{
+                margin-right: 10px;
+            }
+        }
+        div{
+
+            display: flex;
+            align-items: center;
+        }
+        
+    }
+}

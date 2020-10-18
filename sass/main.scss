@@ -18,7 +18,10 @@ body{
 
 $pr-blue: #272E5B;
 $red: #ED1C24;
-
+$font_family_secondary: 'Montserrat', sans-serif;
+$text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+$white-1: #F1F1F1;
+$white-0:#FFFFFF; 
 @font-face {
     font-family: 'mont';
     src: url('/font/mont.ttf') format('truetype');
@@ -457,3 +460,7 @@ section.block{
     }
 }
 @import 'main_page_2';
+@import 'main_page_4';
+@import 'contact_page';
+@import 'document_page';
+@import 'footer';
