@@ -1,0 +1,42 @@
+.btn{
+    min-width: 200px;
+    padding: 0 30px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+
+    &__text{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #F1F1F1;
+    }
+
+    &__img{
+        width: 20px;
+
+        img{
+            width: 20px;
+        }
+    }
+
+    &::before{
+        content: "";
+        width: 30%;
+        transition: all 1s;
+        height: 100%;
+        position: absolute;
+        background-color: $red;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &:hover::before{
+        width: 100%;
+    }
+}
