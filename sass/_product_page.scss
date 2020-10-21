@@ -1,0 +1,151 @@
+.product {
+    font-family: $font_family_secondary;
+
+    &__header {
+        width: 100%;
+        min-height: 160px;
+        background-color: $pr-blue;
+    }
+    &__title {
+        
+        padding-top: 20px;
+        h2 {
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 44px;
+            text-align: center;
+            color: black;
+            text-transform: initial;
+        }
+    }
+    &__img {
+        display: flex;
+        padding-top: 40px;
+        &__gal,
+        &__rel {
+            flex: 1 1 0px;
+        }
+        &__gal {
+            justify-content: space-between;
+            display: flex;
+            &--main {
+                margin: 0 auto;
+                text-align: center;
+                width: 460px;
+                height: 460px;
+                border: 1px solid $black-0;
+                margin-right: 25px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            &--other {
+                display: flex;
+                flex-direction: column;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 20px;
+                    border: 1px solid $black-0;
+                }
+            }
+        }
+        &__rel {
+            padding-left: 60px;
+            &--items {
+                display: flex;
+                align-items: center;
+                margin-bottom: 60px;
+                justify-content: space-between;
+                img {
+                    width: 200px;
+                    height: 200px;
+                    border: 1px solid $black-0;
+                }
+                a.pruduct__btn-next,
+                a.pruduct__btn-prev {
+                    padding: 12px 24px;
+                    background-color: $sec-blue;
+                    color: $white-0;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+
+                a.pruduct__btn-next {
+                    background-color: $sec-blue;
+                }
+                a.pruduct__btn-next:hover,
+                a.pruduct__btn-prev:hover {
+                    filter: saturate(0.5);
+                }
+                a.pruduct__btn-prev {
+                    background-color: $red;
+                }
+            }
+            &--items:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    &__body {
+        padding-top: 50px;
+        padding-bottom: 80px;
+        &__info {
+            position: relative;
+            color: $sec-blue;
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 37px;
+            display: inline-block;
+            margin-bottom: 42px;
+            div::after,
+            div::before {
+                content: "";
+                display: block;
+                width: 32px;
+                height: 32px;
+                position: absolute;
+                transition: all .3s ease-in-out;
+            }
+            div {
+                padding: 10px 44px;
+            }
+            div::after {
+                right: 0;
+                top: 0;
+                border-right: 1px solid $sec-blue;
+                border-top: 1px solid $sec-blue;
+            }
+            div::before {
+                left: 0;
+                bottom: 0;
+                border-bottom: 1px solid $sec-blue;
+                border-left: 1px solid $sec-blue;
+            }
+        }
+    }
+    &__body:hover{
+        
+        .product__body__info div::after, .product__body__info div::before{
+            width: 100px;
+            height: 40px;
+        }
+    }
+}
+.plr-100 {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.product img {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.product img:hover {
+    transform: scale(1.05);
+}
