@@ -1,0 +1,14 @@
+.proj{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &__head{
+        position: absolute;
+        width: 400px;
+        height: 54px;
+        left: 483px;
+        top: 130px;
+    }
+}
