@@ -10,10 +10,23 @@ body, html{
     padding: 0;
 }
 
+@mixin respond-phone {
+    @media screen and (max-width: 600px){ @content }
+};
+
+@mixin respond-tab {
+    @media screen and (max-width: 900px){ @content }
+};
+
+@mixin respond-1200 {
+    @media screen and (max-width: 1200px){ @content }
+}
+
 body{
     width: 100vw;
     height: 100vh;
     font-family: mont;
+    position: relative;
 }
 
 $pr-blue: #272E5B;
@@ -157,3 +170,4 @@ section.block{
     left: 100px;
     z-index: 3;
 }
+

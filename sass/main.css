@@ -16,6 +16,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: mont;
+  position: relative;
 }
 
 @font-face {
@@ -1571,6 +1572,21 @@ section.block--white {
      object-fit: cover;
 }
 
+.proj__img img.back {
+  -webkit-transform: translateX(-100vh);
+          transform: translateX(-100vh);
+}
+
+.proj__img img.next {
+  -webkit-transform: translateX(100vh);
+          transform: translateX(100vh);
+}
+
+.proj__img img.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
 .proj__arrows {
   position: absolute;
   bottom: 17vh;
@@ -1582,9 +1598,16 @@ section.block--white {
       -ms-flex-pack: justify;
           justify-content: space-between;
   left: 17vw;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .proj__arrows img {
   width: 70px;
+}
+
+.proj__arrows img:hover {
+  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
 }
 /*# sourceMappingURL=main.css.map */
