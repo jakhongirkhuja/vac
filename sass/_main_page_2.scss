@@ -82,3 +82,53 @@
       transform: rotate(360deg);
     }
   }
+
+
+@include respond-1200{
+    
+}
+@include respond-tab{
+    
+}
+@include respond-phone{
+    
+    .page_index_2-grid{
+        
+        flex: auto;
+        img.rotate_corner_img{
+            bottom: -60px;
+            left: -60px;
+            max-width: 199px;
+        }
+        &_left{
+            display: none; 
+        }
+        &_right-items{
+            margin-top: 25px;
+            width: 100%;
+            .btn{
+                width: auto;
+                margin:  0 auto;
+                height: 42px;
+            }
+            .btn::before{
+                width: 100%;
+            }
+            .btn__text{
+                font-size: 9px;
+            }
+            &_img{
+                margin-right: 25px;
+                margin-left: 17px;
+                img{
+                    width: 36px;
+                }
+            }
+            .title-s{
+                font-size: 14px;
+                font-weight: 900;
+            }
+           
+        }
+    }
+}

@@ -10,6 +10,7 @@
         height: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         &-lang__choose{
             display: flex;
             align-items: center;
@@ -39,4 +40,32 @@
         }
         
     }
+}
+
+
+@include respond-phone{
+    .page_footer{
+        height: 59px;
+        
+        &__items{
+            padding-left: 20px;
+            padding-right: 20px;
+            &-lang{
+                display: none;
+            }
+            div:first-child{
+                display: none;
+            }
+            &-privacy span{
+                display: none;
+            }
+            &-socials a img{
+                width: 19px;
+                
+            }
+        }
+    }
+
+
+
 }
