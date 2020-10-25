@@ -130,18 +130,18 @@
                 .products__all-items--img{
                     max-height: 219px;
                 }
-                .products__all-items_up{
-                    animation: up_left .3s forwards;
-                }
-                .products__all-items_right{
-                    animation: up_down .3s forwards;
-                }
-                .products__all-items_left{
-                    animation: down_up .3s forwards;
-                }
-                .products__all-items_bottom{
-                    animation: down_right .3s forwards;
-                }
+                // .products__all-items_up{
+                //     animation: up_left .3s forwards;
+                // }
+                // .products__all-items_right{
+                //     animation: up_down .3s forwards;
+                // }
+                // .products__all-items_left{
+                //     animation: down_up .3s forwards;
+                // }
+                // .products__all-items_bottom{
+                //     animation: down_right .3s forwards;
+                // }
             }
             
             
@@ -166,19 +166,51 @@
     from {bottom: -52px;}
     to {bottom: 15px;}
 }
-@keyframes up_left {
-    from {width: 0%;}
-    to {width: 40%;}
-}
-@keyframes up_down {
-    from { height: 0%;}
-    to { height: 40%;}
-}
-@keyframes down_up {
-    from {height: 0%;}
-    to {height: 40%;}
-}
-@keyframes down_right {
-    from {width:0;}
-    to {width: 40%;}
+// @keyframes up_left {
+//     from {width: 0%;}
+//     to {width: 40%;}
+// }
+// @keyframes up_down {
+//     from { height: 0%;}
+//     to { height: 40%;}
+// }
+// @keyframes down_up {
+//     from {height: 0%;}
+//     to {height: 40%;}
+// }
+// @keyframes down_right {
+//     from {width:0;}
+//     to {width: 40%;}
+// }
+
+
+@include respond-phone{
+    .products{
+        &__filters{
+            justify-content: flex-start;
+            overflow-x: scroll;
+            padding-left: 20px;
+            &-items{
+                margin-bottom: 18px;
+                margin-right: 19px;
+                font-size: 14px;
+            }
+        }
+       
+        &__all-items{
+            flex-basis: 50%;
+            &--btn a{
+                font-size: 9px;
+                padding: 7px 13px;
+            }
+            &--title h2{
+                font-size: 12px;
+            }
+        }
+        
+    }
+
+    .contacts_text p{
+        font-size: 20px;
+    }
 }

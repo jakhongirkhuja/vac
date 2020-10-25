@@ -149,3 +149,55 @@
 .product img:hover {
     transform: scale(1.05);
 }
+
+
+@include respond-phone{
+    .plr-100{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .product{
+        &__title h2{
+            font-size: 16px;
+            line-height: 20px;
+        }
+        &__img{
+            flex-direction: column;
+            &__rel{
+                padding-left: initial;
+                &--items{
+                    flex-direction: column;
+                    a.pruduct__btn-next, a.pruduct__btn-prev{
+                        margin-top: 16px;
+                    }
+                }
+                &--items:last-child{
+                    flex-direction: column-reverse;
+                }
+            }
+            &__gal{
+                flex-direction: column;
+                &--main{
+                    width: 100%;
+                    height: 300px;
+                }
+                &--other{
+                    flex-direction: row;
+                    overflow-x: scroll;
+                    margin-top: 17px;
+                    img{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        &__body__info{
+            font-size: 16px;
+            div{
+                padding: 5px 26px;
+            }
+        }
+    }
+
+
+}
