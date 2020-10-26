@@ -13,6 +13,21 @@
         -webkit-text-stroke: 1px #F1F1F1;
     }
 
+    &__redline{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100vh;
+        height: 10px;
+        
+        &--line{
+            height: 10px;
+            transition: width 4s;
+            width: 0%;
+            background-color: $red;
+        }
+    }
+
     &__name{
         position: absolute;
         top: 0;
@@ -22,6 +37,25 @@
         align-items: center;
         color: white;
         z-index: 1;
+
+        h1{
+            max-width: 50vw;
+            position: absolute;
+            width: 800px;
+            transition: all 0.6s;
+
+            &.back{
+                transform: translateX(-100vw);
+            }
+
+            &.next{
+                transform: translateX(100vw);
+            }
+
+            &.active{
+                transform: translateX(0);
+            }
+        }
     }
 
     &__img{
@@ -30,6 +64,7 @@
         right: 0;
         width: 100vh;
         height: 100vh;
+        overflow: hidden;
 
         &::after{
             content: '';
@@ -45,6 +80,8 @@
         img{
             width: 100%;
             object-fit: cover;
+            position: absolute;
+            transition: all 0.6s;
 
             &.back{
                 transform: translateX(-100vh);
@@ -72,6 +109,7 @@
 
         img{
             width: 70px;
+            transition: all 0.6s;
 
             &:hover{
                 -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);

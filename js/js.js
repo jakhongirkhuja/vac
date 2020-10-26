@@ -136,16 +136,124 @@ function touchControlEnd(event){
 }
 document.addEventListener("touchstart", touchControl);
 document.addEventListener("touchend", touchControlEnd);
-// touches: TouchList
-// 0: Touch
-// clientX: 191
-// clientY: 228
-// force: 1
-// identifier: 0
-// pageX: 191
-// pageY: 228
-// radiusX: 11.5
-// radiusY: 11.5
-// rotationAngle: 0
-// screenX: 951
-// screenY: 366
+
+var side = false;
+
+function slide_left(){
+    var act = dqs(".proj__name h1.active");
+    var actp = dqs(".proj__img img.active");
+    
+    if(act.nextElementSibling){
+        act.classList.remove("active");
+        act.classList.add("back");
+        act.nextElementSibling.classList.add("active");
+        act.nextElementSibling.classList.remove("next");
+    }
+    if(actp.nextElementSibling){
+        actp.classList.remove("active");
+        actp.classList.add("back");
+        actp.nextElementSibling.classList.add("active");
+        actp.nextElementSibling.classList.remove("next");
+    }
+
+    if(dqs(".proj__name h1.active").nextElementSibling){
+        side = false;
+    }else{
+        side = true;
+    }
+}
+
+function slide_right(){
+    var act = dqs(".proj__name h1.active");
+    var actp = dqs(".proj__img img.active");
+    
+    if(act.previousElementSibling){
+        act.classList.remove("active");
+        act.classList.add("next");
+        act.previousElementSibling.classList.add("active");
+        act.previousElementSibling.classList.remove("back");
+    }
+    
+    if(actp.previousElementSibling){
+        actp.classList.remove("active");
+        actp.classList.add("next");
+        actp.previousElementSibling.classList.add("active");
+        actp.previousElementSibling.classList.remove("back");
+    }
+
+    if(dqs(".proj__name h1.active").previousElementSibling){
+        side = true;
+    }else{
+        side = false;
+    }
+}
+
+if(dqs(".proj__name h1") && dqs(".proj__name h1").length){
+    dqs(".proj__name h1")[0].classList.add("active");
+
+    for (let i = 1; i < dqs(".proj__name h1").length; i++) {
+        dqs(".proj__name h1")[i].classList.add("next");
+    }
+}
+
+if(dqs(".proj__img img") && dqs(".proj__img img").length){
+    dqs(".proj__img img")[0].classList.add("active");
+
+    for (let i = 1; i < dqs(".proj__img img").length; i++) {
+        dqs(".proj__img img")[i].classList.add("next");
+    }
+}
+
+var intervalFunction = () => {
+    if(side){
+        slide_right();
+    }else{
+        slide_left();
+    }
+    
+    dqs(".proj__redline--line").style.transition = "width 0s";
+    dqs(".proj__redline--line").style.width = "0%";
+    
+    dqs(".proj__redline--line").style.transition = "width 4s";
+    dqs(".proj__redline--line").style.width = "100%";
+    timeout = setTimeout(() => {
+        dqs(".proj__redline--line").style.transition = "width 0.2s";
+        dqs(".proj__redline--line").style.width = "0%";
+    }, 3800);
+}
+
+var inter = setInterval(intervalFunction, 4000);
+var timeout = null;
+function slide_left_btn(){
+    clearInterval(inter);
+    clearTimeout(timeout);
+    
+    inter = setInterval(intervalFunction, 4000);
+
+    dqs(".proj__redline--line").style.transition = "width 0.2s";
+    dqs(".proj__redline--line").style.width = "0%";
+
+    setTimeout(() => {
+        dqs(".proj__redline--line").style.transition = "width 3.8s";
+        dqs(".proj__redline--line").style.width = "100%";
+    }, 200);
+    
+    slide_left();
+}
+
+function slide_right_btn(){
+    clearInterval(inter);
+    clearTimeout(timeout);
+
+    inter = setInterval(intervalFunction, 4000);
+
+    dqs(".proj__redline--line").style.transition = "width 0.2s";
+    dqs(".proj__redline--line").style.width = "0%";
+
+    setTimeout(() => {
+        dqs(".proj__redline--line").style.transition = "width 3.8s";
+        dqs(".proj__redline--line").style.width = "100%";
+    }, 200);
+    
+    slide_right();
+}

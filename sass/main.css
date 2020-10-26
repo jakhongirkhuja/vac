@@ -498,7 +498,7 @@ section.block--white {
 .secv__smsl {
   position: relative;
   overflow: auto;
-  width: calc(100vw - 25vw);
+  width: calc(100vw - 21vw);
   height: 425px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1631,6 +1631,22 @@ section.block--white {
   -webkit-text-stroke: 1px #F1F1F1;
 }
 
+.proj__redline {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100vh;
+  height: 10px;
+}
+
+.proj__redline--line {
+  height: 10px;
+  -webkit-transition: width 4s;
+  transition: width 4s;
+  width: 0%;
+  background-color: #ED1C24;
+}
+
 .proj__name {
   position: absolute;
   top: 0;
@@ -1646,12 +1662,36 @@ section.block--white {
   z-index: 1;
 }
 
+.proj__name h1 {
+  max-width: 50vw;
+  position: absolute;
+  width: 800px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.proj__name h1.back {
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
+}
+
+.proj__name h1.next {
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+}
+
+.proj__name h1.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
 .proj__img {
   position: absolute;
   top: 0;
   right: 0;
   width: 100vh;
   height: 100vh;
+  overflow: hidden;
 }
 
 .proj__img::after {
@@ -1671,6 +1711,9 @@ section.block--white {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  position: absolute;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .proj__img img.back {
@@ -1705,6 +1748,8 @@ section.block--white {
 
 .proj__arrows img {
   width: 70px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .proj__arrows img:hover {
