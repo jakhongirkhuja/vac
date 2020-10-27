@@ -22,9 +22,14 @@
         
         &--line{
             height: 10px;
-            transition: width 4s;
             width: 0%;
             background-color: $red;
+            transition: width 0.2s;
+
+            &.active{
+                transition: width 3.8s;
+                width: 100%;
+            }
         }
     }
 

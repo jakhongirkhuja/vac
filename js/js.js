@@ -210,19 +210,15 @@ var intervalFunction = () => {
     }else{
         slide_left();
     }
-    
-    dqs(".proj__redline--line").style.transition = "width 0s";
-    dqs(".proj__redline--line").style.width = "0%";
-    
-    dqs(".proj__redline--line").style.transition = "width 4s";
-    dqs(".proj__redline--line").style.width = "100%";
-    timeout = setTimeout(() => {
-        dqs(".proj__redline--line").style.transition = "width 0.2s";
-        dqs(".proj__redline--line").style.width = "0%";
-    }, 3800);
+
+    dqs(".proj__redline--line").classList.remove("active");
+    setTimeout(() => {
+        dqs(".proj__redline--line").classList.add("active");
+    }, 200);
 }
 
 var inter = setInterval(intervalFunction, 4000);
+
 var timeout = null;
 function slide_left_btn(){
     clearInterval(inter);
@@ -230,12 +226,9 @@ function slide_left_btn(){
     
     inter = setInterval(intervalFunction, 4000);
 
-    dqs(".proj__redline--line").style.transition = "width 0.2s";
-    dqs(".proj__redline--line").style.width = "0%";
-
+    dqs(".proj__redline--line").classList.remove("active");
     setTimeout(() => {
-        dqs(".proj__redline--line").style.transition = "width 3.8s";
-        dqs(".proj__redline--line").style.width = "100%";
+        dqs(".proj__redline--line").classList.add("active");
     }, 200);
     
     slide_left();
@@ -247,12 +240,10 @@ function slide_right_btn(){
 
     inter = setInterval(intervalFunction, 4000);
 
-    dqs(".proj__redline--line").style.transition = "width 0.2s";
-    dqs(".proj__redline--line").style.width = "0%";
 
+    dqs(".proj__redline--line").classList.remove("active");
     setTimeout(() => {
-        dqs(".proj__redline--line").style.transition = "width 3.8s";
-        dqs(".proj__redline--line").style.width = "100%";
+        dqs(".proj__redline--line").classList.add("active");
     }, 200);
     
     slide_right();
