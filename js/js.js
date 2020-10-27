@@ -113,16 +113,10 @@ if(burger){
 var tX = 0;
 var tY = 0;
 function touchControl(event){
-    // console.log(event.touches[0].pageX);
-    // console.log(event.touches[0].pageY);
     tX = event.changedTouches[0].screenX;
     tY = event.changedTouches[0].screenY;
-    console.log(event.changedTouches[0].screenY);
-    //console.log(event);
 }
 function touchControlEnd(event){
-    //console.log(event);
-    console.log(event.changedTouches[0].screenY);
     var ev = {};
     if(event.changedTouches[0].screenY - tY > 50){
         //tepaga
@@ -134,8 +128,11 @@ function touchControlEnd(event){
         scrollEventCatch(ev);
     }
 }
-document.addEventListener("touchstart", touchControl);
-document.addEventListener("touchend", touchControlEnd);
+if(blocks && blocks.length){
+    document.addEventListener("touchstart", touchControl);
+    document.addEventListener("touchend", touchControlEnd);
+}
+
 
 var side = false;
 
@@ -217,7 +214,9 @@ var intervalFunction = () => {
     }, 200);
 }
 
-var inter = setInterval(intervalFunction, 4000);
+if(dqs(".proj")){
+    var inter = setInterval(intervalFunction, 4000);
+}
 
 var timeout = null;
 function slide_left_btn(){

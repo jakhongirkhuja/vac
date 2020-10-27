@@ -164,10 +164,28 @@ section.block{
 }
 
 .logo{
-    width: 160px;
     position: fixed;
     top: 50px;
     left: 100px;
     z-index: 3;
+    
+    @include respond-tab{
+        top: 55px;
+    }
+
+    @include respond-phone{
+        left: 50px;
+    }
+
+    img{
+        @include respond-1200{
+            width: 160px;
+        }
+
+        @include respond-phone{
+            width: 130px;
+        }
+    }
+    
 }
 

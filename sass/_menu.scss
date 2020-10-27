@@ -11,6 +11,10 @@
     color: white;
     cursor: pointer;
 
+    @include respond-phone{
+        right: 50px;
+    }
+
     &.black{
         color: black;
         

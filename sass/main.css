@@ -139,11 +139,34 @@ section.block--white {
 }
 
 .logo {
-  width: 160px;
   position: fixed;
   top: 50px;
   left: 100px;
   z-index: 3;
+}
+
+@media screen and (max-width: 900px) {
+  .logo {
+    top: 55px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    left: 50px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .logo img {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo img {
+    width: 130px;
+  }
 }
 
 .menu {
@@ -164,6 +187,12 @@ section.block--white {
           justify-content: center;
   color: white;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .menu {
+    right: 50px;
+  }
 }
 
 .menu.black {
