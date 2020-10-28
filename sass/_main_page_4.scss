@@ -32,6 +32,9 @@
             &-form {
                 justify-content: flex-end;
                 position: relative;
+                @include respond-phone{
+                    display: none;
+                }
                 &__inputs {
 
                     &-title {
@@ -80,10 +83,16 @@
                 color: $white-1;
                 font-weight: bold;
                 text-transform: capitalize;
-
+                @include respond-phone{
+                    justify-content: center;
+                    align-items: center;
+                }
                 &__title {
                     font-size: 24px;
                     line-height: 29px;
+                    @include respond-phone{
+                        font-size: 20px;
+                    }
                 }
 
                 &__items {
@@ -93,8 +102,14 @@
 
                     &-img {
                         margin-right: 38px;
+                        @include respond-phone{
+                            margin-right: 30px;
+                        }
                         img {
                             width: 40px;
+                            @include respond-phone{
+                                width: 22px;
+                            }
                         }
                     }
 
@@ -103,28 +118,37 @@
                         line-height: 29px;
                         text-align: center;
                         font-weight: 500;
+                        @include respond-phone{
+                            font-size: 16px;
+                        }
                     }
                 }
 
                 &__doc{
                     display: flex;
                     align-items: center;
-
+                    
                     &-title{
                         font-weight: 600;
                         font-size: 25px;
                         margin-left: 25px;
+                        @include respond-phone{
+                            font-size: 20px;
+                        }
                     }
 
                     img{
                         width: 80%;
+                        @include respond-phone{
+                            width: 50px;
+                        }
                     }
                 }
 
                 &__list{
                     display: flex;
                     justify-content: space-between;
-
+                    
                     ul{
                         margin-top: 30px;
                         margin-left: 22px;
@@ -132,6 +156,9 @@
                         li{
                             margin-bottom: 25px;
                             font-size: 25px;
+                            @include respond-phone{
+                                font-size: 16px;
+                            }
                         }
                     }
                     
@@ -139,45 +166,4 @@
             }
         }
     }
-}
-
-@include respond-phone{
-
-    .page_index_4-inside-grid{
-        &-contacts{
-            justify-content: center;
-            align-items: center;
-        }
-        &-form{
-            display: none;
-        }
-        &-contacts{
-            &__doc{
-                &-title{
-                    font-size: 20px;
-                }
-                img{
-                    width: 50px;
-                }
-            }
-            &__items{
-                &-img{
-                    margin-right: 30px;
-                    img{
-                        width: 22px;
-                    }
-                }
-                &-text{
-                    font-size: 16px;
-                }
-            }
-            &__title{
-                font-size: 20px;
-            }
-            &__list ul li{
-                font-size: 16px;
-            }
-        }
-    }
-
 }
