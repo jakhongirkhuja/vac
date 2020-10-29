@@ -720,11 +720,6 @@ section.block--white {
   opacity: 1;
   -webkit-transition: all 1s 2s;
   transition: all 1s 2s;
-@media screen and (max-width: 600px) {
-  .page_index_2-grid_right-items {
-    margin-top: 25px;
-    width: 100%;
-  }
 }
 
 .page_index_2-grid_right-items_img {
