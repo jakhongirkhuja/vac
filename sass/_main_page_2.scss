@@ -6,12 +6,20 @@
         flex: 1 1 0px;
         display: flex;
         color: $white-0;
-        img.rotate_corner_img{
+        @include respond-phone {
+            flex: auto;
+        }
+        img.rotate_corner_img {
             position: absolute;
             bottom: 0;
             left: 0;
             max-width: 240px;
             animation: rotating 6s linear infinite;
+            @include respond-phone {
+                bottom: -60px;
+                left: -60px;
+                max-width: 199px;
+            }
         }
 
         &_left,
@@ -32,16 +40,19 @@
             text-transform: uppercase;
             position: relative;
             z-index: 2;
+            @include respond-phone {
+                display: none;
+            }
             div {
                 position: relative;
                 line-height: 42px;
                 z-index: 2;
-                div:first-child{
+                div:first-child {
                     font-size: 80px;
                     line-height: 98px;
                     color: $pr-blue;
                     text-shadow: $text-shadow;
-                    
+
                     position: absolute;
                     top: -47px;
                     left: -70%;
@@ -55,7 +66,7 @@
             font-weight: 700;
             justify-content: center;
             align-items: flex-start;
-            &-items{
+            &-items {
                 display: flex;
                 margin-top: 30px;
                 align-items: center;
@@ -79,13 +90,43 @@
                     
                     .block.active &{
                         opacity: 1;
+                @include respond-phone {
+                    margin-top: 25px;
+                    width: 100%;
+                }
+                &_img {
+                    margin-right: 30px;
+                    @include respond-phone {
+                        margin-right: 25px;
+                        margin-left: 17px;
+                        img {
+                            width: 36px;
+                        }
                     }
                 }
-                .btn{
+                .btn {
                     width: 100%;
                     padding-left: 30px;
-                    .btn__img{
+                    @include respond-phone {
+                        width: auto;
+                        margin: 0 auto;
+                        height: 42px;
+                    }
+                    .btn__img {
                         margin-left: 20px;
+                    }
+                }
+                @include respond-phone {
+                    .btn::before {
+                        width: 100%;
+                    }
+                    .btn__text {
+                        font-size: 9px;
+                    }
+
+                    .title-s {
+                        font-size: 14px;
+                        font-weight: 900;
                     }
                 }
             }
@@ -97,60 +138,14 @@
 
 @keyframes rotating {
     from {
-
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-
-
-@include respond-1200{
-    
 }
-@include respond-tab{
-    
+
+@include respond-1200 {
 }
-@include respond-phone{
-    
-    .page_index_2-grid{
-        
-        flex: auto;
-        img.rotate_corner_img{
-            bottom: -60px;
-            left: -60px;
-            max-width: 199px;
-        }
-        &_left{
-            display: none; 
-        }
-        &_right-items{
-            margin-top: 25px;
-            width: 100%;
-            .btn{
-                width: auto;
-                margin:  0 auto;
-                height: 42px;
-            }
-            .btn::before{
-                width: 100%;
-            }
-            .btn__text{
-                font-size: 9px;
-            }
-            &_img{
-                margin-right: 25px;
-                margin-left: 17px;
-                img{
-                    width: 36px;
-                }
-            }
-            .title-s{
-                font-size: 14px;
-                font-weight: 900;
-            }
-           
-        }
-    }
+@include respond-tab {
 }

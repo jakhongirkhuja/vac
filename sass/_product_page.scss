@@ -7,7 +7,6 @@
         background-color: $pr-blue;
     }
     &__title {
-        
         padding-top: 20px;
         h2 {
             font-weight: 600;
@@ -16,11 +15,18 @@
             text-align: center;
             color: black;
             text-transform: initial;
+            @include respond-phone {
+                font-size: 16px;
+                line-height: 20px;
+            }
         }
     }
     &__img {
         display: flex;
         padding-top: 40px;
+        @include respond-phone {
+            flex-direction: column;
+        }
         &__gal,
         &__rel {
             flex: 1 1 0px;
@@ -28,6 +34,9 @@
         &__gal {
             justify-content: space-between;
             display: flex;
+            @include respond-phone {
+                flex-direction: column;
+            }
             &--main {
                 margin: 0 auto;
                 text-align: center;
@@ -39,6 +48,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                @include respond-phone {
+                    width: 100%;
+                    height: 300px;
+                }
                 img {
                     width: 100%;
                     height: auto;
@@ -47,22 +60,35 @@
             &--other {
                 display: flex;
                 flex-direction: column;
-
+                @include respond-phone {
+                    flex-direction: row;
+                    overflow-x: scroll;
+                    margin-top: 17px;
+                }
                 img {
                     width: 100px;
                     height: 100px;
                     margin-bottom: 20px;
                     border: 1px solid $black-0;
+                    @include respond-phone {
+                        margin-right: 10px;
+                    }
                 }
             }
         }
         &__rel {
             padding-left: 60px;
+            @include respond-phone {
+                padding-left: initial;
+            }
             &--items {
                 display: flex;
                 align-items: center;
                 margin-bottom: 60px;
                 justify-content: space-between;
+                @include respond-phone {
+                    flex-direction: column;
+                }
                 img {
                     width: 200px;
                     height: 200px;
@@ -75,6 +101,9 @@
                     color: $white-0;
                     font-weight: 600;
                     font-size: 16px;
+                    @include respond-phone {
+                        margin-top: 16px;
+                    }
                 }
 
                 a.pruduct__btn-next {
@@ -90,6 +119,9 @@
             }
             &--items:last-child {
                 margin-bottom: 0px;
+                @include respond-phone {
+                    flex-direction: column-reverse;
+                }
             }
         }
     }
@@ -104,6 +136,9 @@
             line-height: 37px;
             display: inline-block;
             margin-bottom: 42px;
+            @include respond-phone {
+                font-size: 16px;
+            }
             div::after,
             div::before {
                 content: "";
@@ -111,10 +146,13 @@
                 width: 32px;
                 height: 32px;
                 position: absolute;
-                transition: all .3s ease-in-out;
+                transition: all 0.3s ease-in-out;
             }
             div {
                 padding: 10px 44px;
+                @include respond-phone {
+                    padding: 5px 26px;
+                }
             }
             div::after {
                 right: 0;
@@ -130,9 +168,9 @@
             }
         }
     }
-    &__body:hover{
-        
-        .product__body__info div::after, .product__body__info div::before{
+    &__body:hover {
+        .product__body__info div::after,
+        .product__body__info div::before {
             width: 100px;
             height: 40px;
         }
@@ -141,6 +179,10 @@
 .plr-100 {
     padding-left: 100px;
     padding-right: 100px;
+    @include respond-phone {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 .product img {
     transition: all 0.3s ease-in-out;
@@ -148,56 +190,4 @@
 }
 .product img:hover {
     transform: scale(1.05);
-}
-
-
-@include respond-phone{
-    .plr-100{
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .product{
-        &__title h2{
-            font-size: 16px;
-            line-height: 20px;
-        }
-        &__img{
-            flex-direction: column;
-            &__rel{
-                padding-left: initial;
-                &--items{
-                    flex-direction: column;
-                    a.pruduct__btn-next, a.pruduct__btn-prev{
-                        margin-top: 16px;
-                    }
-                }
-                &--items:last-child{
-                    flex-direction: column-reverse;
-                }
-            }
-            &__gal{
-                flex-direction: column;
-                &--main{
-                    width: 100%;
-                    height: 300px;
-                }
-                &--other{
-                    flex-direction: row;
-                    overflow-x: scroll;
-                    margin-top: 17px;
-                    img{
-                        margin-right: 10px;
-                    }
-                }
-            }
-        }
-        &__body__info{
-            font-size: 16px;
-            div{
-                padding: 5px 26px;
-            }
-        }
-    }
-
-
 }

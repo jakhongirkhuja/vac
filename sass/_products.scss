@@ -1,6 +1,5 @@
-.products{
-    
-    &__filters{
+.products {
+    &__filters {
         background-color: $pr-blue;
         font-family: $font_family_secondary;
         width: 100%;
@@ -9,7 +8,12 @@
         justify-content: flex-end;
         color: $white-1;
         align-items: flex-end;
-        &-items{
+        @include respond-phone {
+            justify-content: flex-start;
+            overflow-x: scroll;
+            padding-left: 20px;
+        }
+        &-items {
             cursor: pointer;
             margin-bottom: 25px;
             margin-right: 50px;
@@ -19,52 +23,61 @@
             text-align: center;
             transition: all 0.2s ease-in-out;
             font-variant: small-caps;
+            @include respond-phone {
+                margin-bottom: 18px;
+                margin-right: 19px;
+                font-size: 14px;
+            }
         }
-        &-items.active, &-items:hover{
+        &-items.active,
+        &-items:hover {
             border-bottom: 2px solid $white-0;
         }
-        
     }
-    &__all{
+    &__all {
         display: flex;
         flex-flow: row wrap;
-        &-items{
+        &-items {
             position: relative;
             height: 355px;
-            
+
             flex-shrink: 0;
             flex-basis: 33.3%;
             text-align: center;
             cursor: pointer;
-            &--img, &--title{
-                transition: all .3s ease-in-out;
+            @include respond-phone {
+                flex-basis: 50%;
+            }
+            &--img,
+            &--title {
+                transition: all 0.3s ease-in-out;
                 max-width: 200px;
                 max-height: 271px;
                 overflow: hidden;
                 margin: 0 auto;
-                
             }
-            &--img img{
-                transition: all .3s ease-in-out;
+            &--img img {
+                transition: all 0.3s ease-in-out;
                 width: 100%;
             }
-            &--title{
-
-                h2{
+            &--title {
+                h2 {
                     text-transform: none;
                     font-weight: bold;
                     font-size: 16px;
                     line-height: 20px;
                     text-align: center;
+                    @include respond-phone {
+                        font-size: 12px;
+                    }
                 }
             }
-            &--btn{
-                
+            &--btn {
                 display: none;
                 position: absolute;
                 bottom: -52px;
                 width: 100%;
-                a{
+                a {
                     border: 3px solid $white-1;
                     padding: 12px 16px;
                     color: $black-2;
@@ -73,61 +86,66 @@
                     line-height: 20px;
                     text-align: center;
                     display: inline-flex;
-                    img{
+                    @include respond-phone {
+                        font-size: 9px;
+                        padding: 7px 13px;
+                    }
+                    img {
                         margin-left: 16px;
                     }
                 }
-                a:hover{
+                a:hover {
                     background-color: $white-1;
-                    
                 }
             }
-            &_up,&_right,&_bottom,&_left{
+            &_up,
+            &_right,
+            &_bottom,
+            &_left {
                 position: absolute;
                 display: block;
                 background-color: $red;
             }
-            &_up, &_right{
+            &_up,
+            &_right {
                 top: 0;
                 right: 0;
             }
-            &_bottom, &_left{
+            &_bottom,
+            &_left {
                 bottom: 0;
                 left: 0;
             }
-            &_up{
+            &_up {
                 height: 4px;
                 width: 0%;
             }
-            &_right{
+            &_right {
                 height: 0%;
                 width: 4px;
             }
-            &_bottom{
+            &_bottom {
                 height: 4px;
                 width: 0%;
             }
-            &_left{
+            &_left {
                 height: 0%;
                 width: 4px;
             }
-            
-            
         }
-        &-items{
-            &:hover{
-                
-                .products__all-items--btn{
+        &-items {
+            &:hover {
+                .products__all-items--btn {
                     display: block;
                     animation-name: animate_btn;
-                    animation-duration: .3s;  
+                    animation-duration: 0.3s;
                     animation-fill-mode: forwards;
                     bottom: -52px;
                 }
-                .products__all-items--img img{
+                .products__all-items--img img {
                     transform: scale(0.7);
                 }
-                .products__all-items--img{
+                .products__all-items--img {
                     max-height: 219px;
                 }
                 // .products__all-items_up{
@@ -143,13 +161,10 @@
                 //     animation: down_right .3s forwards;
                 // }
             }
-            
-            
         }
     }
-    
 }
-.contacts_text p{
+.contacts_text p {
     cursor: pointer;
     font-weight: bold;
     font-size: 36px;
@@ -158,13 +173,20 @@
     text-align: center;
     text-decoration-line: underline;
     color: $black-2;
+    @include respond-phone {
+        font-size: 20px;
+    }
 }
-.contacts_text p:hover{
+.contacts_text p:hover {
     color: $black-0;
 }
 @keyframes animate_btn {
-    from {bottom: -52px;}
-    to {bottom: 15px;}
+    from {
+        bottom: -52px;
+    }
+    to {
+        bottom: 15px;
+    }
 }
 // @keyframes up_left {
 //     from {width: 0%;}
@@ -182,35 +204,3 @@
 //     from {width:0;}
 //     to {width: 40%;}
 // }
-
-
-@include respond-phone{
-    .products{
-        &__filters{
-            justify-content: flex-start;
-            overflow-x: scroll;
-            padding-left: 20px;
-            &-items{
-                margin-bottom: 18px;
-                margin-right: 19px;
-                font-size: 14px;
-            }
-        }
-       
-        &__all-items{
-            flex-basis: 50%;
-            &--btn a{
-                font-size: 9px;
-                padding: 7px 13px;
-            }
-            &--title h2{
-                font-size: 12px;
-            }
-        }
-        
-    }
-
-    .contacts_text p{
-        font-size: 20px;
-    }
-}
