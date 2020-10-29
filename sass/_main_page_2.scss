@@ -13,6 +13,7 @@
             max-width: 240px;
             animation: rotating 6s linear infinite;
         }
+
         &_left,
         &_right {
             display: flex;
@@ -58,8 +59,27 @@
                 display: flex;
                 margin-top: 30px;
                 align-items: center;
+                
+                &_text{
+                    opacity: 0;
+                    transform: translateX(100px);
+                    transition: all 0s 1s;
+
+                    .block.active &{
+                        transform: translateX(0px);
+                        opacity: 1;
+                        transition: all 1s 2s;
+                    }
+                }
+
                 &_img{
                     margin-right: 30px;
+                    opacity: 0;
+                    transition: all 1s 1s;
+                    
+                    .block.active &{
+                        opacity: 1;
+                    }
                 }
                 .btn{
                     width: 100%;
@@ -72,6 +92,8 @@
         }
     }
 }
+
+
 
 @keyframes rotating {
     from {
