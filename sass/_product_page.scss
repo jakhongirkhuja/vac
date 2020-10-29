@@ -184,6 +184,12 @@
         padding-right: 20px;
     }
 }
+.pr-50{
+    padding-right: 50px;
+    @include respond-phone {
+        padding-right: 0;
+    }
+}
 .product img {
     transition: all 0.3s ease-in-out;
     cursor: pointer;

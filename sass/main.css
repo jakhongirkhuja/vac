@@ -1604,6 +1604,16 @@ section.block--white {
   }
 }
 
+.pr-50 {
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .pr-50 {
+    padding-right: 0;
+  }
+}
+
 .product img {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
