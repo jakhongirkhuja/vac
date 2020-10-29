@@ -1158,7 +1158,7 @@ section.block--white {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   max-width: 200px;
-  max-height: 271px;
+  height: 271px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -1271,7 +1271,7 @@ section.block--white {
 }
 
 .products__all-items:hover .products__all-items--img {
-  max-height: 219px;
+  height: 219px;
 }
 
 .contacts_text p {

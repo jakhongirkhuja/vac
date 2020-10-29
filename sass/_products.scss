@@ -52,7 +52,7 @@
             &--title {
                 transition: all 0.3s ease-in-out;
                 max-width: 200px;
-                max-height: 271px;
+                height: 271px;
                 overflow: hidden;
                 margin: 0 auto;
             }
@@ -146,7 +146,7 @@
                     transform: scale(0.7);
                 }
                 .products__all-items--img {
-                    max-height: 219px;
+                    height: 219px;
                 }
                 // .products__all-items_up{
                 //     animation: up_left .3s forwards;
