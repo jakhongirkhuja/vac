@@ -190,3 +190,20 @@ section.block{
     
 }
 
+svg .animated{
+    stroke: $golden;
+    stroke-width: 1px;
+    fill: transparent;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 0;
+    animation: animated 20s linear infinite;
+}
+
+@keyframes animated {
+    50%{
+        stroke-dashoffset: 700;
+    }
+    0%, 100%{
+        stroke-dashoffset: 0;
+    }
+}
