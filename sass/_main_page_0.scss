@@ -11,10 +11,45 @@
     color: white;
 
     &__big{
+        @include respond-1200{
+            font-size: 36px;
+        }
     }
 
     &__small{
         /* White-1 */
         color: #F1F1F1;
     }
+    
+    &__image {
+        position: absolute;
+        width: 800px;
+        max-width: 60vw;
+        bottom: 0;
+        right: 0;
+        min-width: 300px;
+
+        svg{
+            width: 100%;
+        }
+
+        
+    }
+}
+@keyframes animated {
+    50%{
+        stroke-dashoffset: 0;
+    }
+    0%, 100%{
+        stroke-dashoffset: 700;
+    }
+}
+
+svg .animated{
+    stroke: $golden;
+    stroke-width: 1px;
+    fill: transparent;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 700;
+    animation: animated 20s linear infinite;
 }

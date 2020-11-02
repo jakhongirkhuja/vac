@@ -170,7 +170,7 @@ section.block--white {
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 100px;
   width: 64px;
@@ -433,11 +433,15 @@ section.block--white {
   line-height: 43px;
   margin-top: 10px;
   font-weight: 900;
+  z-index: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .mlist__big--el {
   padding-bottom: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -488,9 +492,56 @@ section.block--white {
   color: white;
 }
 
+@media screen and (max-width: 1200px) {
+  .mainv__big {
+    font-size: 36px;
+  }
+}
+
 .mainv__small {
   /* White-1 */
   color: #F1F1F1;
+}
+
+.mainv__image {
+  position: absolute;
+  width: 800px;
+  max-width: 60vw;
+  bottom: 0;
+  right: 0;
+  min-width: 300px;
+}
+
+.mainv__image svg {
+  width: 100%;
+}
+
+@-webkit-keyframes animated {
+  50% {
+    stroke-dashoffset: 0;
+  }
+  0%, 100% {
+    stroke-dashoffset: 700;
+  }
+}
+
+@keyframes animated {
+  50% {
+    stroke-dashoffset: 0;
+  }
+  0%, 100% {
+    stroke-dashoffset: 700;
+  }
+}
+
+svg .animated {
+  stroke: #DAB679;
+  stroke-width: 1px;
+  fill: transparent;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  -webkit-animation: animated 20s linear infinite;
+          animation: animated 20s linear infinite;
 }
 
 .secv {
@@ -538,6 +589,7 @@ section.block--white {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-left: 21vw;
+  overflow-y: hidden;
 }
 
 .secv__smsl:hover::-webkit-scrollbar {
@@ -595,6 +647,14 @@ section.block--white {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
+}
+
+.page_index_2-image {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 400px;
+  max-width: 25vw;
 }
 
 .page_index_2-grid {
@@ -1920,5 +1980,35 @@ section.block--white {
 .proj__arrows img:hover {
   -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
   filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+}
+
+.aboutus {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #272E5B;
+}
+
+.aboutus__main {
+  margin-top: 169px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=main.css.map */

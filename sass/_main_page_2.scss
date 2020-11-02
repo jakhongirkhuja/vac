@@ -2,6 +2,15 @@
     font-family: $font_family_secondary;
     display: flex;
     height: 100%;
+
+    &-image{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 400px;
+        max-width: 25vw;
+    }
+
     &-grid {
         flex: 1 1 0px;
         display: flex;

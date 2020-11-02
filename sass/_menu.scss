@@ -1,5 +1,5 @@
 .menu{
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: 100px;
     width: 64px;
@@ -232,10 +232,11 @@
         margin-top: 10px;
         font-weight: 900;
         z-index: 1;
+        justify-content: flex-start;
 
         &--el{
             padding-bottom: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 2vh;
             width: fit-content;
             border-bottom: 1px solid transparent;
             cursor: pointer;
