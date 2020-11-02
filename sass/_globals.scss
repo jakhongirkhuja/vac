@@ -61,6 +61,7 @@ a{
     text-decoration: none;
     outline: none;
     display: block;
+    user-select: none;
 }
 
 h1{
@@ -68,6 +69,7 @@ h1{
     font-weight: 600;
     font-size: 48px;
     line-height: 59px;
+    user-select: none;
 }
 
 h2{
@@ -76,6 +78,7 @@ h2{
     font-size: 42px;
     line-height: 51px;
     text-transform: uppercase;
+    user-select: none;
 }
 
 h3{
@@ -83,12 +86,14 @@ h3{
     font-weight: 600;
     font-size: 36px;
     line-height: 44px;
+    user-select: none;
 }
 
 h4{
     font-style: normal;
     font-weight: 600;
     font-size: 30px;
+    user-select: none;
     line-height: 37px;
 }
 
@@ -97,6 +102,7 @@ h5{
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
+    user-select: none;
 }
 
 h6{
@@ -104,6 +110,7 @@ h6{
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
+    user-select: none;
 }
 
 .title{
