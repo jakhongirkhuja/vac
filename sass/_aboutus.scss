@@ -50,7 +50,7 @@
 
     &__how{
         background-color: white;
-        padding: 40px;
+        padding: 40px 0 0 0;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -221,11 +221,53 @@
     }
 
     &__adv{
-        
         height: 680px;
         position: relative;
-        width: 1200px;
-        max-width: 90%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        .page_index_2{
+            width: 1200px;
+            max-width: 90%;
+        }
+    }
+
+    &__slider{
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .block{
+            width: 1200px;
+            position: relative;
+            height: 90%;
+            max-width: 100%;
+            background: $pr-blue;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+
+            .proj{
+                &__name{
+                    width: 400px;
+                    max-width: 60%;
+                }
+
+                &__img{
+                    width: 50%;
+                    height: 100%;
+
+                    img{
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
     }
 }
 

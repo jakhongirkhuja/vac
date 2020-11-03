@@ -2100,7 +2100,7 @@ svg .animated {
 
 .aboutus__how {
   background-color: white;
-  padding: 40px;
+  padding: 40px 0 0 0;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2318,8 +2318,62 @@ svg .animated {
 .aboutus__adv {
   height: 680px;
   position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.aboutus__adv .page_index_2 {
   width: 1200px;
   max-width: 90%;
+}
+
+.aboutus__slider {
+  width: 100%;
+  height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.aboutus__slider .block {
+  width: 1200px;
+  position: relative;
+  height: 90%;
+  max-width: 100%;
+  background: #272E5B;
+  -webkit-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.aboutus__slider .block .proj__name {
+  width: 400px;
+  max-width: 60%;
+}
+
+.aboutus__slider .block .proj__img {
+  width: 50%;
+  height: 100%;
+}
+
+.aboutus__slider .block .proj__img img {
+  min-width: 100%;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 svg rect.box {
