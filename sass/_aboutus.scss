@@ -48,6 +48,185 @@
         }
     }
 
+    &__how{
+        background-color: white;
+        padding: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &--head{
+            width: 100%;
+            padding: 10px;
+            max-width: 1200px;
+            color: $golden;
+        }
+
+        &--card{
+            width: 500px;
+            height: 680px;
+            max-width: 100%;
+            transition: all 0.4s;
+            box-shadow: 4px 4px 9px 5px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            color: $pr-blue;
+            z-index: 1;
+
+            h4{
+                width: 100%;
+                height: calc(100% - 500px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &:hover{
+                box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.15);
+            }
+            .glo{
+                width: 100%;
+                height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 1px solid $golden;
+
+                img{
+                    max-width: 80%;
+                }
+            }
+            
+            &.c1{
+                top: 248px;
+                left: 48px;
+            }
+
+            &.c2{
+                top: 365px;
+                left: 718px;
+            }
+
+            &.c3{
+                top: 1165px;
+                left: 350px;
+            }
+
+            &.c4{
+                top: 1965px;
+                left: 48px;
+            }
+
+            &.c5{
+                top: 2085px;
+                left: 718px;
+            }
+
+            &.c6{
+                top: 3162px;
+                left: 350px;
+            }
+        }
+
+        &--num{
+            position: absolute;
+            top: -30px;
+            left: 40px;
+            width: 96px;
+            height: 96px;
+        }
+
+        .rome{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .transbox{
+            position: absolute;
+
+            &.tb1{
+                top: 583px;
+                left: 548px;
+            }
+
+            &.tb2{
+                top: 1168px;
+                left: 1008px;
+                transform: rotate(90deg);
+            }
+
+            &.tb3{
+                top: 1656px;
+                left: 169px;
+                transform: rotate(90deg);
+            }
+
+            &.tb4{
+                top: 2354px;
+                left: 548px;
+            }
+
+            &.tb5{
+                top: 2824px;
+                left: 964px;
+                transform: rotate(90deg);
+            }
+
+            &.tb6{
+                top: 3472px;
+                left: 60px;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__grid{
+        width: 1200px;
+        max-width: 100%;
+        position: relative;
+        height: 3900px;
+    }
+
+    &__click{
+        width: 100%;
+        height: 436px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $white-1;
+        flex-direction: column;
+
+        h3{
+            text-transform: uppercase;
+            color: $pr-blue;
+        }
+
+        .text-m{
+            color: $black-2;
+            margin: 25px 0;
+        }
+
+        &--calbtn{
+            background-color: $pr-blue;
+            color: $white-0;
+            padding: 24px 25px;
+        }
+    }
+
+    &__adv{
+        
+        height: 680px;
+        position: relative;
+        width: 1200px;
+        max-width: 90%;
+    }
 }
 
 svg{
@@ -60,6 +239,10 @@ svg{
     .boxanim3{
         animation: boxanim3 3s linear infinite;
     }
+}
+
+.transbox svg rect{
+    animation: boxanim4 3s linear infinite;
 }
 
 @keyframes boxanim{
@@ -86,5 +269,14 @@ svg{
     }
     100%{
         transform: translateX(-64px);
+    }
+}
+
+@keyframes boxanim4{
+    0%{
+        transform: translateX(-36px);
+    }
+    100%{
+        transform: translateX(36px);
     }
 }

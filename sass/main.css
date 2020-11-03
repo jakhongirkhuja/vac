@@ -1281,7 +1281,7 @@ svg .animated {
 .products__all-items--btn a {
   border: 3px solid #F1F1F1;
   padding: 12px 16px;
-  color: #3A3A3C;
+  color: #818285;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -1371,7 +1371,7 @@ svg .animated {
   text-align: center;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
-  color: #3A3A3C;
+  color: #818285;
 }
 
 @media screen and (max-width: 600px) {
@@ -1381,7 +1381,7 @@ svg .animated {
 }
 
 .contacts_text p:hover {
-  color: #818285;
+  color: #000000;
 }
 
 @-webkit-keyframes animate_btn {
@@ -1477,7 +1477,7 @@ svg .animated {
   text-align: center;
   width: 460px;
   height: 460px;
-  border: 1px solid #818285;
+  border: 1px solid #000000;
   margin-right: 25px;
   overflow: hidden;
   display: -webkit-box;
@@ -1528,7 +1528,7 @@ svg .animated {
   width: 100px;
   height: 100px;
   margin-bottom: 20px;
-  border: 1px solid #818285;
+  border: 1px solid #000000;
 }
 
 @media screen and (max-width: 600px) {
@@ -1572,7 +1572,7 @@ svg .animated {
 .product__img__rel--items img {
   width: 200px;
   height: 200px;
-  border: 1px solid #818285;
+  border: 1px solid #000000;
 }
 
 .product__img__rel--items a.pruduct__btn-next,
@@ -2098,6 +2098,230 @@ svg .animated {
   text-align: center;
 }
 
+.aboutus__how {
+  background-color: white;
+  padding: 40px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.aboutus__how--head {
+  width: 100%;
+  padding: 10px;
+  max-width: 1200px;
+  color: #DAB679;
+}
+
+.aboutus__how--card {
+  width: 500px;
+  height: 680px;
+  max-width: 100%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-box-shadow: 4px 4px 9px 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 4px 4px 9px 5px rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  color: #272E5B;
+  z-index: 1;
+}
+
+.aboutus__how--card h4 {
+  width: 100%;
+  height: calc(100% - 500px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.aboutus__how--card:hover {
+  -webkit-box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.15);
+}
+
+.aboutus__how--card .glo {
+  width: 100%;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid #DAB679;
+}
+
+.aboutus__how--card .glo img {
+  max-width: 80%;
+}
+
+.aboutus__how--card.c1 {
+  top: 248px;
+  left: 48px;
+}
+
+.aboutus__how--card.c2 {
+  top: 365px;
+  left: 718px;
+}
+
+.aboutus__how--card.c3 {
+  top: 1165px;
+  left: 350px;
+}
+
+.aboutus__how--card.c4 {
+  top: 1965px;
+  left: 48px;
+}
+
+.aboutus__how--card.c5 {
+  top: 2085px;
+  left: 718px;
+}
+
+.aboutus__how--card.c6 {
+  top: 3162px;
+  left: 350px;
+}
+
+.aboutus__how--num {
+  position: absolute;
+  top: -30px;
+  left: 40px;
+  width: 96px;
+  height: 96px;
+}
+
+.aboutus__how .rome {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.aboutus__how .transbox {
+  position: absolute;
+}
+
+.aboutus__how .transbox.tb1 {
+  top: 583px;
+  left: 548px;
+}
+
+.aboutus__how .transbox.tb2 {
+  top: 1168px;
+  left: 1008px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.aboutus__how .transbox.tb3 {
+  top: 1656px;
+  left: 169px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.aboutus__how .transbox.tb4 {
+  top: 2354px;
+  left: 548px;
+}
+
+.aboutus__how .transbox.tb5 {
+  top: 2824px;
+  left: 964px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.aboutus__how .transbox.tb6 {
+  top: 3472px;
+  left: 60px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.aboutus__grid {
+  width: 1200px;
+  max-width: 100%;
+  position: relative;
+  height: 3900px;
+}
+
+.aboutus__click {
+  width: 100%;
+  height: 436px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #F1F1F1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.aboutus__click h3 {
+  text-transform: uppercase;
+  color: #272E5B;
+}
+
+.aboutus__click .text-m {
+  color: #818285;
+  margin: 25px 0;
+}
+
+.aboutus__click--calbtn {
+  background-color: #272E5B;
+  color: #FFFFFF;
+  padding: 24px 25px;
+}
+
+.aboutus__adv {
+  height: 680px;
+  position: relative;
+  width: 1200px;
+  max-width: 90%;
+}
+
 svg rect.box {
   -webkit-animation: boxanim 3s linear infinite;
           animation: boxanim 3s linear infinite;
@@ -2111,6 +2335,11 @@ svg .boxanim2 {
 svg .boxanim3 {
   -webkit-animation: boxanim3 3s linear infinite;
           animation: boxanim3 3s linear infinite;
+}
+
+.transbox svg rect {
+  -webkit-animation: boxanim4 3s linear infinite;
+          animation: boxanim4 3s linear infinite;
 }
 
 @-webkit-keyframes boxanim {
@@ -2176,6 +2405,28 @@ svg .boxanim3 {
   100% {
     -webkit-transform: translateX(-64px);
             transform: translateX(-64px);
+  }
+}
+
+@-webkit-keyframes boxanim4 {
+  0% {
+    -webkit-transform: translateX(-36px);
+            transform: translateX(-36px);
+  }
+  100% {
+    -webkit-transform: translateX(36px);
+            transform: translateX(36px);
+  }
+}
+
+@keyframes boxanim4 {
+  0% {
+    -webkit-transform: translateX(-36px);
+            transform: translateX(-36px);
+  }
+  100% {
+    -webkit-transform: translateX(36px);
+            transform: translateX(36px);
   }
 }
 /*# sourceMappingURL=main.css.map */
