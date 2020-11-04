@@ -76,6 +76,23 @@ var scrollEventCatch = (event)=>{
     }
 }
 
+if(dqs(".calc")){
+    dqs(".logo img").src = dqs(".logo img").dataset.black;
+    dqs(".menu").classList.add("black");
+}
+
+if(dqs(".calc__params--radio") && dqs(".calc__params--radio").length){
+    dqs(".calc__params--radio")[0].classList.add("active");
+}
+function makethatactive(a){
+    dqs(".calc__params--radio.active").classList.remove("active");
+    a.classList.add("active");
+}
+function focuser(a){
+    dqs(".calc__drb.active").classList.remove("active");
+    a.parentElement.parentElement.classList.add("active");
+}
+
 var blocks = dqs("section.block");
 if(blocks && blocks.length){
     blocks.forEach(block => {
