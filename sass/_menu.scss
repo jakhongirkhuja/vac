@@ -248,7 +248,7 @@
             border-bottom: 1px solid transparent;
             cursor: pointer;
 
-            &:hover{
+            &:hover, &.active{
                 border-bottom: 1px solid white;
             }
         }

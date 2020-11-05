@@ -32,6 +32,10 @@
             &-form {
                 justify-content: flex-end;
                 position: relative;
+                @include respond-tab{
+                    display: none;
+                }
+                
                 @include respond-phone{
                     display: none;
                 }
@@ -50,6 +54,7 @@
 
                     input,
                     textarea {
+                        font-family: $font_family_secondary;
                         width: 339px;
                         background: $white-1;
                         padding: 13px 20px;
@@ -83,6 +88,10 @@
                 color: $white-1;
                 font-weight: bold;
                 text-transform: capitalize;
+                @include respond-tab{
+                    justify-content: center;
+                    align-items: center;
+                }
                 @include respond-phone{
                     justify-content: center;
                     align-items: center;
@@ -90,6 +99,9 @@
                 &__title {
                     font-size: 24px;
                     line-height: 29px;
+                    @include respond-tab{
+                        font-size: 22px;
+                    }
                     @include respond-phone{
                         font-size: 20px;
                     }

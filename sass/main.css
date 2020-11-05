@@ -520,7 +520,7 @@ svg .animated {
   cursor: pointer;
 }
 
-.mlist__big--el:hover {
+.mlist__big--el:hover, .mlist__big--el.active {
   border-bottom: 1px solid white;
 }
 
@@ -711,6 +711,14 @@ svg .animated {
   color: #FFFFFF;
 }
 
+@media screen and (max-width: 900px) {
+  .page_index_2-grid {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .page_index_2-grid {
     -webkit-box-flex: 1;
@@ -760,6 +768,12 @@ svg .animated {
   text-transform: uppercase;
   position: relative;
   z-index: 2;
+}
+
+@media screen and (max-width: 900px) {
+  .page_index_2-grid_left {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -956,6 +970,12 @@ svg .animated {
   position: relative;
 }
 
+@media screen and (max-width: 900px) {
+  .page_index_4-inside-grid-form {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .page_index_4-inside-grid-form {
     display: none;
@@ -975,6 +995,7 @@ svg .animated {
 
 .page_index_4-inside-grid-form__inputs input,
 .page_index_4-inside-grid-form__inputs textarea {
+  font-family: "Montserrat", sans-serif;
   width: 339px;
   background: #F1F1F1;
   padding: 13px 20px;
@@ -1023,6 +1044,17 @@ svg .animated {
   text-transform: capitalize;
 }
 
+@media screen and (max-width: 900px) {
+  .page_index_4-inside-grid-contacts {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .page_index_4-inside-grid-contacts {
     -webkit-box-pack: center;
@@ -1037,6 +1069,12 @@ svg .animated {
 .page_index_4-inside-grid-contacts__title {
   font-size: 24px;
   line-height: 29px;
+}
+
+@media screen and (max-width: 900px) {
+  .page_index_4-inside-grid-contacts__title {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1163,6 +1201,19 @@ svg .animated {
   font-size: 16px;
   margin-top: 5px;
   line-height: 19px;
+}
+
+.add_contact_text-p p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.add_contact_text-p p a {
+  margin-left: 1rem;
 }
 
 .add_contact_text-p:last-child {
