@@ -182,19 +182,23 @@ section.block{
     position: fixed;
     top: 50px;
     left: 100px;
-    z-index: 3;
+    z-index: 1;
     
     @include respond-tab{
         top: 55px;
+        left: 70px;
     }
 
     @include respond-phone{
-        left: 50px;
+        top: 15px;
+        left: 20px;
+        width: 50px;
+        overflow: hidden;
     }
 
     img{
         @include respond-1200{
-            width: 160px;
+            width: 100px;
         }
 
         @include respond-phone{

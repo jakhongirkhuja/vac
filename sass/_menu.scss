@@ -12,7 +12,9 @@
     cursor: pointer;
 
     @include respond-phone{
-        right: 50px;
+        right: 30px;
+        top: 7px;
+        transform: scale(0.8);
     }
 
     &.black{
@@ -206,6 +208,7 @@
 
 .mlist{
     position: fixed;
+    max-width: 100%;
     width: 600px;
     height: 100vh;
     top: 0;
@@ -216,6 +219,10 @@
     z-index: 2;
     transition: all 1s;
     color: white;
+
+    // @include respond-phone{
+    //     width: 100%;
+    // }
 
     &.active{
         right: 0;
@@ -256,5 +263,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        max-width: 95%;
     }
 }

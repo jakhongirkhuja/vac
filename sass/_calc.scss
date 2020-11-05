@@ -8,6 +8,15 @@
     padding: 20px 0;
     display: flex;
 
+    @include respond-tab{
+        flex-direction: column;
+        height: auto;
+    }
+        
+    @include respond-phone{
+        margin-top: 75px;
+    }
+
 
     &__head{
         width: 100%;
@@ -18,6 +27,17 @@
         align-items: center;
         justify-content: center;
         color: $sc-blue;
+        z-index: 1;
+
+        @include respond-tab{
+            font-size: 20px;
+        }
+        
+        @include respond-phone{
+            font-size: 14px;
+            height: 75px;
+        }
+
     }
 
 
@@ -43,6 +63,16 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @include respond-1200{
+            width: 35%;
+        }
+        
+        @include respond-tab{
+            flex-direction: row;
+            width: 98%;
+            flex-wrap: wrap;
+        }
     }
 
     &__left{
@@ -50,6 +80,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        
+        @include respond-1200{
+            width: 64%;
+        }
+        
+        @include respond-tab{
+            width: 98%;
+        }
     }
 
     &__dr{
@@ -58,16 +96,34 @@
         justify-content: space-between;
         height: 100%;
         
+        @include respond-phone{
+            flex-wrap: wrap;
+        }
+        
         .help{
             width: 30%;
             display: flex;
             flex-direction: column;
+
+            @include respond-1200{
+                width: 38%;
+            }
+
+            @include respond-phone{
+                width: 100%;
+                flex-direction: row;
+            }
 
             &__up{
                 height: 100%;
                 padding: 0;
                 display: flex;
                 flex-direction: column;
+
+                @include respond-phone{
+                    width: 46%;
+                    height: 95%;
+                }
 
                 &--head{
                     padding: 20px;
@@ -93,6 +149,12 @@
                 justify-content: space-evenly;
                 flex-direction: column;
                 cursor: pointer;
+
+                @include respond-phone{
+                    width: 46%;
+                    height: 95%;
+                }
+
                 img{
                     transform: rotate(0deg);
                     transition: all 0.5s;
@@ -115,6 +177,10 @@
         justify-content: space-between;
         margin: 20px 0;
 
+        @include respond-1200{
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 
     &__drb{
@@ -140,6 +206,11 @@
             flex-direction: column;
             width: 100%;
             padding: 26px 30px;
+
+            @include respond-phone{
+                width: 70%;
+                padding: 20px 14px;
+            }
         }
 
         &--row{
@@ -191,9 +262,14 @@
     &__bigimg{
         width: 360px;
         max-width: 100%;
+        
+        
+        @include respond-phone{
+            width: 100%;
+        }
 
         img{
-            width: 100%;
+            width: 97%;
         }
     }
 
@@ -203,6 +279,10 @@
 
     &__params{
         width: 60%;
+        
+        @include respond-phone{
+            width: 97%;
+        }
 
         &--radio{
             padding: 14px;
@@ -268,15 +348,26 @@
     }
 
     &__choose{
+        
+        @include respond-phone{
+            width: 100%;
+        }
         &--els{
             display: grid;
             width: 320px;
             height: 340px;
             overflow-y: auto;
             grid-template-columns: repeat(3, 1fr);
+            max-width: 97%;
+            
+        
+            @include respond-phone{
+                width: 97%;
+            }
+            
 
             .el{
-                width: 100px;
+                width: 100%;
                 height: 100px;
                 display: flex;
                 align-items: center;
@@ -298,6 +389,10 @@
     &__type{
         width: 100%;
         max-width: 360px;
+
+        @include respond-tab{
+            max-width: 100%;
+        }
 
         .type{
             display: flex;
