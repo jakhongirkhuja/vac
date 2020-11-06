@@ -1,6 +1,7 @@
 .mainv{
     position: absolute;
     width: 500px;
+    max-width: 95%;
     top: 25vh;
     min-height: 50vh;
     display: flex;
@@ -10,10 +11,8 @@
     align-items: flex-start;
     color: white;
 
-    &__big{
-        @include respond-1200{
-            font-size: 36px;
-        }
+    @include respond-tab{
+        left: 5vw;
     }
 
     &__small{
@@ -34,4 +33,5 @@
         }
     }
 }
+
 
