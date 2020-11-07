@@ -279,3 +279,11 @@ function slide_right_btn(){
     
     slide_right();
 }
+
+window.onload = function(){
+    dqs(".prel").classList.remove("active");
+    setTimeout(()=>{
+        dqs(".prel__hid--text").innerHTML = dqs(".prel__hid--text").dataset.src;
+    },1000);
+    
+}

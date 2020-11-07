@@ -446,6 +446,319 @@ svg .animated {
   }
 }
 
+.prel {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  background-color: #000000;
+  z-index: 10;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prel.active {
+  left: 0;
+}
+
+.prel__hid {
+  width: 200px;
+  height: 200px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+}
+
+.prel__hid--up {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-animation: comeright 1s linear;
+          animation: comeright 1s linear;
+}
+
+.prel__hid--up::after {
+  -webkit-animation-name: prelan2;
+          animation-name: prelan2;
+  -webkit-animation-delay: 2s !important;
+          animation-delay: 2s !important;
+}
+
+.prel__hid--up::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: prelstick2 1s linear 1s forwards;
+          animation: prelstick2 1s linear 1s forwards;
+}
+
+.prel__hid--down {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-animation: comeleft 1s linear;
+          animation: comeleft 1s linear;
+}
+
+.prel__hid--down::after {
+  -webkit-animation-name: prelan2;
+          animation-name: prelan2;
+  -webkit-animation-delay: 2s !important;
+          animation-delay: 2s !important;
+  animation-direction: reverse;
+}
+
+.prel__hid--down::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: prelstick 1s linear 1s forwards;
+          animation: prelstick 1s linear 1s forwards;
+}
+
+.prel__hid--text {
+  -webkit-animation: preltext 1s linear 1s backwards;
+          animation: preltext 1s linear 1s backwards;
+}
+
+.prel__hid--right {
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.prel__hid--right::after {
+  -webkit-animation-name: prelan1;
+          animation-name: prelan1;
+}
+
+.prel__hid--left {
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.prel__hid--left::after {
+  -webkit-animation-name: prelan1;
+          animation-name: prelan1;
+  animation-direction: reverse;
+}
+
+.prel__hid .ani::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@-webkit-keyframes comeleft {
+  0% {
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+  }
+  100% {
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
+  }
+}
+
+@keyframes comeleft {
+  0% {
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+  }
+  100% {
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
+  }
+}
+
+@-webkit-keyframes comeright {
+  0% {
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+  100% {
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
+  }
+}
+
+@keyframes comeright {
+  0% {
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+  100% {
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
+  }
+}
+
+@-webkit-keyframes preltext {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes preltext {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes prelan1 {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@keyframes prelan1 {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes prelan2 {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@keyframes prelan2 {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes prelstick {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@keyframes prelstick {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes prelstick2 {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@keyframes prelstick2 {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
 .menu {
   position: fixed;
   top: 50px;

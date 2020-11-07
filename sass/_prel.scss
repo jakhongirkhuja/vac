@@ -1,0 +1,196 @@
+.prel{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    background-color: $black-0;
+    z-index: 10;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-delay: 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active{
+        left: 0;
+    }
+
+    &__hid{
+        width: 200px;
+        height: 200px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white-0;
+
+        &--up{
+            width: 100%;
+            height: 4px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            
+            animation: comeright 1s linear;
+            
+            &::after{
+                animation-name: prelan2;
+                animation-delay: 2s!important;
+            }
+
+            &::before{
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: $white-0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                animation: prelstick2 1s linear 1s forwards;
+            }
+        }
+
+        &--down{
+            width: 100%;
+            height: 4px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            
+            animation: comeleft 1s linear;
+            
+            &::after{
+                animation-name: prelan2;
+                animation-delay: 2s!important;
+                animation-direction: reverse;
+            }
+
+            &::before{
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: $white-0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                animation: prelstick 1s linear 1s forwards;
+            }
+        }
+
+        &--text{
+            animation: preltext 1s linear 1s backwards;
+        }
+
+        &--right{
+            width: 4px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            overflow: hidden;
+            
+            &::after{
+                animation-name: prelan1;
+            }
+        }
+
+        &--left{
+            width: 4px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+
+            &::after{
+                animation-name: prelan1;
+                animation-direction: reverse;
+            }
+        }
+
+        .ani::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: $white-0;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-delay: 1s;
+            animation-fill-mode: backwards;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+@keyframes comeleft{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes comeright{
+    0%{
+        transform: translateX(-100vw);
+    }
+    100%{
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes preltext{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes prelan1{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes prelan2{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes prelstick{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes prelstick2{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
