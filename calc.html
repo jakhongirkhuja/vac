@@ -72,40 +72,40 @@
                 <div class="calc__header">
                     <div class="text-l">Элемент</div>
                 </div>
-                <div class="calc__choose--els calc__box">
-                    <div class="el" onclick="makethisactive(this);">
+                <div class="calc__choose--els calc__box" data-url="{ route('form_submit') }">
+                    <div class="el" onclick="makethisactive(this);" data-id="1">
                         <img class="el__pig" src="/imgs/type1.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="2">
                         <img class="el__pig" src="/imgs/type1.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="3">
                         <img class="el__pig" src="/imgs/type1.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="4">
                         <img class="el__pig" src="/imgs/type2.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="5">
                         <img class="el__pig" src="/imgs/type2.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="6">
                         <img class="el__pig" src="/imgs/type2.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="7">
                         <img class="el__pig" src="/imgs/type3.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="8">
                         <img class="el__pig" src="/imgs/type3.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
-                    <div class="el" onclick="makethisactive(this);">
+                    <div class="el" onclick="makethisactive(this);" data-id="9">
                         <img class="el__pig" src="/imgs/type3.svg" alt="">
                         <div class="el__name">прямой</div>
                     </div>
@@ -121,12 +121,12 @@
                             <path d="M1 15L8 8L1 1" stroke="white"/>
                         </svg>
                     </div>
-                    <div class="types">
-                        <div class="types__el" onclick="makeitactive(this);">
+                    <div class="types" data-url="{ route('form_submit') }">
+                        <div class="types__el" onclick="makeitactive(this);" data-id="1">
                             <img class="types__el--img" src="/imgs/typerect.jpg" alt="">
                             <div class="types__el--text">прямоугольное сечение</div>
                         </div>
-                        <div class="types__el" onclick="makeitactive(this);">
+                        <div class="types__el" onclick="makeitactive(this);" data-id="2">
                             <img class="types__el--img" src="/imgs/typeround.jpg" alt="">
                             <div class="types__el--text">круглое сечение</div>
                         </div>

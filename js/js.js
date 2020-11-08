@@ -92,6 +92,14 @@ if(dqs(".types__el") && dqs(".types__el").length){
 function makeitactive(a){
     dqs(".types__el.active").classList.remove("active");
     a.classList.add("active");
+
+    //inputdata = {"name": name, "email": email, "number": message, "_token": token, "token": token}
+    //url = {.{ route('form_submit') }.}
+
+    var inputs = {};
+    inputs.id2 = a.dataset.id;
+    sbmt(inputdata, url, console.log);
+
 }
 function makethatactive(a){
     dqs(".calc__params--radio.active").classList.remove("active");
@@ -106,6 +114,10 @@ function focuser(a){
 function  makethisactive(a){
     dqs(".calc__choose--els .el.active").classList.remove("active");
     a.classList.add("active");
+
+    var inputs = {};
+    inputs.id = a.dataset.id;
+    sbmt(inputdata, url, console.log);
 }
 
 var blocks = dqs("section.block");
