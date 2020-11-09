@@ -3736,12 +3736,17 @@ svg .boxanim3 {
 
 .calc__type .type .types {
   position: relative;
-  width: calc(100% - 70px);
+  width: calc(100%);
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow-x: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .calc__type .type .types::-webkit-scrollbar {

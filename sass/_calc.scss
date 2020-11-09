@@ -410,10 +410,12 @@
 
             .types{
                 position: relative;
-                width: calc(100% - 70px);
+                width: calc(100%);
                 height: 100%;
                 display: flex;
-                overflow-x: auto;
+                justify-content: center;
+                align-items: center;
+
 
                 &::-webkit-scrollbar{
                     background-color: transparent;
