@@ -391,7 +391,7 @@
         max-width: 360px;
 
         @include respond-tab{
-            max-width: 100%;
+            max-width: calc(100% - 70px);
         }
 
         .type{
