@@ -3450,11 +3450,11 @@ svg .boxanim3 {
 }
 
 .calc__calcs {
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0;
+  height: 92%;
 }
 
 .calc__calcs--rows {
@@ -3467,6 +3467,7 @@ svg .boxanim3 {
           flex-direction: column;
   width: 100%;
   padding: 26px 30px;
+  overflow: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -3569,8 +3570,13 @@ svg .boxanim3 {
   }
 }
 
+.calc__params--name {
+  max-width: 60%;
+}
+
 .calc__params--radio {
   padding: 14px;
+  font-size: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3583,6 +3589,8 @@ svg .boxanim3 {
 .calc__params--radio .circle {
   width: 24px;
   height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   border-radius: 50%;
   border: 1px solid black;
   display: -webkit-box;
@@ -3707,7 +3715,7 @@ svg .boxanim3 {
 
 @media screen and (max-width: 900px) {
   .calc__type {
-    max-width: 100%;
+    max-width: calc(100% - 70px);
   }
 }
 

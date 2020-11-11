@@ -197,15 +197,16 @@
     }
 
     &__calcs{
-        height: 100%;
         display: flex;
         padding: 0;
+        height: 92%;
 
         &--rows{
             display: flex;
             flex-direction: column;
             width: 100%;
             padding: 26px 30px;
+            overflow: auto;
 
             @include respond-phone{
                 width: 70%;
@@ -284,8 +285,13 @@
             width: 97%;
         }
 
+        &--name{
+            max-width: 60%;
+        }
+
         &--radio{
             padding: 14px;
+            font-size: 12px;
             display: flex;
             align-items: center;
             cursor: pointer;
@@ -293,6 +299,8 @@
             .circle{
                 width: 24px;
                 height: 24px;
+                min-width: 24px;
+                min-height: 24px;
                 border-radius: 50%;
                 border: 1px solid black;
                 display: flex;

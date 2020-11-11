@@ -88,12 +88,95 @@ var scrollEventCatch = (event)=>{
 
 
 
-
-
-function f_1_1_1_1(_str, ){
-
+function v(num){
+    if(dqs("#input_" + num)){
+        return parseInt(dqs("#input_" + num).value);
+    }else{
+        return 0;
+    }
 }
 
+
+
+function make_inputs(ins){
+    var clear = dqs(".calc__drb");
+    clear.forEach(cl => {
+        cl.outerHTML = "";
+    });
+
+    ins.forEach((i,count) => {
+        if(i.input_type === "select"){
+            var options = "";
+            i.input_options.forEach(j => {
+                if(i.input_default === j.value){
+                    options += `
+                        <option selected value='${j.value}'>${j.option_name}</option>
+                    `
+                }else{
+                    options += `
+                        <option value='${j.value}'>${j.option_name}</option>
+                    `
+                }       
+            });
+            dqs(".calc__params").innerHTML += 
+            `
+            <div class="calc__drb">
+                <div class="calc__params--name">
+                    ${i.input_name}:
+                </div>
+                <div class="calc__params--input">
+                    <select onchange="chf()" onfocus="focuser(this);" id="input_${i.input_id}">
+                        ${options}
+                    </select>
+                    <div class="unit">
+                        ${i.input_unit}
+                    </div>
+                </div>
+            </div>
+            `;
+        }else if(i.input_type === "number"){
+            dqs(".calc__params").innerHTML += 
+            `
+            <div class="calc__drb">
+                <div class="calc__params--name">
+                    ${i.input_name}:
+                </div>
+                <div class="calc__params--input">
+                    <input value="${i.input_default}" onchange="chf()" type="number" onfocus="focuser(this);" id="input_${i.input_id}">
+                    <div class="unit">
+                        ${i.input_unit}
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+    });
+}
+
+
+
+function make_functions(funs, id){
+    
+    var clear = dqs(".calc__calcs--row");
+    clear.forEach(cl => {
+        cl.outerHTML = "";
+    });
+
+    var rows = dqs(".calc__calcs--rows");
+    funs.forEach((fun, i) => {
+        var answer = formula(id + "" + fun.formula_id);
+        rows.innerHTML += `
+            <div class="calc__calcs--row">
+                <div class="rowname">
+                    ${fun.name}
+                </div>
+                <div class="number">
+                    ${answer} ${fun.unit} 
+                </div>
+            </div>
+        `;
+    });
+}
 
 
 
@@ -474,10 +557,420 @@ var base = [
                     },
                 ]
             },
+            {
+                subid : 2,
+                subname : "круглого сечения",
+                subimg : "/imgs/subtypes/1_2.jpg",
+                select_type : [
+                    {
+                        select_id : 1,
+                        select_name : "Прямо-шовного типа соединения флянец",
+                        formulas : [
+                            {
+                                name : "Площадь:",
+                                unit : "м^2.",
+                                formula_id : 1
+                            },
+                            {
+                                name : "Количество воздуховодов длиной 1250 мм:",
+                                unit : "шт.",
+                                formula_id : 2
+                            },
+                            {
+                                name : "Количество воздуховодов длиной % мм:",
+                                unit : "шт.",
+                                formula_id : 3
+                            },
+                            {
+                                name : "Количество фланцев диаметром «D» мм:",
+                                unit : "шт.",
+                                formula_id : 4
+                            },
+                            {
+                                name : "Количество метизов (болтов, гаек и шайб):",
+                                unit : "шт.",
+                                formula_id : 5
+                            },
+                            {
+                                name : "Масса воздуховодов данного участка:",
+                                unit : "кг.",
+                                formula_id : 6
+                            },
+                            {
+                                name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
+                                unit : "кг.",
+                                formula_id : 7
+                            },
+                        ],
+                        inputs : [
+                            {
+                                input_id : 1,
+                                input_type : "select",
+                                input_default : 0.5,
+                                input_unit : "мм.",
+                                input_name : "Толщина металла «с»",
+                                input_options : [
+                                    {
+                                        value : 0.5,
+                                        option_name : "0.5"
+                                    },
+                                    {
+                                        value : 0.6,
+                                        option_name : "0.6"
+                                    },
+                                    {
+                                        value : 0.7,
+                                        option_name : "0.7"
+                                    },
+                                    {
+                                        value : 0.8,
+                                        option_name : "0.8"
+                                    },
+                                    {
+                                        value : 0.9,
+                                        option_name : "0.9"
+                                    },
+                                    {
+                                        value : 1.0,
+                                        option_name : "1.0"
+                                    },
+                                    {
+                                        value : 1.1,
+                                        option_name : "1.1"
+                                    },
+                                    {
+                                        value : 1.2,
+                                        option_name : "1.2"
+                                    }
+                                ]
+                            },
+                            {
+                                input_id : 2,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Диаметр «D»:"
+                            },
+                            {
+                                input_id : 3,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Длины «L»",
+                            },
+                            {
+                                input_id : 4,
+                                input_type : "number",
+                                input_default : 1,
+                                input_unit : "шт.",
+                                input_name : "Количество «N»",
+                            }
+                        ]
+                    },
+                    
+                    {
+                        select_id : 2,
+                        select_name : "Прямо-шовного типа соединения ниппель",
+                        formulas : [
+                            {
+                                name : "Площадь:",
+                                unit : "м^2.",
+                                formula_id : 1
+                            },
+                            {
+                                name : "Количество воздуховодов длиной 1250 мм:",
+                                unit : "шт.",
+                                formula_id : 2
+                            },
+                            {
+                                name : "Количество воздуховодов длиной % мм:",
+                                unit : "шт.",
+                                formula_id : 3
+                            },
+                            {
+                                name : "Количество ниппелей диаметром «D» мм:",
+                                unit : "шт.",
+                                formula_id : 4
+                            },
+                            {
+                                name : "Количество само-резов необходимых для данного участка:",
+                                unit : "шт.",
+                                formula_id : 5
+                            },
+                            {
+                                name : "Масса воздуховодов данного участка:",
+                                unit : "кг.",
+                                formula_id : 6
+                            },
+                            {
+                                name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
+                                unit : "кг.",
+                                formula_id : 7
+                            },
+                        ],
+                        inputs : [
+                            {
+                                input_id : 1,
+                                input_type : "select",
+                                input_default : 0.5,
+                                input_unit : "мм.",
+                                input_name : "Толщина металла «с»",
+                                input_options : [
+                                    {
+                                        value : 0.5,
+                                        option_name : "0.5"
+                                    },
+                                    {
+                                        value : 0.6,
+                                        option_name : "0.6"
+                                    },
+                                    {
+                                        value : 0.7,
+                                        option_name : "0.7"
+                                    },
+                                    {
+                                        value : 0.8,
+                                        option_name : "0.8"
+                                    },
+                                    {
+                                        value : 0.9,
+                                        option_name : "0.9"
+                                    },
+                                    {
+                                        value : 1.0,
+                                        option_name : "1.0"
+                                    },
+                                    {
+                                        value : 1.1,
+                                        option_name : "1.1"
+                                    },
+                                    {
+                                        value : 1.2,
+                                        option_name : "1.2"
+                                    }
+                                ]
+                            },
+                            {
+                                input_id : 2,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Диаметр «D»:"
+                            },
+                            {
+                                input_id : 3,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Длины «L»",
+                            },
+                            {
+                                input_id : 4,
+                                input_type : "number",
+                                input_default : 1,
+                                input_unit : "шт.",
+                                input_name : "Количество «N»",
+                            }
+                        ]
+                    },
+                    
+                    {
+                        select_id : 3,
+                        select_name : "Спирального типа соединения ниппель",
+                        formulas : [
+                            {
+                                name : "Площадь:",
+                                unit : "м^2.",
+                                formula_id : 1
+                            },
+                            {
+                                name : "Количество воздуховодов длиной % мм:",
+                                unit : "шт.",
+                                formula_id : 2
+                            },
+                            {
+                                name : "Количество воздуховодов длиной % мм:",
+                                unit : "шт.",
+                                formula_id : 3
+                            },
+                            {
+                                name : "Количество фланцев диаметром «D» мм:",
+                                unit : "шт.",
+                                formula_id : 4
+                            },
+                            {
+                                name : "Количество само-резов необходимых для данного участка:",
+                                unit : "шт.",
+                                formula_id : 5
+                            },
+                            {
+                                name : "Масса воздуховодов данного участка:",
+                                unit : "кг.",
+                                formula_id : 6
+                            },
+                            {
+                                name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
+                                unit : "кг.",
+                                formula_id : 7
+                            },
+                        ],
+                        inputs : [
+                            {
+                                input_id : 1,
+                                input_type : "select",
+                                input_default : 0.5,
+                                input_unit : "мм.",
+                                input_name : "Толщина металла «с»",
+                                input_options : [
+                                    {
+                                        value : 0.5,
+                                        option_name : "0.5"
+                                    },
+                                    {
+                                        value : 0.6,
+                                        option_name : "0.6"
+                                    },
+                                    {
+                                        value : 0.7,
+                                        option_name : "0.7"
+                                    },
+                                    {
+                                        value : 0.8,
+                                        option_name : "0.8"
+                                    },
+                                    {
+                                        value : 0.9,
+                                        option_name : "0.9"
+                                    },
+                                    {
+                                        value : 1.0,
+                                        option_name : "1.0"
+                                    },
+                                    {
+                                        value : 1.1,
+                                        option_name : "1.1"
+                                    },
+                                    {
+                                        value : 1.2,
+                                        option_name : "1.2"
+                                    }
+                                ]
+                            },
+                            {
+                                input_id : 2,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Диаметр «D»:"
+                            },
+                            {
+                                input_id : 3,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Длина 1 единицы воздуховода «L1»:",
+                            },
+                            {
+                                input_id : 4,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_name : "Длины «L»",
+                            },
+                            {
+                                input_id : 5,
+                                input_type : "number",
+                                input_default : 1,
+                                input_unit : "шт.",
+                                input_name : "Количество «N»",
+                            }
+                        ]
+                    },
+                ]
+            }
         ]
-
     }
 ];
+
+
+function formula(i){
+    if(i === "1_1_1_1"){
+        return (2*(v(2) + v(3)) * v(4) * v(5))/1000000;
+    }
+    else if(i === "1_1_1_2"){
+        return parseInt(v(4)/1150)*v(5);
+    }
+    else if(i === "1_1_1_3"){
+        return parseInt(v(4)/1150)*v(5);
+    }
+    else if(i === "1_1_1_4"){
+        return parseInt(v(4)/1150)*v(5);
+    }
+    else{
+        return 0;
+    }
+}
+
+make_inputs(base[0].subels[0].select_type[0].inputs);
+make_functions(base[0].subels[0].select_type[0].formulas, "1_1_1_");
+
+function chf(){
+    var p1 = dqs(".calc__choose--els .el.active").dataset.id;
+    var p2 = dqs(".types__el.active").dataset.id;
+    var p3 = dqs(".calc__params--radio.active").dataset.id;
+    make_inputs(base[p1-1].subels[p2-1].select_type[p3-1].inputs);
+    make_functions(base[p1-1].subels[p2-1].select_type[p3-1].formulas, p1 + "_" + p2 + "_" + p3 + "_");
+
+}
+
+function ch_third(id){
+    dqs(".calc__dra").innerHTML = "";
+
+    var active = dqs(".calc__choose--els .el.active").dataset.id;
+
+    base[active - 1].subels.forEach(el => {
+        if(el.subid == id){
+            console.log(el.subid);
+            el.select_type.forEach(i => {
+                dqs(".calc__dra").innerHTML += 
+                `
+                    <div class="calc__params--radio" data-id="${i.select_id}" onclick="makethatactive(this);">
+                        <div class="circle"></div>
+                        <p class="text-s">${i.select_name}</p>
+                    </div>
+                `;
+                if(dqs('.calc__params--radio') && dqs('.calc__params--radio').length){
+                    dqs('.calc__params--radio')[0].classList.add("active");
+                }else if(dqs('.calc__params--radio')){
+                    dqs('.calc__params--radio').classList.add("active");
+                }
+            });
+        }
+        
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -498,6 +991,11 @@ function makeitactive(a){
     dqs(".types__el.active").classList.remove("active");
     a.classList.add("active");
 
+
+    ch_third(a.dataset.id);
+
+    chf();
+
     //inputdata = {"name": name, "email": email, "number": message, "_token": token, "token": token}
     //url = {.{ route('form_submit') }.}
 
@@ -509,6 +1007,9 @@ function makeitactive(a){
 function makethatactive(a){
     dqs(".calc__params--radio.active").classList.remove("active");
     a.classList.add("active");
+
+    
+    chf();
 }
 function focuser(a){
     if(dqs(".calc__drb.active")){
@@ -519,6 +1020,9 @@ function focuser(a){
 function  makethisactive(a){
     dqs(".calc__choose--els .el.active").classList.remove("active");
     a.classList.add("active");
+
+    
+    chf();
 
     //a.dataset.id
 

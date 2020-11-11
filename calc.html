@@ -148,15 +148,15 @@
                     <div class="calc__params calc__box">
                         <p class="text-s">Тип сойдинение</p>
                         <div class="calc__dra">
-                            <div class="calc__params--radio" onclick="makethatactive(this);">
+                            <div class="calc__params--radio" data-id="1" onclick="makethatactive(this);">
                                 <div class="circle"></div>
                                 <p class="text-s">шинорейка</p>
                             </div>
-                            <div class="calc__params--radio" onclick="makethatactive(this);">
+                            <div class="calc__params--radio" data-id="2" onclick="makethatactive(this);">
                                 <div class="circle"></div>
                                 <p class="text-s">TDF</p>
                             </div>
-                            <div class="calc__params--radio" onclick="makethatactive(this);">
+                            <div class="calc__params--radio" data-id="3" onclick="makethatactive(this);">
                                 <div class="circle"></div>
                                 <p class="text-s">рейечный</p>
                             </div>
@@ -216,7 +216,7 @@
                                 Здесь будет текст который будет объяснять, что нужно сделать, чтобы все правильно посчиталось
                             </div>
                         </div>
-                        <div class="help__down calc__box">
+                        <div class="help__down calc__box" onclick="chf();">
                             <img src="/imgs/refresh.svg" alt="refresh">
                             <p class="text-m">обновить</p>
                         </div>
