@@ -165,16 +165,31 @@ function make_functions(funs, id){
     var rows = dqs(".calc__calcs--rows");
     funs.forEach((fun, i) => {
         var answer = formula(id + "" + fun.formula_id);
-        rows.innerHTML += `
-            <div class="calc__calcs--row">
-                <div class="rowname">
-                    ${fun.name}
+        if(Array.isArray(answer)){
+            rows.innerHTML += `
+                <div class="calc__calcs--row">
+                    <div class="rowname">
+                        ${fun.name.replace("%", answer[0])}
+                    </div>
+                    <div class="number">
+                        ${answer[1]} ${fun.unit} 
+                    </div>
                 </div>
-                <div class="number">
-                    ${answer} ${fun.unit} 
+            `;
+        }else{
+            rows.innerHTML += `
+                <div class="calc__calcs--row">
+                    <div class="rowname">
+                        ${fun.name}
+                    </div>
+                    <div class="number">
+                        ${answer} ${fun.unit} 
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
+        }
+
+        
     });
 }
 
@@ -564,7 +579,7 @@ var base = [
                 select_type : [
                     {
                         select_id : 1,
-                        select_name : "Прямо-шовного типа соединения флянец",
+                        select_name : "Прямо-шовный флянец",
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -670,7 +685,7 @@ var base = [
                     
                     {
                         select_id : 2,
-                        select_name : "Прямо-шовного типа соединения ниппель",
+                        select_name : "Прямо-шовный ниппель",
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -776,7 +791,7 @@ var base = [
                     
                     {
                         select_id : 3,
-                        select_name : "Спирального типа соединения ниппель",
+                        select_name : "Спиральный ниппель",
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -898,27 +913,51 @@ function formula(i){
         return (2*(v(2) + v(3)) * v(4) * v(5))/1000000;
     }
     else if(i === "1_1_1_2"){
-        return parseInt(v(4)/1150)*v(5);
+        return parseInt(v(4)/1250)*v(5);
     }
     else if(i === "1_1_1_3"){
-        return parseInt(v(4)/1150)*v(5);
+        if(v(4) - (formula("1_1_1_2") * 1250) === 0){
+            return [0, 0];
+        }else{
+            return [v(4) - (formula("1_1_1_2") * 1250), v(5)];
+        }
     }
     else if(i === "1_1_1_4"){
-        return parseInt(v(4)/1150)*v(5);
+        return 4*(v(2) + v(3))*(formula("1_1_1_2") + formula("1_1_1_3")[1]);
+    }
+    else if(i === "1_1_1_5"){
+        return 8*(formula("1_1_1_2") + formula("1_1_1_3")[1]);
+    }
+    else if(i === "1_1_1_6"){
+        return formula("1_1_1_4")/2;
+    }
+    else if(i === "1_1_1_7"){
+        return (formula("1_1_1_2") + formula("1_1_1_3")[1]) * ( 2*(parseInt( (v(2)-250)/250) ) + 2*(parseInt( (v(2)-250)/250) ) );
+    }
+    else if(i === "1_1_1_8"){
+        return formula("1_1_1_5");
+    }
+    else if(i === "1_1_1_9"){
+        return (formula("1_1_1_1")+0.04*v(5)*v(4))*v(1)*8.25;
+    }
+    else if(i === "1_1_1_10"){
+        return formula("1_1_1_9") + formula("1_1_1_4")*0.637 + formula("1_1_1_5")*0.026 + formula("1_1_1_7")*0.05 + formula("1_1_1_8")*0.028;
     }
     else{
         return 0;
     }
 }
 
-make_inputs(base[0].subels[0].select_type[0].inputs);
-make_functions(base[0].subels[0].select_type[0].formulas, "1_1_1_");
+if(dqs(".calc")){
+    make_inputs(base[0].subels[0].select_type[0].inputs);
+    make_functions(base[0].subels[0].select_type[0].formulas, "1_1_1_");
+}
 
 function chf(){
     var p1 = dqs(".calc__choose--els .el.active").dataset.id;
     var p2 = dqs(".types__el.active").dataset.id;
     var p3 = dqs(".calc__params--radio.active").dataset.id;
-    make_inputs(base[p1-1].subels[p2-1].select_type[p3-1].inputs);
+    
     make_functions(base[p1-1].subels[p2-1].select_type[p3-1].formulas, p1 + "_" + p2 + "_" + p3 + "_");
 
 }
@@ -1007,6 +1046,12 @@ function makeitactive(a){
 function makethatactive(a){
     dqs(".calc__params--radio.active").classList.remove("active");
     a.classList.add("active");
+
+    
+    var p1 = dqs(".calc__choose--els .el.active").dataset.id;
+    var p2 = dqs(".types__el.active").dataset.id;
+    var p3 = dqs(".calc__params--radio.active").dataset.id;
+    make_inputs(base[p1-1].subels[p2-1].select_type[p3-1].inputs);
 
     
     chf();
