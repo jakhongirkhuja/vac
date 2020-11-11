@@ -114,7 +114,16 @@
                 </div>
             </div>
         </div>
-        
+        <script>
+            var el = document.querySelectorAll('.product__img__gal--other img')
+            
+            for(var i=0; i < el.length; i++){
+                el[i].addEventListener('mouseover', function () {
+                    document.querySelector(".product__img__gal--main img").src = this.getAttribute('data-src');
+                  
+                });
+            }
+        </script>
         <div class="page_footer">
             <div class="page_footer__items">
                 <div class="page_footer__items-lang">
