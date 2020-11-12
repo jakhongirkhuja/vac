@@ -56,27 +56,27 @@
     <section>
         <div class="products">
             <div class="products__filters">
-                <div class="products__filters-items active">
+                <div class="products__filters-items active" data-filter ="0" onclick="filterattr(this)">
                     Все
                 </div>
-                <div class="products__filters-items">
+                <div class="products__filters-items" data-filter ="1" onclick="filterattr(this)">
                     Прямые
                 </div>
-                <div class="products__filters-items">
+                <div class="products__filters-items" data-filter ="2" onclick="filterattr(this)">
                     Фассонные 
                 </div>
-                <div class="products__filters-items">
+                <div class="products__filters-items" data-filter ="3" onclick="filterattr(this)">
                     Изделия
                 </div>
-                <div class="products__filters-items">
+                <div class="products__filters-items" data-filter ="4" onclick="filterattr(this)">
                     Дымоудаления
                 </div>
-                <div class="products__filters-items">
+                <div class="products__filters-items" data-filter ="5" onclick="filterattr(this)">
                     Комплектующие
                 </div>
             </div>
             <div class="products__all">
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='1'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/1.jpg">
                     </div>
@@ -91,7 +91,7 @@
                     <div class="products__all-items_bottom"></div>
                     <div class="products__all-items_left"></div>
                 </div>
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='1'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/2.jpg">
                     </div>
@@ -107,7 +107,7 @@
                     <div class="products__all-items_bottom"></div>
                     <div class="products__all-items_left"></div>
                 </div>
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='2'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/3.jpg">
                     </div>
@@ -122,7 +122,7 @@
                     <div class="products__all-items_bottom"></div>
                     <div class="products__all-items_left"></div>
                 </div>
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='3'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/4.jpg">
                     </div>
@@ -137,7 +137,7 @@
                     <div class="products__all-items_bottom"></div>
                     <div class="products__all-items_left"></div>
                 </div>
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='4'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/5.jpg">
                     </div>
@@ -153,7 +153,7 @@
                     <div class="products__all-items_bottom"></div>
                     <div class="products__all-items_left"></div>
                 </div>
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='5'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/6.jpg">
                     </div>
@@ -168,7 +168,7 @@
                     <div class="products__all-items_bottom"></div>
                     <div class="products__all-items_left"></div>
                 </div>
-                <div class="products__all-items">
+                <div class="products__all-items" data-filter-id ='3'>
                     <div class="products__all-items--img">
                         <img src="imgs/products/6.jpg">
                     </div>
@@ -185,6 +185,50 @@
                 </div>
             </div>
         </div>
+        <script>
+            function filterattr(d){
+                var id = d.getAttribute("data-filter");
+                var elements = document.getElementsByClassName("products__filters-items");
+                     if(elements.length>0){
+                         for(var i=0; i<elements.length; i++){
+                             elements[i].classList.remove("active");
+                         }
+                         
+                     }
+                     d.classList.add("active");
+                if(id!=0){
+                     var elements = document.getElementsByClassName("activef");
+                     if(elements.length>0){
+                         for(var i=0; i<elements.length; i++){
+                             elements[i].classList.remove("activef");
+                         }
+                         
+                     }
+                     var elements = document.getElementsByClassName("products__all-items");
+                     if(elements.length>0){
+                        for(var i=0; i<elements.length; i++){
+                             elements[i].classList.add("hide");
+                         }
+                     }
+                    var id = d.getAttribute("data-filter");
+                    var s = document.querySelectorAll('[data-filter-id="'+id+'"]');
+                    for(var i=0; i<s.length; i++){
+                        s[i].classList.add("activef");
+                    }
+                }else{
+                
+                     var elements = document.getElementsByClassName("products__all-items");
+                     if(elements.length>0){
+                        for(var i=0; i<elements.length; i++){
+                             elements[i].classList.remove("hide");
+                             elements[i].classList.remove("activef");
+                         }
+                     }
+                }
+                
+            }
+                
+            </script>
         <div class="contacts_text">
             <p>Связаться с нами</p>
         </div>

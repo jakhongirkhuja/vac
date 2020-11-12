@@ -1862,6 +1862,14 @@ svg .animated {
           flex-flow: row wrap;
 }
 
+.products__all-items.hide {
+  display: none;
+}
+
+.products__all-items.hide.activef {
+  display: block;
+}
+
 .products__all-items {
   position: relative;
   height: 355px;

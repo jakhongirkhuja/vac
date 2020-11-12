@@ -37,7 +37,19 @@
     &__all {
         display: flex;
         flex-flow: row wrap;
+        
+        &-items.hide{
+            
+           display: none;
+        }
+        &-items.hide.activef{
+            display: block;
+            
+            
+        }
         &-items {
+            
+            
             position: relative;
             height: 355px;
 
@@ -188,6 +200,7 @@
         bottom: 15px;
     }
 }
+
 // @keyframes up_left {
 //     from {width: 0%;}
 //     to {width: 40%;}
