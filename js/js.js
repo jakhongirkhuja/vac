@@ -88,23 +88,34 @@ var scrollEventCatch = (event)=>{
 
 
 
-function v(num){
-    if(dqs("#input_" + num)){
-        return parseInt(dqs("#input_" + num).value);
+function v(def){
+    if(dqs("#input_" + def)){
+        return parseInt(dqs("#input_" + def).value);
     }else{
-        return 0;
+        return formulas(def);
     }
 }
 
 
+function clear_class(name){
+    var clear = dqs(name);
+    if(clear.length){
+        clear.forEach(cl => {
+            cl.outerHTML = "";
+        });
+    }else{
+        clear.innerHTML = "";
+    }
+    
+}
 
-function make_inputs(ins){
-    var clear = dqs(".calc__drb");
-    clear.forEach(cl => {
-        cl.outerHTML = "";
-    });
 
-    ins.forEach((i,count) => {
+function make_inputs(t,y,u){
+    var inputs = base[t-1].subels[y-1].select_type[u-1].inputs
+    
+    clear_class(".calc__drb");
+
+    inputs.forEach(i => {
         if(i.input_type === "select"){
             var options = "";
             i.input_options.forEach(j => {
@@ -125,7 +136,7 @@ function make_inputs(ins){
                     ${i.input_name}:
                 </div>
                 <div class="calc__params--input">
-                    <select onchange="chf()" onfocus="focuser(this);" id="input_${i.input_id}">
+                    <select onchange="chf()" onfocus="focuser(this);" id="input_${i.input_def}">
                         ${options}
                     </select>
                     <div class="unit">
@@ -142,7 +153,7 @@ function make_inputs(ins){
                     ${i.input_name}:
                 </div>
                 <div class="calc__params--input">
-                    <input value="${i.input_default}" onchange="chf()" type="number" onfocus="focuser(this);" id="input_${i.input_id}">
+                    <input value="${i.input_default}" onchange="chf()" type="number" onfocus="focuser(this);" id="input_${i.input_def}">
                     <div class="unit">
                         ${i.input_unit}
                     </div>
@@ -155,41 +166,38 @@ function make_inputs(ins){
 
 
 
-function make_functions(funs, id){
-    
-    var clear = dqs(".calc__calcs--row");
-    clear.forEach(cl => {
-        cl.outerHTML = "";
-    });
+function make_functions(t,y,u){
 
     var rows = dqs(".calc__calcs--rows");
-    funs.forEach((fun, i) => {
-        var answer = formula(id + "" + fun.formula_id);
-        if(Array.isArray(answer)){
-            rows.innerHTML += `
-                <div class="calc__calcs--row">
-                    <div class="rowname">
-                        ${fun.name.replace("%", answer[0])}
-                    </div>
-                    <div class="number">
-                        ${answer[1]} ${fun.unit} 
-                    </div>
-                </div>
-            `;
-        }else{
-            rows.innerHTML += `
-                <div class="calc__calcs--row">
-                    <div class="rowname">
-                        ${fun.name}
-                    </div>
-                    <div class="number">
-                        ${answer} ${fun.unit} 
-                    </div>
-                </div>
-            `;
-        }
+    var funs = base[t-1].subels[y-1].select_type[u-1].formulas;
+    
+    clear_class(".calc__calcs--row");
 
-        
+    funs.forEach(fun => {
+        var matches = [
+            ...fun.name.matchAll(/{[a-z,A-Z,0-9]*}/g),
+            ...fun.unit.matchAll(/{[a-z,A-Z,0-9]*}/g)
+        ];
+        var htmlelement = `
+            <div class="calc__calcs--row">
+                <div class="rowname">
+                    ${fun.name}
+                </div>
+                <div class="number">
+                    ${fun.unit} 
+                </div>
+            </div>
+        `;
+        matches.forEach(match => {
+            var iden = match[0].substring(1, match[0].length - 1);
+            var res = parseFloat(v(iden)).toFixed(1);
+            if(res < 0){
+                htmlelement = htmlelement.replace(match[0], 0);
+            }else{
+                htmlelement = htmlelement.replace(match[0], res);
+            }
+        });
+        rows.innerHTML += htmlelement;
     });
 }
 
@@ -210,55 +218,101 @@ var base = [
                     {
                         select_id : 1,
                         select_name : "шинорейка",
+                        defs : [
+                            {
+                                name : "S",
+                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
+                            },
+                            {
+                                name : "N1",
+                                def: 'return parseInt(v("L")/1250)*v("N");'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return v("L") - (v("S") * 1250);'
+                            },
+                            {
+                                name : "N2",
+                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                            },
+                            {
+                                name : "L2",
+                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "L3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N4",
+                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                            },
+                            {
+                                name : "N5",
+                                def: 'return v("N3");'
+                            },
+                            {
+                                name : "m1",
+                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                            },
+                            {
+                                name : "m2",
+                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                            }
+                        ],
                         formulas : [
                             {
                                 name : "Площадь:",
-                                unit : "м^2.",
-                                formula_id : 1
+                                unit : "{S} м^2.",
+                                formula_id : 1,
                             },
                             {
                                 name : "Количество воздуховодов длиной 1250 мм:",
-                                unit : "шт.",
-                                formula_id : 2
+                                unit : "{N1} шт.",
+                                formula_id : 2,
                             },
                             {
-                                name : "Количество воздуховодов длиной % мм:",
-                                unit : "шт.",
-                                formula_id : 3
+                                name : "Количество воздуховодов длиной {L1} мм:",
+                                unit : "{N2} шт.",
+                                formula_id : 3,
                             },
                             {
                                 name : "Длина шинорейки необходимых для данного участка:",
-                                unit : "м.",
+                                unit : "{L2}м.",
                                 formula_id : 4
                             },
                             {
                                 name : "Количество уголков необходимых для данного участка:",
-                                unit : "шт.",
+                                unit : "{N3} шт.",
                                 formula_id : 5
                             },
                             {
                                 name : "Длина уплотнительной ленты необходимой для данного участка:",
-                                unit : "м.",
+                                unit : "{L3} м.",
                                 formula_id : 6
                             },
                             {
                                 name : "Количество струбцин необходимых для данного участка:",
-                                unit : "шт.",
+                                unit : "{N4} шт.",
                                 formula_id : 7
                             },
                             {
                                 name : "Количество метизов (болтов, гаек и шайб):",
-                                unit : "шт.",
+                                unit : "{N5} шт.",
                                 formula_id : 8
                             },
                             {
                                 name : "Масса воздуховодов данного участка:",
-                                unit : "кг.",
+                                unit : "{m1} кг.",
                                 formula_id : 9
                             },
                             {
                                 name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
-                                unit : "кг.",
+                                unit : "{m2} кг.",
                                 formula_id : 10
                             },
                         ],
@@ -268,6 +322,7 @@ var base = [
                                 input_type : "select",
                                 input_default : 0.5,
                                 input_unit : "мм.",
+                                input_def : "c",
                                 input_name : "Толщина металла «с»",
                                 input_options : [
                                     {
@@ -309,6 +364,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "A",
                                 input_name : "Ширина «A»"
                             },
                             {
@@ -316,6 +372,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "B",
                                 input_name : "Высота «B»"
                             },
                             {
@@ -323,6 +380,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "L",
                                 input_name : "Длины «L»",
                             },
                             {
@@ -330,6 +388,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 1,
                                 input_unit : "шт.",
+                                input_def : "N",
                                 input_name : "Количество «N»",
                             }
                         ]
@@ -338,6 +397,52 @@ var base = [
                     {
                         select_id : 2,
                         select_name : "TDF",
+                        defs : [
+                            {
+                                name : "S",
+                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
+                            },
+                            {
+                                name : "N1",
+                                def: 'return parseInt(v("L")/1250)*v("N");'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return v("L") - (v("S") * 1250);'
+                            },
+                            {
+                                name : "N2",
+                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                            },
+                            {
+                                name : "L2",
+                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "L3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N4",
+                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                            },
+                            {
+                                name : "N5",
+                                def: 'return v("N3");'
+                            },
+                            {
+                                name : "m1",
+                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                            },
+                            {
+                                name : "m2",
+                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                            }
+                        ],
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -461,6 +566,52 @@ var base = [
                     {
                         select_id : 3,
                         select_name : "рейка",
+                        defs : [
+                            {
+                                name : "S",
+                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
+                            },
+                            {
+                                name : "N1",
+                                def: 'return parseInt(v("L")/1250)*v("N");'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return v("L") - (v("S") * 1250);'
+                            },
+                            {
+                                name : "N2",
+                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                            },
+                            {
+                                name : "L2",
+                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "L3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N4",
+                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                            },
+                            {
+                                name : "N5",
+                                def: 'return v("N3");'
+                            },
+                            {
+                                name : "m1",
+                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                            },
+                            {
+                                name : "m2",
+                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                            }
+                        ],
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -580,6 +731,52 @@ var base = [
                     {
                         select_id : 1,
                         select_name : "Прямо-шовный флянец",
+                        defs : [
+                            {
+                                name : "S",
+                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
+                            },
+                            {
+                                name : "N1",
+                                def: 'return parseInt(v("L")/1250)*v("N");'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return v("L") - (v("S") * 1250);'
+                            },
+                            {
+                                name : "N2",
+                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                            },
+                            {
+                                name : "L2",
+                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "L3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N4",
+                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                            },
+                            {
+                                name : "N5",
+                                def: 'return v("N3");'
+                            },
+                            {
+                                name : "m1",
+                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                            },
+                            {
+                                name : "m2",
+                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                            }
+                        ],
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -686,6 +883,52 @@ var base = [
                     {
                         select_id : 2,
                         select_name : "Прямо-шовный ниппель",
+                        defs : [
+                            {
+                                name : "S",
+                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
+                            },
+                            {
+                                name : "N1",
+                                def: 'return parseInt(v("L")/1250)*v("N");'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return v("L") - (v("S") * 1250);'
+                            },
+                            {
+                                name : "N2",
+                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                            },
+                            {
+                                name : "L2",
+                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "L3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N4",
+                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                            },
+                            {
+                                name : "N5",
+                                def: 'return v("N3");'
+                            },
+                            {
+                                name : "m1",
+                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                            },
+                            {
+                                name : "m2",
+                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                            }
+                        ],
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -792,6 +1035,52 @@ var base = [
                     {
                         select_id : 3,
                         select_name : "Спиральный ниппель",
+                        defs : [
+                            {
+                                name : "S",
+                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
+                            },
+                            {
+                                name : "N1",
+                                def: 'return parseInt(v("L")/1250)*v("N");'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return v("L") - (v("S") * 1250);'
+                            },
+                            {
+                                name : "N2",
+                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                            },
+                            {
+                                name : "L2",
+                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "L3",
+                                def: 'return 8*(v("N1") + v("N2"));'
+                            },
+                            {
+                                name : "N4",
+                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                            },
+                            {
+                                name : "N5",
+                                def: 'return v("N3");'
+                            },
+                            {
+                                name : "m1",
+                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                            },
+                            {
+                                name : "m2",
+                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                            }
+                        ],
                         formulas : [
                             {
                                 name : "Площадь:",
@@ -908,49 +1197,97 @@ var base = [
 ];
 
 
-function formula(i){
-    if(i === "1_1_1_1"){
-        return (2*(v(2) + v(3)) * v(4) * v(5))/1000000;
+function take_base(){
+    clear_class(".calc__choose--els .el");
+    clear_class(".types__el");
+    clear_class(".calc__params--radio");
+    
+    base.forEach(bel => {
+        dqs(".calc__choose--els").innerHTML += `
+            <div class="el" onclick="makethisactive(this);" data-id="${bel.id}">
+                <img class="el__pig" src="${bel.img}" alt="element img">
+                <div class="el__name">${bel.name}</div>
+            </div>
+        `
+    });
+
+    if(dqs(".calc__choose--els .el") && dqs(".calc__choose--els .el").length){
+        dqs(".calc__choose--els .el")[0].classList.add("active");
+    }else if(dqs(".calc__choose--els .el")){
+        dqs(".calc__choose--els .el").classList.add("active");
     }
-    else if(i === "1_1_1_2"){
-        return parseInt(v(4)/1250)*v(5);
+
+    base[0].subels.forEach(subel => {
+        dqs(".types").innerHTML += `
+            <div class="types__el" onclick="makeitactive(this);" data-id="${subel.subid}">
+                <img class="types__el--img" src="${subel.subimg}" alt="">
+                <div class="types__el--text">${subel.subname}</div>
+            </div>
+        `
+    });
+
+    if(dqs(".types .types__el") && dqs(".types .types__el").length){
+        dqs(".types .types__el")[0].classList.add("active");
+    }else if(dqs(".types .types__el")){
+        dqs(".types .types__el").classList.add("active");
     }
-    else if(i === "1_1_1_3"){
-        if(v(4) - (formula("1_1_1_2") * 1250) === 0){
-            return [0, 0];
-        }else{
-            return [v(4) - (formula("1_1_1_2") * 1250), v(5)];
-        }
+
+    base[0].subels[0].select_type.forEach(selel => {
+        dqs(".calc__params .calc__dra").innerHTML += `
+            <div class="calc__params--radio" data-id="${selel.select_id}" onclick="makethatactive(this);">
+                <div class="circle"></div>
+                <p class="text-s">${selel.select_name}</p>
+            </div>
+        `
+    });
+    
+
+    if(dqs(".calc__params--radio") && dqs(".calc__params--radio").length){
+        dqs(".calc__params--radio")[0].classList.add("active");
+    }else if(dqs(".calc__params--radio")){
+        dqs(".calc__params--radio").classList.add("active");
     }
-    else if(i === "1_1_1_4"){
-        return 4*(v(2) + v(3))*(formula("1_1_1_2") + formula("1_1_1_3")[1]);
-    }
-    else if(i === "1_1_1_5"){
-        return 8*(formula("1_1_1_2") + formula("1_1_1_3")[1]);
-    }
-    else if(i === "1_1_1_6"){
-        return formula("1_1_1_4")/2;
-    }
-    else if(i === "1_1_1_7"){
-        return (formula("1_1_1_2") + formula("1_1_1_3")[1]) * ( 2*(parseInt( (v(2)-250)/250) ) + 2*(parseInt( (v(2)-250)/250) ) );
-    }
-    else if(i === "1_1_1_8"){
-        return formula("1_1_1_5");
-    }
-    else if(i === "1_1_1_9"){
-        return (formula("1_1_1_1")+0.04*v(5)*v(4))*v(1)*8.25;
-    }
-    else if(i === "1_1_1_10"){
-        return formula("1_1_1_9") + formula("1_1_1_4")*0.637 + formula("1_1_1_5")*0.026 + formula("1_1_1_7")*0.05 + formula("1_1_1_8")*0.028;
-    }
-    else{
-        return 0;
+
+}
+
+
+function getscript(t,y,u){
+    var formulas = base[t-1].subels[y-1].select_type[u-1].defs;
+    var script = "function formulas(i){";
+    formulas.forEach(fx => {
+        script += `
+            if(i === "${fx.name}"){
+                ${fx.def}
+            }`;
+    });
+    script += "return 0;}";
+    return script;
+}
+
+function make_formulas(t,y,u){
+    var el = document.createElement("script");
+    if(dqs(".script_for_formulas")){
+        dqs(".script_for_formulas").innerHTML = getscript(t,y,u);
+    }else{
+        el.innerHTML = getscript(t,y,u);
+        el.classList.add("script_for_formulas");
+        dqs(".calc").appendChild(el);
     }
 }
 
+function menu_logo_absolute(){
+    dqs(".logo").classList.add("posa");
+    dqs(".calc__head").classList.add("posa");
+    dqs(".menu").classList.add("posa");
+}
+
 if(dqs(".calc")){
-    make_inputs(base[0].subels[0].select_type[0].inputs);
-    make_functions(base[0].subels[0].select_type[0].formulas, "1_1_1_");
+    take_base();
+    make_inputs(1,1,1);
+    make_formulas(1,1,1);
+    make_functions(1,1,1);
+
+    menu_logo_absolute();
 }
 
 function chf(){
@@ -958,8 +1295,8 @@ function chf(){
     var p2 = dqs(".types__el.active").dataset.id;
     var p3 = dqs(".calc__params--radio.active").dataset.id;
     
-    make_functions(base[p1-1].subels[p2-1].select_type[p3-1].formulas, p1 + "_" + p2 + "_" + p3 + "_");
-
+    make_formulas(p1,p2,p3);
+    make_functions(p1, p2, p3);
 }
 
 function ch_third(id){
@@ -969,7 +1306,6 @@ function ch_third(id){
 
     base[active - 1].subels.forEach(el => {
         if(el.subid == id){
-            console.log(el.subid);
             el.select_type.forEach(i => {
                 dqs(".calc__dra").innerHTML += 
                 `
@@ -1051,7 +1387,8 @@ function makethatactive(a){
     var p1 = dqs(".calc__choose--els .el.active").dataset.id;
     var p2 = dqs(".types__el.active").dataset.id;
     var p3 = dqs(".calc__params--radio.active").dataset.id;
-    make_inputs(base[p1-1].subels[p2-1].select_type[p3-1].inputs);
+    
+    make_inputs(p1, p2, p3);
 
     
     chf();
@@ -1075,8 +1412,6 @@ function  makethisactive(a){
     // inputs.id = a.dataset.id;
     // sbmt(inputdata, url, console.log);
 }
-
-
 
 
 
@@ -1124,6 +1459,7 @@ var burger = dqs(".menu");
 if(burger){
     burger.addEventListener("click", ()=>{
         dqs(".mlist").classList.toggle("active");
+        dqs(".menu").classList.toggle("posf");
         dqs(".menu__ins").classList.toggle("active");
         dqs(".menu__hid").classList.toggle("active");
     });

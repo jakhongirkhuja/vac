@@ -3801,11 +3801,23 @@ svg .boxanim3 {
   cursor: pointer;
 }
 
+.calc__type .type .types__el img {
+  max-width: 90%;
+}
+
 .calc__type .type .types__el.active {
   border: 1px solid #000000;
 }
 
 .calc__type .type .types__el:hover {
   border: 1px solid #000000;
+}
+
+.posa {
+  position: absolute;
+}
+
+.posf {
+  position: fixed;
 }
 /*# sourceMappingURL=main.css.map */

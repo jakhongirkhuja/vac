@@ -451,6 +451,10 @@
                     border: 1px solid transparent;
                     cursor: pointer;
 
+                    img{
+                        max-width: 90%;
+                    }
+
                     &.active{
                         border: 1px solid $black-0;
                     }
@@ -462,4 +466,11 @@
             }
         }
     }
+}
+
+.posa{
+    position: absolute;
+}
+.posf{
+    position: fixed;
 }
