@@ -27,6 +27,8 @@
         bottom: 0;
         right: 0;
         min-width: 300px;
+        display: flex;
+        overflow: hidden;
 
         svg{
             width: 100%;

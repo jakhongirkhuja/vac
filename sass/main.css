@@ -424,25 +424,25 @@ svg .animated {
   fill: transparent;
   stroke-dasharray: 700;
   stroke-dashoffset: 0;
-  -webkit-animation: animated 20s linear infinite;
-          animation: animated 20s linear infinite;
+  -webkit-animation: animated 15s ease-in infinite 5s backwards;
+          animation: animated 15s ease-in infinite 5s backwards;
 }
 
 @-webkit-keyframes animated {
-  50% {
-    stroke-dashoffset: 700;
+  40%, 60% {
+    stroke-dashoffset: 0;
   }
   0%, 100% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 700;
   }
 }
 
 @keyframes animated {
-  50% {
-    stroke-dashoffset: 700;
+  40%, 60% {
+    stroke-dashoffset: 0;
   }
   0%, 100% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 700;
   }
 }
 
@@ -1106,6 +1106,10 @@ svg .animated {
   bottom: 0;
   right: 0;
   min-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
 }
 
 .mainv__image svg {
@@ -2557,31 +2561,31 @@ svg .animated {
   max-width: 50vw;
   position: absolute;
   width: 800px;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
   -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0);
+  opacity: 0;
+  -webkit-transform: scale(1.2) translateX(1400px);
+          transform: scale(1.2) translateX(1400px);
+  transition: transform 0.6s, -webkit-text-stroke 0.7s, color 0.5s, opacity 0.6s;
 }
 
 .proj__name h1.back {
   -webkit-transform: translateX(-100vw);
           transform: translateX(-100vw);
+  opacity: 0;
 }
 
 .proj__name h1.next {
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+  opacity: 1;
+  -webkit-transform: scale(1.2) translateX(700px);
+          transform: scale(1.2) translateX(700px);
+  color: transparent;
+  -webkit-text-stroke: 0.1px rgba(255, 255, 255, 0.5);
 }
 
 .proj__name h1.active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
-}
-
-.proj__name h1.active + .next {
-  -webkit-transform: scale(1.2) translateX(700px);
-          transform: scale(1.2) translateX(700px);
-  color: transparent;
-  -webkit-text-stroke: 0.1px rgba(255, 255, 255, 0.5);
+  opacity: 1;
 }
 
 .proj__img {
@@ -2611,23 +2615,29 @@ svg .animated {
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  display: none;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
 }
 
 .proj__img img.back {
   -webkit-transform: translateX(-100vh);
           transform: translateX(-100vh);
+  display: block;
 }
 
 .proj__img img.next {
   -webkit-transform: translateX(100vh);
           transform: translateX(100vh);
+  display: block;
 }
 
 .proj__img img.active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+  display: block;
 }
 
 .proj__arrows {

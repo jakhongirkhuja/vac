@@ -1489,80 +1489,68 @@ if(blocks && blocks.length){
     document.addEventListener("touchend", touchControlEnd);
 }
 
+function sliderchanger_left(el){
+    var act = dqs(el + ".active");
+    var back = dqs(el + ".back");
+    var next = dqs(el + ".next");
 
-var side = false;
+    act.classList.remove("active");
+    back.classList.remove("back");
+    next.classList.remove("next");
+
+    act.classList.add("back");
+    next.classList.add("active");
+    if(next.nextElementSibling){
+        next.nextElementSibling.classList.add("next");
+    }else{
+        act.parentElement.firstElementChild.classList.add("next");
+    }
+}
+
+function sliderchanger_right(el){
+    var act = dqs(el + ".active");
+    var back = dqs(el + ".back");
+    var next = dqs(el + ".next");
+
+    act.classList.remove("active");
+    back.classList.remove("back");
+    next.classList.remove("next");
+
+    act.classList.add("next");
+    back.classList.add("active");
+    if(back.previousElementSibling){
+        back.previousElementSibling.classList.add("back");
+    }else{
+        act.parentElement.lastElementChild.classList.add("back");
+    }
+}
 
 function slide_left(){
-    var act = dqs(".proj__name h1.active");
-    var actp = dqs(".proj__img img.active");
-    
-    if(act.nextElementSibling){
-        act.classList.remove("active");
-        act.classList.add("back");
-        act.nextElementSibling.classList.add("active");
-        act.nextElementSibling.classList.remove("next");
-    }
-    if(actp.nextElementSibling){
-        actp.classList.remove("active");
-        actp.classList.add("back");
-        actp.nextElementSibling.classList.add("active");
-        actp.nextElementSibling.classList.remove("next");
-    }
-
-    if(dqs(".proj__name h1.active").nextElementSibling){
-        side = false;
-    }else{
-        side = true;
-    }
+    sliderchanger_left(".proj__name h1");
+    sliderchanger_left(".proj__img img");
 }
 
 function slide_right(){
-    var act = dqs(".proj__name h1.active");
-    var actp = dqs(".proj__img img.active");
-    
-    if(act.previousElementSibling){
-        act.classList.remove("active");
-        act.classList.add("next");
-        act.previousElementSibling.classList.add("active");
-        act.previousElementSibling.classList.remove("back");
-    }
-    
-    if(actp.previousElementSibling){
-        actp.classList.remove("active");
-        actp.classList.add("next");
-        actp.previousElementSibling.classList.add("active");
-        actp.previousElementSibling.classList.remove("back");
-    }
-
-    if(dqs(".proj__name h1.active").previousElementSibling){
-        side = true;
-    }else{
-        side = false;
-    }
+    sliderchanger_right(".proj__name h1");
+    sliderchanger_right(".proj__img img");
 }
 
 if(dqs(".proj__name h1") && dqs(".proj__name h1").length){
-    dqs(".proj__name h1")[0].classList.add("active");
-
-    for (let i = 1; i < dqs(".proj__name h1").length; i++) {
-        dqs(".proj__name h1")[i].classList.add("next");
-    }
+    var el = dqs(".proj__name h1");
+    el[0].classList.add("active");
+    el[1].classList.add("next");
+    el[el.length - 1].classList.add("back");
 }
 
 if(dqs(".proj__img img") && dqs(".proj__img img").length){
-    dqs(".proj__img img")[0].classList.add("active");
-
-    for (let i = 1; i < dqs(".proj__img img").length; i++) {
-        dqs(".proj__img img")[i].classList.add("next");
-    }
+    var el = dqs(".proj__img img");
+    el[0].classList.add("active");
+    el[1].classList.add("next");
+    el[el.length - 1].classList.add("back");
 }
 
 var intervalFunction = () => {
-    if(side){
-        slide_right();
-    }else{
-        slide_left();
-    }
+    slide_left();
 
     dqs(".proj__redline--line").classList.remove("active");
     setTimeout(() => {
