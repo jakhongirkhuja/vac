@@ -1210,7 +1210,7 @@ var base = [
         subels : [
             {
                 subid : 1,
-                subname : "прямоугольное сечения",
+                subname : "1 типа прямоугольное сечения",
                 subimg : "/imgs/subtypes/1_1.jpg",
                 select_type : [
                     {
@@ -1219,99 +1219,65 @@ var base = [
                         defs : [
                             {
                                 name : "S",
-                                def: 'return (2*(v("A") + v("B")) * v("L") * v("N"))/1000000;'
-                            },
-                            {
-                                name : "N1",
-                                def: 'return parseInt(v("L")/1250)*v("N");'
+                                def: 'return ((v("a")/360)*(Math.PI*Math.pow((v("A")+v("r")),2)-Math.PI*Math.pow(v("r"),2)+2*Math.PI*(v("A")+v("r"))*v("B")+2*Math.PI*v("r")*v("B") )+200*(v("A")+v("B")))*(v("N"));'
                             },
                             {
                                 name : "L1",
-                                def: 'return v("L") - (v("S") * 1250);'
+                                def: 'return (v("A")+v("B"))*4*v("N");'
                             },
                             {
-                                name : "N2",
-                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                                name : "N1",
+                                def: 'return 8*v("N");'
                             },
                             {
                                 name : "L2",
-                                def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
+                                def: 'return v("L1")/2;'
+                            },
+                            {
+                                name : "N2",
+                                def: 'return 4*v("N")*(parseInt((v("A")-250)/250)+parseInt((v("B")-250)/250));'
                             },
                             {
                                 name : "N3",
-                                def: 'return 8*(v("N1") + v("N2"));'
-                            },
-                            {
-                                name : "L3",
-                                def: 'return 8*(v("N1") + v("N2"));'
-                            },
-                            {
-                                name : "N4",
-                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
-                            },
-                            {
-                                name : "N5",
-                                def: 'return v("N3");'
+                                def: 'return v("N2");'
                             },
                             {
                                 name : "m1",
-                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                                def: 'return v("S")*v("c")*8.25*1.14*v("N");'
                             },
                             {
                                 name : "m2",
-                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                                def: 'return v("m1") + v("L1")*0.637 + v("N2")*0.05 + v("N3")*0.026;'
                             }
                         ],
                         formulas : [
                             {
                                 name : "Площадь:",
-                                unit : "{S} м^2.",
-                                formula_id : 1,
-                            },
-                            {
-                                name : "Количество воздуховодов длиной 1250 мм:",
-                                unit : "{N1} шт.",
-                                formula_id : 2,
-                            },
-                            {
-                                name : "Количество воздуховодов длиной {L1} мм:",
-                                unit : "{N2} шт.",
-                                formula_id : 3,
+                                unit : "{S} м^2."
                             },
                             {
                                 name : "Длина шинорейки необходимых для данного участка:",
-                                unit : "{L2}м.",
-                                formula_id : 4
+                                unit : "{L1}м."
                             },
                             {
                                 name : "Количество уголков необходимых для данного участка:",
-                                unit : "{N3} шт.",
-                                formula_id : 5
+                                unit : "{N1} шт."
                             },
                             {
                                 name : "Длина уплотнительной ленты необходимой для данного участка:",
-                                unit : "{L3} м.",
-                                formula_id : 6
+                                unit : "{L2} м."
                             },
                             {
                                 name : "Количество струбцин необходимых для данного участка:",
-                                unit : "{N4} шт.",
-                                formula_id : 7
-                            },
-                            {
-                                name : "Количество метизов (болтов, гаек и шайб):",
-                                unit : "{N5} шт.",
-                                formula_id : 8
+                                unit : "{N2} шт."
                             },
                             {
                                 name : "Масса воздуховодов данного участка:",
-                                unit : "{m1} кг.",
-                                formula_id : 9
+                                unit : "{m1} кг."
                             },
                             {
                                 name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
-                                unit : "{m2} кг.",
-                                formula_id : 10
+                                unit : "{m2} кг."
                             },
                         ],
                         inputs : [
@@ -1363,7 +1329,7 @@ var base = [
                                 input_default : 0,
                                 input_unit : "мм.",
                                 input_def : "A",
-                                input_name : "Ширина «A»"
+                                input_name : "Длина «A»"
                             },
                             {
                                 input_id : 3,
@@ -1371,18 +1337,26 @@ var base = [
                                 input_default : 0,
                                 input_unit : "мм.",
                                 input_def : "B",
-                                input_name : "Высота «B»"
+                                input_name : "Ширина «B»"
                             },
                             {
                                 input_id : 4,
                                 input_type : "number",
                                 input_default : 0,
-                                input_unit : "мм.",
-                                input_def : "L",
-                                input_name : "Длины «L»",
+                                input_unit : "o.",
+                                input_def : "a",
+                                input_name : "Угол поворота «a»",
                             },
                             {
                                 input_id : 5,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_def : "r",
+                                input_name : "Внутренний радиус «r»",
+                            },
+                            {
+                                input_id : 6,
                                 input_type : "number",
                                 input_default : 1,
                                 input_unit : "шт.",
