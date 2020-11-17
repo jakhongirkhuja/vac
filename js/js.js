@@ -242,7 +242,7 @@ var base = [
                             },
                             {
                                 name : "N2",
-                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                                def: 'if( v("N1") === 0 ){ return 0; } else{ return v("N"); };'
                             },
                             {
                                 name : "L2",
@@ -402,7 +402,7 @@ var base = [
                             }
                         ]
                     },
-                    
+
                     {
                         select_id : 2,
                         select_name : "TDF",
@@ -413,11 +413,11 @@ var base = [
                             },
                             {
                                 name : "N1",
-                                def: 'return parseInt(v("L")/1250)*v("N");'
+                                def: 'return parseInt(v("L")/1150)*v("N");'
                             },
                             {
                                 name : "L1",
-                                def: 'return v("L") - (v("S") * 1250);'
+                                def: 'return v("L") - (1150*v("N1"))*v("N");'
                             },
                             {
                                 name : "N2",
@@ -433,11 +433,11 @@ var base = [
                             },
                             {
                                 name : "L3",
-                                def: 'return 8*(v("N1") + v("N2"));'
+                                def: 'return v("L2") / 2;'
                             },
                             {
                                 name : "N4",
-                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
+                                def: 'return 2*(v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
                             },
                             {
                                 name : "N5",
@@ -445,57 +445,57 @@ var base = [
                             },
                             {
                                 name : "m1",
-                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                                def: 'return (v("A") + v("B") + 0.04) * v("L") * (v("N1") + v("N2")) * 8.25 * v("c");'
                             },
                             {
                                 name : "m2",
-                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                                def: 'return v("m1") + v("N3")*0.026 + v("N4")*0.1 + v("N5")*0.028;'
                             }
                         ],
                         formulas : [
                             {
-                                name : "Площадь:",
-                                unit : "м^2.",
+                                name : "Площадь: ",
+                                unit : "{S} м^2.",
                                 formula_id : 1
                             },
                             {
                                 name : "Количество воздуховодов длиной 1150 мм:",
-                                unit : "шт.",
+                                unit : "{N1} шт.",
                                 formula_id : 2
                             },
                             {
-                                name : "Количество воздуховодов длиной % мм:",
-                                unit : "шт.",
+                                name : "Количество воздуховодов длиной {L1} мм:",
+                                unit : "{N2} шт.",
                                 formula_id : 3
                             },
                             {
                                 name : "Количество уголков необходимых для данного участка:",
-                                unit : "шт.",
+                                unit : "{N3} шт.",
                                 formula_id : 4
                             },
                             {
                                 name : "Длина уплотнительной ленты необходимой для данного участка:",
-                                unit : "м.",
+                                unit : "{L3} м.",
                                 formula_id : 5
                             },
                             {
                                 name : "Количество струбцин необходимых для данного участка:",
-                                unit : "шт.",
+                                unit : "{N4} шт.",
                                 formula_id : 6
                             },
                             {
                                 name : "Количество метизов (болтов, гаек и шайб):",
-                                unit : "шт.",
+                                unit : "{N5} шт.",
                                 formula_id : 7
                             },
                             {
                                 name : "Масса воздуховодов данного участка:",
-                                unit : "кг.",
+                                unit : "{m1} кг.",
                                 formula_id : 8
                             },
                             {
                                 name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
-                                unit : "кг.",
+                                unit : "{m2} кг.",
                                 formula_id : 9
                             },
                         ],
@@ -582,80 +582,57 @@ var base = [
                             },
                             {
                                 name : "N1",
-                                def: 'return parseInt(v("L")/1250)*v("N");'
+                                def: 'return parseInt(v("L")/1230)*v("N");'
                             },
                             {
                                 name : "L1",
-                                def: 'return v("L") - (v("S") * 1250);'
+                                def: 'return v("L") - (v("N1") * 1230);'
                             },
                             {
                                 name : "N2",
-                                def: 'if( v("N1") === 0 ){ 0 } else{ return v("N"); };'
+                                def: 'if( v("N1") === 0 ){ return 0; } else{ return v("N"); };'
                             },
                             {
                                 name : "L2",
                                 def: 'return 4*(v("A") + v("B"))*(v("N1") + v("N2"));'
                             },
                             {
-                                name : "N3",
-                                def: 'return 8*(v("N1") + v("N2"));'
-                            },
-                            {
-                                name : "L3",
-                                def: 'return 8*(v("N1") + v("N2"));'
-                            },
-                            {
-                                name : "N4",
-                                def: 'return (v("N1") + v("N2")) * ( 2*(parseInt( (v("A")-250)/250) ) + 2*(parseInt( (v("B")-250)/250) ) );'
-                            },
-                            {
-                                name : "N5",
-                                def: 'return v("N3");'
-                            },
-                            {
                                 name : "m1",
-                                def: 'return (v("S")+0.04*v("N")*v("L"))*v("c")*8.25;'
+                                def: 'return (v("S")+4*v("N")*v("L")+20*(v("N1") + v("N2")))*v("c")*8.25;'
                             },
                             {
                                 name : "m2",
-                                def: 'return v("m1") + v("L2")*0.637 + v("N3")*0.026 + v("N4")*0.05 + v("N5")*0.028;'
+                                def: 'return v("m1") + v("L2")*v("c")*8.25*40;'
                             }
                         ],
                         formulas : [
                             {
                                 name : "Площадь:",
-                                unit : "м^2.",
-                                formula_id : 1
+                                unit : "{S} м^2."
                             },
                             {
-                                name : "Количество воздуховодов длиной 1230 мм:",
-                                unit : "шт.",
-                                formula_id : 2
+                                name : "Количество воздуховодов длиной 1250 мм:",
+                                unit : "{N1} шт."
                             },
                             {
-                                name : "Количество воздуховодов длиной % мм:",
-                                unit : "шт.",
-                                formula_id : 3
+                                name : "Количество воздуховодов длиной {L1} мм:",
+                                unit : "{N2} шт."
                             },
                             {
-                                name : "Длина рейки необходимых для данного участка:",
-                                unit : "м.",
-                                formula_id : 4
+                                name : "Длина шинорейки необходимых для данного участка:",
+                                unit : "{L2}м."
                             },
                             {
                                 name : "Количество метизов (болтов, гаек и шайб):",
-                                unit : "шт.",
-                                formula_id : 5
+                                unit : "{N} шт."
                             },
                             {
                                 name : "Масса воздуховодов данного участка:",
-                                unit : "кг.",
-                                formula_id : 6
+                                unit : "{m1} кг."
                             },
                             {
                                 name : "Итоговая масса воздуховодов данного участка (с учетом комплектующих):",
-                                unit : "кг.",
-                                formula_id : 7
+                                unit : "{m2} кг."
                             },
                         ],
                         inputs : [
@@ -664,6 +641,7 @@ var base = [
                                 input_type : "select",
                                 input_default : 0.5,
                                 input_unit : "мм.",
+                                input_def : "c",
                                 input_name : "Толщина металла «с»",
                                 input_options : [
                                     {
@@ -705,6 +683,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "A",
                                 input_name : "Ширина «A»"
                             },
                             {
@@ -712,6 +691,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "B",
                                 input_name : "Высота «B»"
                             },
                             {
@@ -719,6 +699,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "L",
                                 input_name : "Длины «L»",
                             },
                             {
@@ -726,6 +707,7 @@ var base = [
                                 input_type : "number",
                                 input_default : 1,
                                 input_unit : "шт.",
+                                input_def : "N",
                                 input_name : "Количество «N»",
                             }
                         ]
