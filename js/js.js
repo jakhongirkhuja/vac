@@ -741,7 +741,7 @@ var base = [
                             },
                             {
                                 name : "N3",
-                                def: 'return 2(v("N1") + v("N2"));'
+                                def: 'return 2*(v("N1") + v("N2"));'
                             },
                             {
                                 name : "N4",
@@ -1013,7 +1013,7 @@ var base = [
                         defs : [
                             {
                                 name : "S",
-                                def: 'return 2 + Math.PI*v("D")*v("L")*v("N");'
+                                def: 'return Math.PI*v("D")*v("L")*v("N");'
                             },
                             {
                                 name : "N1",
@@ -1135,7 +1135,7 @@ var base = [
                             {
                                 input_id : 3,
                                 input_type : "number",
-                                input_default : 0,
+                                input_default : 1250,
                                 input_unit : "мм.",
                                 input_name : "Длина 1 единицы воздуховода «L1»",
                                 input_def : "L1"
@@ -9107,27 +9107,24 @@ function take_base(){
 
 
 function getscript(t,y,u){
-    var formulas = base[t-1].subels[y-1].select_type[u-1].defs;
-    var script = "var formulas = (i)=>{";
-    formulas.forEach(fx => {
+    var fmls = base[t-1].subels[y-1].select_type[u-1].defs;
+    var script = "";
+    fmls.forEach(fx => {
         script += `
             if(i === "${fx.name}"){
                 ${fx.def}
             }`;
     });
-    script += "return 0;}";
-    return script;
+    script += "return 0;";
+    return Function("i", script);
+}
+
+var formulas = (i)=>{
+    return 0;
 }
 
 function make_formulas(t,y,u){
-    if(dqs(".script_for_formulas")){
-        dqs(".script_for_formulas").outerHTML = "<script class='script_for_formulas'>" + getscript(t,y,u) + "</script>";
-    }else{
-        var el = document.createElement("script");
-        el.innerHTML = getscript(t,y,u);
-        el.classList.add("script_for_formulas");
-        dqs(".calc").appendChild(el);
-    }
+    formulas = getscript(t,y,u);
 }
 
 function menu_logo_absolute(){
@@ -9150,7 +9147,7 @@ function chf(){
     var p2 = dqs(".types__el.active").dataset.id;
     var p3 = dqs(".calc__params--radio.active").dataset.id;
     
-    make_formulas(p1,p2,p3);
+    make_formulas(p1, p2, p3);
     make_functions(p1, p2, p3);
 }
 
