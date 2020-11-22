@@ -1183,7 +1183,7 @@ var base = [
             {
                 subid : 1,
                 subname : "1 типа прямоугольное cечения",
-                subimg : "/imgs/subtypes/1_1.jpg",
+                subimg : "/imgs/subtypes/2_1.jpg",
                 select_type : [
                     {
                         select_id : 1,
@@ -1620,7 +1620,7 @@ var base = [
             {
                 subid : 2,
                 subname : "2 типа прямоугольное cечения",
-                subimg : "/imgs/subtypes/1_1.jpg",
+                subimg : "/imgs/subtypes/2_2.jpg",
                 select_type : [
                     {
                         select_id : 1,
@@ -1801,7 +1801,11 @@ var base = [
                         defs : [
                             {
                                 name : "S",
-                                def: 'return ((v("a")/360)*(Math.PI*Math.pow((v("A")+v("r")),2)-Math.PI*Math.pow(v("r"),2)+2*Math.PI*(v("A")+v("r"))*v("B")+2*Math.PI*v("r")*v("B") )+200*(v("A")+v("B")))*(v("N"));'
+                                def: 'return v("N")*(v("a")/720*((Math.PI*(Math.pow(v("A") + v("r"),2))-Math.PI*Math.pow(v("r"),2))+2*Math.PI*(v("A") + v("r"))*v("B")+2*Math.PI*v("r")*v("B"))+100*(v("A")+v("B"))+v("a")/720*((Math.PI*(Math.pow(v("A2") + v("r"),2))-Math.PI*Math.pow(v("r"),2))+2*Math.PI*(v("A2") + v("r"))*v("B2")+2*Math.PI*v("r")*v("B2"))+100*(v("A2")+v("B2")));'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return (v("A")+v("B")+v("A2")+v("B2"))*2*v("N");'
                             },
                             {
                                 name : "N1",
@@ -1809,11 +1813,11 @@ var base = [
                             },
                             {
                                 name : "L2",
-                                def: 'return (v("A")+v("B"))*4*v("N")/2;'
+                                def: 'return v("L1")/2;'
                             },
                             {
                                 name : "N2",
-                                def: 'return 4*v("N")*(parseInt((v("A")-250)/250)+parseInt((v("B")-250)/250));'
+                                def: 'return 2*v("N")*(parseInt((v("A")-250)/250)+parseInt((v("B")-250)/250)+parseInt((v("A2")-250)/250)+parseInt((v("B2")-250)/250));'
                             },
                             {
                                 name : "N3",
@@ -1825,7 +1829,7 @@ var base = [
                             },
                             {
                                 name : "m2",
-                                def: 'return v("m1") + 0.04*v("N")*( v("A")+v("B") ) + v("N2")*0.05 + v("N3")*0.026;'
+                                def: 'return v("m1") + 0.02*v("N")(v("A")+v("B")+v("A2")+v("B2")) + v("N2")*0.05 + v("N3")*0.026;'
                             }
                         ],
                         formulas : [
@@ -1838,7 +1842,7 @@ var base = [
                                 unit : "{N1} шт."
                             },
                             {
-                                name : "Длина уплотнительной ленты необходимой для данного учаcтка:",
+                                name : "Длина уплотнительной ленты необходимой для данного участка:",
                                 unit : "{L2} м."
                             },
                             {
@@ -1914,11 +1918,27 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "A1",
+                                input_name : "Длина «A1»"
+                            },
+                            {
+                                input_id : 4,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
                                 input_def : "B",
                                 input_name : "Ширина «B»"
                             },
                             {
-                                input_id : 4,
+                                input_id : 5,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_def : "B1",
+                                input_name : "Ширина «B1»"
+                            },
+                            {
+                                input_id : 6,
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "o.",
@@ -1926,7 +1946,7 @@ var base = [
                                 input_name : "Угол поворота «a»",
                             },
                             {
-                                input_id : 5,
+                                input_id : 7,
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
@@ -1934,7 +1954,7 @@ var base = [
                                 input_name : "Внутренний радиуc «r»",
                             },
                             {
-                                input_id : 6,
+                                input_id : 8,
                                 input_type : "number",
                                 input_default : 1,
                                 input_unit : "шт.",
@@ -1950,11 +1970,15 @@ var base = [
                         defs : [
                             {
                                 name : "S",
-                                def: 'return ((v("a")/360)*(Math.PI*Math.pow((v("A")+v("r")),2)-Math.PI*Math.pow(v("r"),2)+2*Math.PI*(v("A")+v("r"))*v("B")+2*Math.PI*v("r")*v("B") )+200*(v("A")+v("B")))*(v("N"));'
+                                def: 'return v("N")*(v("a")/720*((Math.PI*(Math.pow(v("A") + v("r"),2))-Math.PI*Math.pow(v("r"),2))+2*Math.PI*(v("A") + v("r"))*v("B")+2*Math.PI*v("r")*v("B"))+100*(v("A")+v("B"))+v("a")/720*((Math.PI*(Math.pow(v("A2") + v("r"),2))-Math.PI*Math.pow(v("r"),2))+2*Math.PI*(v("A2") + v("r"))*v("B2")+2*Math.PI*v("r")*v("B2"))+100*(v("A2")+v("B2")));'
+                            },
+                            {
+                                name : "L1",
+                                def: 'return (v("A")+v("B")+v("A2")+v("B2"))*2*v("N");'
                             },
                             {
                                 name : "L2",
-                                def: 'return (v("A")+v("B"))*2*v("N");'
+                                def: 'return v("L1")/2;'
                             },
                             {
                                 name : "m1",
@@ -2039,11 +2063,27 @@ var base = [
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
+                                input_def : "A1",
+                                input_name : "Длина «A1»"
+                            },
+                            {
+                                input_id : 4,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
                                 input_def : "B",
                                 input_name : "Ширина «B»"
                             },
                             {
-                                input_id : 4,
+                                input_id : 5,
+                                input_type : "number",
+                                input_default : 0,
+                                input_unit : "мм.",
+                                input_def : "B1",
+                                input_name : "Ширина «B1»"
+                            },
+                            {
+                                input_id : 6,
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "o.",
@@ -2051,7 +2091,7 @@ var base = [
                                 input_name : "Угол поворота «a»",
                             },
                             {
-                                input_id : 5,
+                                input_id : 7,
                                 input_type : "number",
                                 input_default : 0,
                                 input_unit : "мм.",
@@ -2059,7 +2099,7 @@ var base = [
                                 input_name : "Внутренний радиуc «r»",
                             },
                             {
-                                input_id : 6,
+                                input_id : 8,
                                 input_type : "number",
                                 input_default : 1,
                                 input_unit : "шт.",
