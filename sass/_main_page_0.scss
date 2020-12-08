@@ -24,8 +24,8 @@
         position: absolute;
         width: 800px;
         max-width: 60vw;
-        bottom: 0;
-        right: 0;
+        bottom: -80px;
+        right: -80px;
         min-width: 300px;
         display: flex;
         overflow: hidden;
@@ -35,5 +35,4 @@
         }
     }
 }
-
 

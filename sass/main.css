@@ -1103,8 +1103,8 @@ svg .animated {
   position: absolute;
   width: 800px;
   max-width: 60vw;
-  bottom: 0;
-  right: 0;
+  bottom: -80px;
+  right: -80px;
   min-width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1168,12 +1168,6 @@ svg .animated {
           flex-direction: row;
   margin-left: 21vw;
   overflow-y: hidden;
-}
-
-.secv__smsl:hover::-webkit-scrollbar {
-  height: 12px;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
 }
 
 .secv__smsl::-webkit-scrollbar {
@@ -1509,6 +1503,22 @@ svg .animated {
 
 .page_index_4 .btn .btn__img {
   margin-left: 20px;
+}
+
+.page_index_4 .btn__main.active::before {
+  background-color: #ED1C24;
+}
+
+.page_index_4 .btn__main::before {
+  background-color: #5f5f5f;
+}
+
+.page_index_4 .btn__main:hover::before {
+  width: 30%;
+}
+
+.page_index_4 .btn__main.active:hover::before {
+  width: 100%;
 }
 
 .page_index_4-inside {

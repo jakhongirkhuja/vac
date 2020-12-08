@@ -13,6 +13,21 @@
         }
     }
 
+    .btn__main{
+        &.active::before{
+            background-color: $red;
+        } 
+        &::before{
+            background-color: #5f5f5f;
+        }
+        &:hover::before{
+            width: 30%;
+        }
+        &.active:hover::before{
+            width: 100%;
+        }
+    }
+
     &-inside {
         flex: 1;
 

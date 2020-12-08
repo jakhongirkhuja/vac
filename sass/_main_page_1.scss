@@ -31,11 +31,6 @@
         flex-direction: row;
         margin-left: 21vw;
         overflow-y: hidden;
-
-        &:hover::-webkit-scrollbar{
-            height: 12px;
-            transition: all 0.4s;
-        }
         
         &::-webkit-scrollbar{
             background-color: transparent;

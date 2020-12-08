@@ -10553,6 +10553,36 @@ function slide_right_btn(){
     slide_right();
 }
 
+if(dqs(".secv__smsl") && !(dqs(".secv__smsl").length)){
+    var smsl = dqs(".secv__smsl");
+    smsl.onwheel = (e)=>{
+        var chlen = smsl.scrollLeft;
+        
+        smsl.scrollTo(smsl.scrollLeft + e.deltaY,0);   
+        if(chlen - smsl.scrollLeft !== 0){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }
+}
+
+if(dqs(".page_index_4")){
+    var fr = dqs(".page_index_4 form");
+    fr.onkeyup = ()=>{
+        var aniq = true;
+        fr.querySelectorAll("input").forEach(t=>{
+            if(!t.checkValidity()){
+                aniq = false;
+            }
+        });
+        if(aniq){
+            fr.querySelector(".btn__main").classList.add("active");
+        }else{
+            fr.querySelector(".btn__main").classList.remove("active");
+        }
+    }
+}
+
 window.onload = function(){
     dqs(".prel").classList.remove("active");
     setTimeout(()=>{
