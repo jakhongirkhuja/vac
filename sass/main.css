@@ -10,6 +10,10 @@ body, html {
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
@@ -994,7 +998,6 @@ svg .animated {
   height: 100vh;
   top: 0;
   right: -600px;
-  background-color: #ED1C24;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1010,6 +1013,32 @@ svg .animated {
 
 .mlist.active {
   right: 0;
+}
+
+.mlist__before {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #ED1C24;
+}
+
+.mlist__after {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100vw;
+  background-color: #ffffff56;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  z-index: -2;
+}
+
+.mlist.active .mlist__after {
+  left: 0;
 }
 
 .mlist__big {
@@ -1227,6 +1256,15 @@ svg .animated {
   left: 0px;
   width: 400px;
   max-width: 25vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .page_index_2-grid {

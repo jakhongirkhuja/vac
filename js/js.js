@@ -10416,13 +10416,17 @@ function flamie(){
 }
 flamie();
 
+function remn(){
+    dqs(".mlist").classList.toggle("active");
+    dqs(".menu").classList.toggle("posf");
+    dqs(".menu__ins").classList.toggle("active");
+    dqs(".menu__hid").classList.toggle("active");
+}
+
 var burger = dqs(".menu");
 if(burger){
     burger.addEventListener("click", ()=>{
-        dqs(".mlist").classList.toggle("active");
-        dqs(".menu").classList.toggle("posf");
-        dqs(".menu__ins").classList.toggle("active");
-        dqs(".menu__hid").classList.toggle("active");
+        remn();
     });
 }
 
@@ -10581,6 +10585,17 @@ if(dqs(".page_index_4")){
             fr.querySelector(".btn__main").classList.remove("active");
         }
     }
+}
+
+if(dqs(".mlist")){
+    dqs(".mlist").innerHTML += "<div class='mlist__before'></div><div class='mlist__after'></div>";
+    dqs(".mlist").onwheel = (ev)=>{
+        ev.preventDefault();
+        ev.stopPropagation();
+    };
+    dqs(".mlist__after").addEventListener("click", ()=>{
+        remn();
+    });
 }
 
 window.onload = function(){
