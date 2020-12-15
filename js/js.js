@@ -81,7 +81,7 @@ var scrollEventCatch = (event)=>{
         scrollLock = false;
         setTimeout(()=>{
             scrollLock = true;
-        }, 1000);
+        }, 2000);
     }
 }
 
