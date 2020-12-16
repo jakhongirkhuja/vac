@@ -10570,7 +10570,7 @@ if(dqs(".secv__smsl") && !(dqs(".secv__smsl").length)){
     }
 }
 
-if(dqs(".page_index_4")){
+if(dqs(".page_index_4 form")){
     var fr = dqs(".page_index_4 form");
     fr.onkeyup = ()=>{
         var aniq = true;
