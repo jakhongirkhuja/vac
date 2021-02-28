@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/sass/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onscroll="myfunction">
     <div class="menu">
         <div class="menu__ins">
             <div class="menu__ins--line menu__ins--up"></div>
@@ -57,199 +57,65 @@
     </style>
 
 
-    <div class="aboutus">
-        <div class="aboutus__main">
-            <div class="aboutus__main--front">
-                <div class="aboutus__main--first">
-                    <img src="/vac-icon.svg" alt="vac-icon">
-                    <h5>Фабрика по производству воздуховодов для систем вентиляции</h5>
+    <div class="aboutUs" onscroll="myfunction" style="background-color: #272E5B;">
+        <div class="container">
+            <div class="aboutUs__header">
+                <div class="aboutUs__header--title">
+                    <h1>Ventilation <br>and air <br>conditioning</h1>
+                    <p>одна из самых крупных производителей воздуховодов и комплектующих для систем вентиляции в Узбекистане
+                        Компания начала свою деятельность в 2014 году и за короткое время вывела собственное производство на уровень ведущих предприятий отрасли. Близость к потребителю и понимание его потребностей является нашим конкурентным преимуществом. Ведь благодаря накопленному опыту мы с успехом решаем задачи любой 
+                        </p>
                 </div>
-                <div class="aboutus__main--second">
-                    <h1>Ventilation and air conditioning</h1>
-                    <div class="text-l">
-                        Фабрика воздуховодов. Мы производим воздуховоды из оцинкованной и нержавеющей стали, сварные воздуховоды дымоудаления из черного метала и комплектующие для вентиляционных систем. В структуру нашей компании входят четыре производственных цеха , каждый из которых укомплектован современным оборудованием
+                <div class="aboutUs__header--anim">
+                    <div class="aboutUs__header--img">
+                        <div class="factory__clouds">
+                            <img class="" src="imgs/cloud4.svg" width="124">
+                            <img class="" src="imgs/cloud3.svg" width="84">
+                            <img class="" src="imgs/cloud2.svg" width="62">
+                            <img class="" src="imgs/cloud1.svg" width="21">
+                        </div>
+                        <div class="factory__base">
+                            <img src="imgs/factory.svg">
+                        </div>
+                        <script>
+                            var imgs= document.querySelectorAll('.factory__clouds img');
+                            console.log(imgs);
+                            setInterval(function(){
+                                setTimeout(function() {
+                                    imgs[3].classList.add('active');
+                                    setTimeout(function() {
+                                        imgs[2].classList.add('active');
+                                            setTimeout(function() {
+                                            imgs[1].classList.add('active');
+                                                setTimeout(function() {
+                                                imgs[0].classList.add('active');
+
+                                                setTimeout(function() {
+                                                   
+                                                    imgs.forEach(element => {
+                                                    element.classList.remove('active');
+                                                   });
+                                                }, 1000);
+                                            }, 1000);
+                                        }, 1000);
+                                    }, 1000);
+                                }, 1000);
+                            }, 5500);
+                        </script>
+                        
                     </div>
                 </div>
+             </div>
+        </div>
+        <div class="aboutUs__und">
+            <div class="container">
+                <h2>ВИды наших услуг</h2>
+                <p>Изготовление воздуховодов для всех систем</p>
+                <p>Монтаж воздуховодов</p>
+                <p>Изготовление и поставка комплектующей фурнитуры</p>
+                <p>Поставка оборудований систем вентиляции</p>
+                <p>Система ОВиК под ключ</p>
             </div>
-            <svg width="1366" height="1685" viewBox="0 0 1366 1685" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0)">
-                    <line y1="805.5" x2="1366" y2="805.5" stroke="#DAB679"/>
-                    <g clip-path="url(#clip1)" filter="url(#filter0_d)">
-                        <rect x="186" y="965" width="210" height="199" fill="#004979"/>
-                        
-                        <image class="boxanim2" x="251.5" y="1025.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim2" x="251.5" y="1025.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim2" x="379.5" y="1025.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim2" x="379.5" y="1025.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim2" x="123.5" y="1025.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim2" x="123.5" y="1025.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <rect x="186" y="1113" width="210" height="8" fill="#DAB679"/>
-                        <rect class="boxanim2" x="351" y="1104" width="8" height="10" fill="#DAB679"/>
-                        <rect class="boxanim2" x="223" y="1103" width="8" height="10" fill="#DAB679"/>
-                    </g>
-                    <g clip-path="url(#clip11)" filter="url(#filter1_d)">
-                        <rect x="98" y="1323" width="210" height="199" fill="#003F79"/>
-                        <image class="boxanim2" x="163.5" y="1383.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim2" x="163.5" y="1383.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim2" x="291.5" y="1383.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim2" x="291.5" y="1383.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim2" x="35.5" y="1383.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim2" x="35.5" y="1383.5" width="79" height="79" stroke="#DAB679"/>
-
-                        <rect x="98" y="1471" width="210" height="8" fill="#DAB679"/>
-                        <rect class="boxanim2" x="263" y="1462" width="8" height="10" fill="#DAB679"/>
-                        <rect class="boxanim2" x="135" y="1462" width="8" height="10" fill="#DAB679"/>
-                    </g>
-                    <!-- <rect x="1034" y="952" width="210" height="199" fill="#2E366B"/> -->
-                    <g clip-path="url(#clip12)" filter="url(#filter2_d)">
-                        <rect x="1034" y="952" width="210" height="199" fill="#2E366B"/>
-                        <image class="boxanim3" x="1099.5" y="1012.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim3" x="1099.5" y="1012.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim3" x="1227.5" y="1012.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim3" x="1227.5" y="1012.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim3" x="971.5" y="1012.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim3" x="971.5" y="1012.5" width="79" height="79" stroke="#DAB679"/>
-
-                        <rect x="1034" y="1100" width="210" height="8" fill="#DAB679"/>
-                        <rect class="boxanim3" x="1199" y="1091" width="8" height="10" fill="#DAB679"/>
-                        <rect class="boxanim3" x="1071" y="1091" width="8" height="10" fill="#DAB679"/>
-                    </g>
-                    <!-- <rect x="968" y="1399" width="210" height="199" fill="#004979"/> -->
-                    <g clip-path="url(#clip13)" filter="url(#filter3_d)">
-                        <rect x="968" y="1399" width="210" height="199" fill="#004979"/>
-                        <image class="boxanim3" x="1033.5" y="1459.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim3" x="1033.5" y="1459.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim3" x="1161.5" y="1459.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim3" x="1161.5" y="1459.5" width="79" height="79" stroke="#DAB679"/>
-                        
-                        <image class="boxanim3" x="905.5" y="1459.5" href="/fram.svg" height="79" width="79"/>
-                        <rect class="boxanim3" x="905.5" y="1459.5" width="79" height="79" stroke="#DAB679"/>
-
-                        <rect x="968" y="1547" width="210" height="8" fill="#DAB679"/>
-                        <rect class="boxanim3" x="1133" y="1538" width="8" height="10" fill="#DAB679"/>
-                        <rect class="boxanim3" x="1005" y="1538" width="8" height="10" fill="#DAB679"/>
-                    </g>
-
-                    <g clip-path="url(#clip2)">
-                        <path d="M245 374.5H272L359 715H158L245 374.5Z" fill="#CCCCCC" fill-opacity="0.6"/>
-                        <rect x="255.5" y="308.5" width="6" height="60" fill="#3A3A3C"/>
-                        <rect x="245" y="368.5" width="27" height="6" fill="#3A3A3C"/>
-                        <path d="M491 374.5H518L605 715H404L491 374.5Z" fill="#CCCCCC" fill-opacity="0.6"/>
-                        <rect x="501.5" y="308.5" width="6" height="60" fill="#3A3A3C"/>
-                        <rect x="491" y="368.5" width="27" height="6" fill="#3A3A3C"/>
-                        <path d="M848 374.5H875L962 715H761L848 374.5Z" fill="#CCCCCC" fill-opacity="0.6"/>
-                        <rect x="858.5" y="308.5" width="6" height="60" fill="#3A3A3C"/>
-                        <rect x="848" y="368.5" width="27.0001" height="6" fill="#3A3A3C"/>
-                        <path d="M1094 374.5H1121L1208 715H1007L1094 374.5Z" fill="#CCCCCC" fill-opacity="0.6"/>
-                        <rect x="1104.5" y="308.5" width="6" height="60" fill="#3A3A3C"/>
-                        <rect x="1094" y="368.5" width="27.0001" height="6" fill="#3A3A3C"/>
-                        <rect x="83" y="715" width="1200" height="90" fill="#2E366B"/>
-                        <rect x="83" y="409" width="1200" height="36" fill="#2E366B"/>
-                        <rect class="box" x="47.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="143.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="239.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="335.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="431.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="527.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="623.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="719.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="815.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="911.5" y="600" width="35.0001" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="1007.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="1103.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <rect class="box" x="1199.5" y="600" width="35" height="35" stroke="#DAB679"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M683 118.001L113 379.266V775H1253V379.266L683 118.001ZM1283 360.016L683 85L83 360.016V805H1283V360.016Z" fill="#2E366B"/>
-                        <line x1="113" y1="647" x2="1253" y2="647" stroke="#DAB679"/>
-                        <rect x="458" y="-35" width="450" height="840" fill="#2A336F"/>
-                        <path d="M197 -165.5H248L275 272.5L170 325L197 -165.5Z" fill="#2E366B"/>
-                    </g>
-                    <line y1="1064.5" x2="186" y2="1064.5" stroke="#DAB679"/>
-                    <line x1="397" y1="1064.5" x2="484" y2="1064.5" stroke="#DAB679"/>
-                    <line x1="483.5" y1="955" x2="483.5" y2="937" stroke="#DAB679"/>
-                    <line x1="465" y1="955.5" x2="483" y2="955.5" stroke="#DAB679"/>
-                    <line x1="483" y1="1534.5" x2="451" y2="1534.5" stroke="#DAB679"/>
-                    <line x1="483.5" y1="1553" x2="483.5" y2="1535" stroke="#DAB679"/>
-                    <line x1="882.5" y1="1535" x2="882.5" y2="1553" stroke="#DAB679"/>
-                    <line x1="901" y1="1534.5" x2="883" y2="1534.5" stroke="#DAB679"/>
-                    <line x1="882.995" y1="955.5" x2="930" y2="955.5" stroke="#DAB679"/>
-                    <line x1="882.5" y1="937" x2="882.5" y2="955.487" stroke="#DAB679"/>
-                    <line x1="1244" y1="1051.5" x2="1366" y2="1051.5" stroke="#DAB679"/>
-                    <line x1="883" y1="1051.5" x2="1034" y2="1051.5" stroke="#DAB679"/>
-                    <line x1="1178" y1="1498.5" x2="1366" y2="1498.5" stroke="#DAB679"/>
-                    <line x1="883" y1="1498.5" x2="968" y2="1498.5" stroke="#DAB679"/>
-                    <line y1="1430.5" x2="98" y2="1430.5" stroke="#DAB679"/>
-                    <line x1="308" y1="1430.5" x2="483" y2="1430.5" stroke="#DAB679"/>
-                    <line x1="682.5" y1="1705.5" x2="682.5" y2="1528.5" stroke="#DAB679"/>
-                    <rect x="483.5" y="955.5" width="399" height="579" stroke="#DAB679"/>
-                </g>
-                <defs>
-                    <filter id="filter0_d" x="183" y="962" width="220" height="209" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dx="2" dy="2"/>
-                        <feGaussianBlur stdDeviation="2.5"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                    </filter>
-                    <filter id="filter1_d" x="95" y="1320" width="220" height="209" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dx="2" dy="2"/>
-                        <feGaussianBlur stdDeviation="2.5"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                    </filter>
-                    <filter id="filter2_d" x="1031" y="949" width="220" height="209" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dx="2" dy="2"/>
-                        <feGaussianBlur stdDeviation="2.5"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                    </filter>
-                    <filter id="filter3_d" x="965" y="1396" width="220" height="209" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dx="2" dy="2"/>
-                        <feGaussianBlur stdDeviation="2.5"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                    </filter>
-                    <clipPath id="clip0">
-                        <rect width="1366" height="1685" fill="white"/>
-                    </clipPath>
-                    <clipPath id="clip1">
-                        <rect width="210" height="199" fill="white" transform="translate(186 965)"/>
-                    </clipPath>
-                    <clipPath id="clip11">
-                        <rect width="210" height="199" fill="white" transform="translate(98 1323)"/>
-                    </clipPath>
-                    <clipPath id="clip12">
-                        <rect width="210" height="199" fill="white" transform="translate(1034 952)"/>
-                    </clipPath>
-                    <clipPath id="clip13">
-                        <rect width="210" height="199" fill="white" transform="translate(968 1399)"/>
-                    </clipPath>
-                    <clipPath id="clip2">
-                        <rect width="1200" height="970.5" fill="white" transform="translate(83 -165.5)"/>
-                    </clipPath>
-                    <clipPath id="clip3">
-                        <rect width="210" height="210" fill="white" transform="translate(578 115)"/>
-                    </clipPath>
-                </defs>
-            </svg>
         </div>
         <div class="aboutus__how">
             <div class="aboutus__how--head">
@@ -294,9 +160,20 @@
                     </div>
                     <h4>Заказ готов</h4>
                 </div>
-                <div class="aboutus__how--card c6">
-                    <div class="glo">
-                        <img src="/c5.svg" alt="svg pic">
+                <div id="counting" class="aboutus__how--card c6">
+                    <div class="glo numbers__body">
+                        <div class="numbers__each first">
+                            <p>В длинну</p>
+                            <p id="longt">120 000 m</p>
+                        </div>
+                        <div class="numbers__each center">
+                            <p>В массу</p>
+                            <p id="longt2">6 000 t</p>
+                        </div>
+                        <div class="numbers__each last">
+                            <p>В объёме</p>
+                            <p id="longt3">240 000 m^2</p>
+                        </div>
                     </div>
                     <h4>Наши цифры по сей день</h4>
                 </div>
@@ -484,6 +361,386 @@
 
         </div>
     </div>
+    <div class="way">
+        <div class="container">
+            <h2 class="way__title">Наш путь</h2>
+            <div class="way__periods">
+                <div class="way__periods--each">
+                    <div class="way__periods-click" data-id="period_body1"><div class="way__periods-click--item long"></div></div>
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
+                </div>
+                <div class="way__periods--each active">
+                    <div class="way__periods-click" data-id="period_body2"><div class="way__periods-click--item long"></div></div>
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
+                </div>
+                <div class="way__periods--each">
+                    <div class="way__periods-click" data-id="period_body3"><div class="way__periods-click--item long"></div></div>
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
+                </div>
+                <div class="way__periods--each">
+                    <div class="way__periods-click" data-id="period_body4"><div class="way__periods-click--item long"></div></div>
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
+                </div>
+                <div class="way__periods--each">
+                    <div class="way__periods-click" data-id="period_body5"><div class="way__periods-click--item long"></div></div>
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
+                </div>
+                <div class="way__periods--each">
+                    <div class="way__periods-click " data-id="period_body6"><div class="way__periods-click--item long"></div></div>
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
+                    <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
+                </div>
+            </div>
+        </div>
+        <div class="way__hr">
+            <div class="way__hr--button"></div>
+        </div>
+        <div class="way__body">
+            
+            <div class="way__body--each" id="period_body1">
+                <div class="way__body--info">
+                    <div class="way__body--year">
+                        <p>20<br>19</p>
+                    </div>
+                    <div class="way__body--text">
+                        <img src="imgs/project.svg">
+                        <p>Реконструкция здания медицинское управления МВД Республики Узбекистан</p>
+                    </div>
+                </div>
+                <div class="way__body--img">
+                    <svg width="170" height="60" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="29.5" x2="170" y2="29.5" stroke="#DAB679"/>
+                        <rect x="35.9204" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="108.772" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="73.3579" y="36.5" width="23.284" height="23" stroke="#DAB679"/>
+                    </svg>
+                    
+                </div>
+            </div>
+            <div class="way__body--each active" id="period_body2">
+                <div class="way__body--info">
+                    <div class="way__body--year">
+                        <p>20<br>19</p>
+                    </div>
+                    <div class="way__body--text">
+                        <img src="imgs/project.svg">
+                        <p>Реконструкция здания медицинское управления МВД Республики Узбекистан</p>
+                    </div>
+                </div>
+                <div class="way__body--img">
+                    <svg width="170" height="60" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="29.5" x2="170" y2="29.5" stroke="#DAB679"/>
+                        <rect x="35.9204" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="108.772" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="73.3579" y="36.5" width="23.284" height="23" stroke="#DAB679"/>
+                    </svg>
+                    
+                </div>
+            </div>
+            <div class="way__body--each" id="period_body3">
+                <div class="way__body--info">
+                    <div class="way__body--year">
+                        <p>20<br>19</p>
+                    </div>
+                    <div class="way__body--text">
+                        <img src="imgs/project.svg">
+                        <p>Реконструкция здания медицинское управления МВД Республики Узбекистан</p>
+                    </div>
+                </div>
+                <div class="way__body--img">
+                    <svg width="170" height="60" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="29.5" x2="170" y2="29.5" stroke="#DAB679"/>
+                        <rect x="35.9204" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="108.772" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="73.3579" y="36.5" width="23.284" height="23" stroke="#DAB679"/>
+                    </svg>
+                    
+                </div>
+            </div>
+            <div class="way__body--each" id="period_body4">
+                <div class="way__body--info">
+                    <div class="way__body--year">
+                        <p>20<br>19</p>
+                    </div>
+                    <div class="way__body--text">
+                        <img src="imgs/project.svg">
+                        <p>Реконструкция здания медицинское управления МВД Республики Узбекистан</p>
+                    </div>
+                </div>
+                <div class="way__body--img">
+                    <svg width="170" height="60" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="29.5" x2="170" y2="29.5" stroke="#DAB679"/>
+                        <rect x="35.9204" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="108.772" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="73.3579" y="36.5" width="23.284" height="23" stroke="#DAB679"/>
+                    </svg>
+                    
+                </div>
+            </div>
+            <div class="way__body--each" id="period_body5">
+                <div class="way__body--info">
+                    <div class="way__body--year">
+                        <p>20<br>19</p>
+                    </div>
+                    <div class="way__body--text">
+                        <img src="imgs/project.svg">
+                        <p>Реконструкция здания медицинское управления МВД Республики Узбекистан</p>
+                    </div>
+                </div>
+                <div class="way__body--img">
+                    <svg width="170" height="60" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="29.5" x2="170" y2="29.5" stroke="#DAB679"/>
+                        <rect x="35.9204" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="108.772" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="73.3579" y="36.5" width="23.284" height="23" stroke="#DAB679"/>
+                    </svg>
+                    
+                </div>
+            </div>
+            <div class="way__body--each" id="period_body6">
+                <div class="way__body--info">
+                    <div class="way__body--year">
+                        <p>20<br>19</p>
+                    </div>
+                    <div class="way__body--text">
+                        <img src="imgs/project.svg">
+                        <p>Реконструкция здания медицинское управления МВД Республики Узбекистан</p>
+                    </div>
+                </div>
+                <div class="way__body--img">
+                    <svg width="170" height="60" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="29.5" x2="170" y2="29.5" stroke="#DAB679"/>
+                        <rect x="35.9204" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="108.772" y="0.5" width="23.284" height="23" stroke="#DAB679"/>
+                        <rect x="73.3579" y="36.5" width="23.284" height="23" stroke="#DAB679"/>
+                    </svg>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var periodDate = document.querySelector('.way__periods-click.active');
+        var periodButton = document.querySelector('.way__hr--button');
+        periodButton.style.left=(periodDate.offsetLeft-4)+'px';
+        
+        var allPeriodDate = document.querySelectorAll('.way__periods-click');
+
+        function changePeriodBody(){
+            var periodBody = document.querySelector('.way__body');
+            var periodBodyActive = document.querySelector('.way__body--each.active');
+            periodBody.style.left = 170-periodBodyActive.offsetLeft+'px';
+        }
+        allPeriodDate.forEach(element => {
+            element.addEventListener('click',function(){
+                var periodDateActive = document.querySelector('.way__periods-click.active');
+                periodDateActive.classList.remove('active');
+                this.classList.add('active');
+                var fetchId = this.getAttribute('data-id');
+                if(fetchId!=null){
+                    console.log(fetchId);
+                    document.querySelector('.way__body--each.active').classList.remove('active');
+                    document.querySelector('#'+fetchId).classList.add('active');
+                    changePeriodBody();
+                }
+                
+                periodButton.style.left=(this.offsetLeft-4)+'px';
+            });    
+        });
+
+        changePeriodBody();
+        
+        
+        // console.log();
+    </script>
+    <div class="cal_app">
+        <div class="cal_app--container">
+            <div class="cal_app__each">
+                <div class="cal_app__each--title">
+                    <h2>VAC<br>Calculator<br>APP</h2>
+                </div>
+                <div class="cal_app__each--undertitle">
+                    <h3>Flat<br>iPhone<br>Mockup</h3>
+                    <p>by Space Labs</p>
+                </div>
+                <div class="cal_app__each--button">
+                    <a href="" class="aboutus__click--calbtn">скачать наше приложение</a>
+                </div>
+                
+                
+            </div>
+            <div class="cal_app__each">
+                <div class="slides">
+                    <div class="slide">
+                      <img src="imgs/mobile.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                      <img src="imgs/mobile.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                      <img src="imgs/mobile.jpg" alt="" />
+                    </div>
+                    <div class="slide">
+                      <img src="imgs/mobile.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="slide-controls">
+                    
+                <img  id="prev-btn" src="imgs/arr_about.svg">
+                <img  id="next-btn" src="imgs/arr_about.svg">
+               
+            </div>
+        </div>
+    </div>
+    <script>
+const slide = document.querySelector('.slides');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+let slideId;
+
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.id = 'first-clone';
+lastClone.id = 'last-clone';
+
+slide.append(firstClone);
+slide.prepend(lastClone);
+document.querySelectorAll('.slide')[0].classList.add('active');
+const slideWidth = 125;
+
+const getSlides = () => document.querySelectorAll('.slide');
+
+
+
+
+
+
+const moveToNextSlide = () => {
+  slides = getSlides();
+  if (index >= slides.length - 1) return;
+  slides.forEach(element => {
+    element.classList.remove('active');
+  });
+  slides[index+1].classList.add('active');
+  index++;
+
+  slide.style.transition = '.7s ease-out';
+  slide.style.transform = `translateX(${-slideWidth * (index*2)}px)`;
+
+};
+
+const moveToPreviousSlide = () => {
+    slides = getSlides();
+  if (index <= 0) return;
+  slides.forEach(element => {
+    element.classList.remove('active');
+  });
+  index--;
+  slides[index].classList.add('active');
+  slide.style.transition = '.7s ease-out';
+  slide.style.transform = `translateX(${-slideWidth * index*2}px)`;
+};
+nextBtn.addEventListener('click', moveToNextSlide);
+prevBtn.addEventListener('click', moveToPreviousSlide);
+
+    </script>
+    <div class="leaders">
+        <div class="container">
+            <div class="leaders__title">
+                <h2>Команда</h2>
+            </div>
+            <div class="leaders__body">
+                <div class="leaders__each">
+                    <img src="imgs/leaders/1.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/2.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/3.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/4.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/5.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/6.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/7.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+                <div class="leaders__each">
+                    <img src="imgs/leaders/8.jpg">
+                    <p>Усманов Музаффар</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var inside = true;
+      	function cAnimate(id, start, end, frameDelay = 100, mul = 1.2) {
+    var obj = document.getElementById(id);
+    var increment = 2;
+    var current = start;
+    var timer = setInterval(function() {
+        current += increment;
+        increment *= mul;
+        if (current >= end) {
+            current = end;
+            clearInterval(timer);
+        }
+
+        obj.innerHTML = Math.floor(current).toLocaleString('fi-FI');
+
+    }, frameDelay);
+}   
+      var he = document.getElementById('counting').offsetTop;
+      
+      document.querySelector('body').addEventListener('scroll', function(event) {
+        
+        if(inside && he < this.scrollTop-800){
+            cAnimate("longt", 1, 120000, 50);
+            cAnimate("longt2", 1, 6000, 50);
+            cAnimate("longt3", 1, 240000, 50);
+            inside = false;
+        }
+    });
+
+
+function myfunction(){
+    console.log('asd');
+}
+    </script>
     <div class="page_footer">
         <div class="page_footer__items">
             <div class="page_footer__items-lang">
