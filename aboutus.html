@@ -372,8 +372,8 @@
                     <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
                     <div class="way__periods-click"><div class="way__periods-click--item"></div></div>        
                 </div>
-                <div class="way__periods--each active">
-                    <div class="way__periods-click" data-id="period_body2"><div class="way__periods-click--item long"></div></div>
+                <div class="way__periods--each ">
+                    <div class="way__periods-click active" data-id="period_body2"><div class="way__periods-click--item long"></div></div>
                     <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
                     <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
                     <div class="way__periods-click"><div class="way__periods-click--item"></div></div> 
@@ -413,7 +413,40 @@
             <div class="way__hr--button"></div>
         </div>
         <div class="way__body">
-            
+            <div class="way__body--sticky-parent">
+                <div class="way__body--sticky">
+                    <div class="way__body--sticky_each">
+                        <div class="way__body--sticky-circle" data-id="period_body1">
+                            <div class="way__body--sticky-inside"></div>
+                        </div>
+                    </div>
+                    <div class="way__body--sticky_each">
+                        <div class="way__body--sticky-circle active" data-id="period_body2">
+                            <div class="way__body--sticky-inside"></div>
+                        </div>
+                    </div>
+                    <div class="way__body--sticky_each">
+                        <div class="way__body--sticky-circle" data-id="period_body3">
+                            <div class="way__body--sticky-inside"></div>
+                        </div>
+                    </div>
+                    <div class="way__body--sticky_each">
+                        <div class="way__body--sticky-circle" data-id="period_body4">
+                            <div class="way__body--sticky-inside"></div>
+                        </div>
+                    </div>
+                    <div class="way__body--sticky_each">
+                        <div class="way__body--sticky-circle" data-id="period_body5">
+                            <div class="way__body--sticky-inside"></div>
+                        </div>
+                    </div>
+                    <div class="way__body--sticky_each">
+                        <div class="way__body--sticky-circle" data-id="period_body6">
+                            <div class="way__body--sticky-inside"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="way__body--each" id="period_body1">
                 <div class="way__body--info">
                     <div class="way__body--year">
@@ -537,6 +570,36 @@
         </div>
     </div>
     <script>
+        if(screen.height > screen.width){
+            var vaybodyeachMobile = document.querySelectorAll('.way__body--each');
+            var arr = [];
+           
+            document.querySelector('body').addEventListener('scroll', function(event) {
+                var counter = 0;
+                    vaybodyeachMobile.forEach((element, index) =>{
+                    
+                        if(this.scrollTop>vaybodyeachMobile[0].offsetParent.offsetTop+element.offsetTop){
+                            var l = document.querySelectorAll('.way__body--sticky-circle');
+                            l.forEach(element => {
+                                element.classList.remove('active');
+                            });
+                            // document.querySelector('#'+arr[arr.length-1]).classList.add('active');
+                            arr.push(element.id)
+                            if(counter==0){
+                                console.log(arr[arr.length-1]);
+                                counter++;
+                            }
+                            
+                        }else{
+                            counter  = 0;
+                        }
+                   
+                    });
+                        
+                
+        
+                });
+        }
         var periodDate = document.querySelector('.way__periods-click.active');
         var periodButton = document.querySelector('.way__hr--button');
         periodButton.style.left=(periodDate.offsetLeft-4)+'px';
@@ -544,10 +607,20 @@
         var allPeriodDate = document.querySelectorAll('.way__periods-click');
 
         function changePeriodBody(){
-            var periodBody = document.querySelector('.way__body');
+            if (screen.height < screen.width){
+
+                var periodBody = document.querySelector('.way__body');
             var periodBodyActive = document.querySelector('.way__body--each.active');
             periodBody.style.left = 170-periodBodyActive.offsetLeft+'px';
+            }
+            
         }
+
+
+
+        
+
+
         allPeriodDate.forEach(element => {
             element.addEventListener('click',function(){
                 var periodDateActive = document.querySelector('.way__periods-click.active');
@@ -709,37 +782,35 @@ prevBtn.addEventListener('click', moveToPreviousSlide);
     <script>
         var inside = true;
       	function cAnimate(id, start, end, frameDelay = 100, mul = 1.2) {
-    var obj = document.getElementById(id);
-    var increment = 2;
-    var current = start;
-    var timer = setInterval(function() {
-        current += increment;
-        increment *= mul;
-        if (current >= end) {
-            current = end;
-            clearInterval(timer);
-        }
+            var obj = document.getElementById(id);
+            var increment = 2;
+            var current = start;
+            var timer = setInterval(function() {
+                current += increment;
+                increment *= mul;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(timer);
+                }
 
-        obj.innerHTML = Math.floor(current).toLocaleString('fi-FI');
+                obj.innerHTML = Math.floor(current).toLocaleString('fi-FI');
 
-    }, frameDelay);
-}   
-      var he = document.getElementById('counting').offsetTop;
-      
-      document.querySelector('body').addEventListener('scroll', function(event) {
+            }, frameDelay);
+        }   
+        var he = document.getElementById('counting').offsetTop;
+        document.querySelector('body').addEventListener('scroll', function(event) {
+            if(inside && he < this.scrollTop-800){
+                cAnimate("longt", 1, 120000, 50);
+                cAnimate("longt2", 1, 6000, 50);
+                cAnimate("longt3", 1, 240000, 50);
+                inside = false;
+            }
+        });
         
-        if(inside && he < this.scrollTop-800){
-            cAnimate("longt", 1, 120000, 50);
-            cAnimate("longt2", 1, 6000, 50);
-            cAnimate("longt3", 1, 240000, 50);
-            inside = false;
+        
+        function myfunction(){
+            console.log('asd');
         }
-    });
-
-
-function myfunction(){
-    console.log('asd');
-}
     </script>
     <div class="page_footer">
         <div class="page_footer__items">

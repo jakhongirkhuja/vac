@@ -2,6 +2,9 @@
     .container{
         max-width: 1200px;
         margin:0 auto;
+        @include respond-phone{
+            width: 95%;
+        }
     }
     &__header{
         height: 100vh;
@@ -10,10 +13,19 @@
         display: flex;
         align-items: center;
         font-family: Montserrat;
+        @include respond-phone{
+            height: auto;
+            flex-direction: column;
+            padding-top: 7rem;
+        }
         h1{
             font-weight: 600;
             font-size: 48px;
             line-height: 59px;
+            @include respond-phone{
+                font-size: 39px;
+                line-height: 47px;
+            }
         }
         p{
             font-family: Geometria;
@@ -26,6 +38,17 @@
         &--anim{
             display: flex;
             justify-content: flex-end;
+            @include respond-phone{
+                justify-content: center;
+            }
+            .factory__base img{
+                @include respond-phone{
+                    width: 100%;
+                    position: relative;
+                    top: 14px;
+                    left: -10px;
+                }
+            }
             .factory__clouds{
                 display: flex;
                 flex-direction: column;
@@ -67,7 +90,10 @@
             }
         }
         div{
-            flex-basis: calc(50% - 40px);  
+            flex-basis: calc(50% - 40px);
+            @include respond-phone{
+                width: 87%;
+            }  
         }
     }
     &__und{
@@ -75,11 +101,16 @@
         background-color: $white-1;
         color: $pr-blue;
         padding: 80px 0;
+        
         h2{
             font-weight: 500;
             font-size: 44px;
             line-height: 54px;
             padding-bottom: 40px;
+            @include respond-phone{
+                font-size: 25px;
+                line-height: 44px
+            }
         }
         p{
             color: $black-2;
@@ -87,6 +118,9 @@
             font-size: 18px;
             line-height: 22px;
             padding-bottom: 20px;
+            @include respond-phone{
+                padding-bottom: 7px;
+            }
         }
     }
     .numbers{
@@ -164,6 +198,18 @@
             font-size: 64px;
             line-height: 78px;
             padding: 101px 0;
+            @include respond-phone{
+                font-size: 31px;
+                line-height: 110px;
+                padding: 24px 0;
+                
+            }
+
+        }
+        @include respond-phone{
+            max-width: 93%;
+            top: -82px;
+            margin-bottom: -61px;
         }
     }
     &__body{
@@ -171,6 +217,9 @@
         flex-wrap: wrap;
         justify-content: space-between;
         padding-bottom: 68px;
+        @include respond-phone {
+            flex-direction: column;
+        }
     }
     &__each{
         width: 25%;
@@ -184,6 +233,9 @@
             line-height: 25px;
 
         }
+        @include respond-phone {
+            width: 100%;
+        }
     }
     
 }
@@ -195,16 +247,27 @@
         box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
         display: flex;
         position: relative;
-        
+        @include respond-phone{
+            flex-direction: column;
+            padding-bottom: 5rem;
+        }
     }
     &__each{
         overflow-x: hidden;
+        width: 50%;
+        @include respond-phone{
+            width: 98%;
+        }
         &:first-child{
             border-right: 1px solid #DAB679;
         }
-        width: 50%;
+       
+        
         &--title, &--undertitle, &--button{
             padding-left: 64px;
+            @include respond-phone{
+                padding-left: 5px;
+            }
         }
         &--title{
             padding-top: 79px;
@@ -215,6 +278,10 @@
                 line-height: 78px;
                 color: $golden;
                 text-transform: uppercase;
+                @include respond-phone{
+                    font-size: 32px;
+                    line-height: 48px;
+                }
             }
         }
         &--undertitle{
@@ -227,6 +294,10 @@
                 font-weight: bold;
                 font-size: 48px;
                 line-height: 58px;
+                @include respond-phone{
+                    font-size: 40px;
+                    line-height: 45px;
+                }
             }
             p{
                 font-weight: 300;
@@ -244,6 +315,9 @@
                 font-weight: 600;
                 font-size: 16px;
                 line-height: 20px;
+                @include respond-phone{
+                    margin: 0 auto;
+                }
             }
         }
         .slides{
@@ -254,10 +328,18 @@
         .slide{
             filter: blur(6px);
             transition: all 0.5s ease;
+            @include respond-phone{
+                display: none;
+            }
             &.active{
                 margin-left: 183px;
                 margin-right: 80px;
                 filter: blur(0);
+                @include respond-phone{
+                    margin-left: auto;
+                    display: block;
+                    margin-right: auto;
+                }
             }
             
         }
@@ -268,6 +350,9 @@
     bottom: 58px;
     left: 50%;
     transform: translate(-50%, 0);
+    @include respond-phone{
+        display: none;
+    }
     img{
         transition: all 0.5s ease;
         cursor: pointer;
@@ -295,6 +380,9 @@
     &__periods{
         display: flex;
         align-items: center;
+        @include respond-phone{
+            display: none;
+        }   
         &--each{
             display: flex;
             justify-content: space-around;
@@ -334,6 +422,11 @@
         line-height: 78px;
         color: $golden;
         text-transform: uppercase;
+        @include respond-phone{
+            text-align: center;
+            font-size: 45px;
+            padding-bottom: 34px;
+        }
     }
     &__hr{
         height: 2px;
@@ -352,12 +445,24 @@
             left: 0;
             transition: all 0.5s ease;
         }
+        @include respond-phone{
+            display: none;
+        }
     }
     &__body{
         transition: all 0.5s ease;
         position: relative;
         margin-top: 21px;
         display: flex;
+        @include respond-phone{
+            flex-direction: column;
+            
+        }
+        svg{
+            @include respond-phone{
+                display: none;
+            }
+        }
         &--each{
             display: flex;
             align-items: center;
@@ -369,16 +474,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            @include respond-phone{
+                width: 95%;
+                height: 100px;
+                margin: 0 auto;
+            }
             p{
                 font-family: Modern;
                 font-size: 48px;
                 line-height: 70%;
                 text-align: center;
                 color: $golden;
+                br{
+                    @include respond-phone{
+                        display: none;
+                    }
+                }
             }
         }
         &--info{
             display: flex;
+            @include respond-phone{
+                flex-direction: column;
+            }
             
         }
         &--text{
@@ -390,6 +508,11 @@
             height: 235px;
             width: 342px;
             padding-left: 30px;
+            @include respond-phone{
+                width: 95%;
+                margin: 0 auto;
+                min-height: 236px;
+            }
             p{
                 padding-top: 30px;
                 font-family: Montserrat;
@@ -400,5 +523,69 @@
                 color: $pr-blue;
             }
         }
+        &--sticky{
+            &-parent{
+                position: absolute; 
+                height: 100%;
+                right: 0;
+            }
+            display: none;
+            background-color: $golden;
+            @include respond-phone{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: sticky;
+                top: 90px;
+                right: 0;
+                /* left: 17px; */
+                width: 40px;
+                margin: auto 0 auto auto;
+            }
+            &_each{
+                position: relative;
+                margin-bottom: 30px;
+                &:first-child{
+                    margin-top: 20px;
+                }
+                &:last-child{
+                    margin-bottom: 20px;
+                }
+                &::after{
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 29px;
+                    position: absolute;
+                    top: 20px;
+                    right: 10px;
+                    background-color: $white-0;
+                }
+                &:last-child::after{
+                    content: none;
+                }
+            }
+            &-circle{
+                border:1px solid $white-0;
+                height: 20px;
+                width: 20px;
+                display: block;
+                border-radius: 50%;
+                &.active{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    div{
+                        width: 10px;
+                        height: 10px;
+                        background-color: $white-0;
+                        display: block;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            
+        }
+        
     }
 }
