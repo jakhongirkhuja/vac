@@ -2,8 +2,13 @@
     .container{
         max-width: 1200px;
         margin:0 auto;
+        
+        @include respond-1200{
+            padding-left: 2rem;
+        }
         @include respond-phone{
             width: 95%;
+            padding-left: 0;
         }
     }
     &__header{
@@ -13,11 +18,16 @@
         display: flex;
         align-items: center;
         font-family: Montserrat;
+        @include respond-1200{
+            padding-left: 2rem;
+        }
         @include respond-phone{
             height: auto;
             flex-direction: column;
             padding-top: 7rem;
+            padding-left: 0;
         }
+        
         h1{
             font-weight: 600;
             font-size: 48px;
@@ -111,6 +121,7 @@
                 font-size: 25px;
                 line-height: 44px
             }
+            
         }
         p{
             color: $black-2;
@@ -205,6 +216,7 @@
                 
             }
 
+
         }
         @include respond-phone{
             max-width: 93%;
@@ -233,9 +245,13 @@
             line-height: 25px;
 
         }
+        @include respond-tab{
+            width: 33%;
+        }
         @include respond-phone {
             width: 100%;
         }
+        
     }
     
 }
@@ -278,6 +294,14 @@
                 line-height: 78px;
                 color: $golden;
                 text-transform: uppercase;
+                
+                
+                @include respond-1200{
+                    font-size: 52px;
+                }
+                @include respond-tab{
+                    font-size: 40px;
+                }
                 @include respond-phone{
                     font-size: 32px;
                     line-height: 48px;
@@ -335,6 +359,10 @@
                 margin-left: 183px;
                 margin-right: 80px;
                 filter: blur(0);
+                
+                @include respond-tab{
+                    margin-left: 90px;
+                }
                 @include respond-phone{
                     margin-left: auto;
                     display: block;
@@ -587,5 +615,300 @@
             
         }
         
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.aboutus__how{
+    &--card{
+        
+        
+        @include respond-1200{
+            width: 400px;
+            height: 600px;
+            &.c2,&.c5{
+                right: 34px;
+                left: auto;
+            }
+            
+            
+        }
+        @include respond-tab{
+            position: initial;
+            width: 320px;
+            height: 378px;
+            margin: 11rem auto;
+            h4{
+                height: calc(100% - 240px);
+                text-align: center;
+            }
+            &.c1{
+                margin-top: 5rem
+            }
+            
+        }
+        @include respond-phone
+        {
+            position: initial;
+            width: 320px;
+            height: 378px;
+            margin: 11rem auto;
+            h4{
+                height: calc(100% - 240px);
+                text-align: center;
+            }
+            &.c1{
+                margin-top: 5rem
+            }
+            &.c6{
+                height: 450px;
+                margin-bottom: 0;
+                .numbers__body{
+                    height: 318px;
+                }
+            }
+        }
+    }
+    &--num{
+        @include respond-tab{
+            position: initial;
+            margin-top: -47px;
+            margin-left: -180px;
+        }
+        @include respond-phone
+        {
+            position: initial;
+            margin-top: -47px;
+            margin-left: -180px;
+        }
+        
+    }
+    .transbox{
+        &.tb1{
+            
+            
+            @include respond-1200{
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            @include respond-tab{
+                left: 50%;
+                top: 600px;
+                transform: rotate(   90deg  ) translate(-50%, 0);
+            }
+            @include respond-phone
+            {
+                top: 514px;
+                left: 131px;
+                transform: rotate(90deg );
+            }
+        }
+        &.tb2{
+            
+            @include respond-tab{
+               
+                left: 50%;
+                
+                transform: rotate(   90deg  ) translate(-50%, 0);
+            }
+            @include respond-phone
+            {
+                top: 1068px;
+                left: 71px;
+                transform: rotate(90deg );
+            }
+        }
+        &.tb3{
+            @include respond-tab{
+                left: 50%;
+                top: 1710px;
+                transform: rotate(   90deg  ) translate(-50%, 0);
+            }
+            @include respond-phone
+            {
+                top: 1623px;
+                left: 131px;
+                transform: rotate(90deg );
+            }
+        }
+        &.tb4{
+            @include respond-1200{
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            @include respond-tab{
+                left: 50%;
+                top: 2263px;
+                transform: rotate(   90deg  ) translate(-50%, 0);
+            }
+            @include respond-phone
+            {
+                top: 2174px;
+                left: 71px;
+                transform: rotate(90deg );
+            }
+            
+        }
+        &.tb5{
+            @include respond-phone
+            {
+                top: 2729px;
+                left: 131px;
+                transform: rotate(90deg );
+            }
+        }
+        &.tb6{
+            @include respond-tab{
+                left: 50%;
+                top: 2815px;
+                transform: rotate(   90deg  ) translate(-50%, 0);
+            }
+            @include respond-phone
+            {
+                display: none;
+            }
+        }
+    }
+    &--card .glo{
+        background-color: $white-0;
+        @include respond-phone
+            {
+                height: 240px;
+            }
+        img{
+            @include respond-1200{
+                max-width: 58%;
+            }
+            @include respond-phone
+            {
+                max-width: 48%;
+            }
+           
+        }
+    }
+    
+}
+.aboutus__how .rome{
+    
+    @include respond-1200{
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    @include respond-tab{
+        display: none;
+    }
+    @include respond-phone
+    {
+       display: none;
+    }
+}
+.aboutUs{
+   
+    .numbers__each{
+        
+        @include respond-1200{
+            height: 180px;
+            width: 180px;
+        }
+        @include respond-tab{
+            height: 130px;
+            width: 130px;
+        }
+        @include respond-phone
+            {
+                height: 130px;
+                width: 130px;
+            }
+        &.first{
+            
+            @include respond-1200{
+                margin-left: 2px;
+                margin-right: 7px;
+            }
+            @include respond-tab{
+                margin-right: 13px;
+                margin-left: 20px;
+            }
+            @include respond-phone
+            {
+                margin-right: 26px;
+            }
+            
+        }
+        p:first-child{
+            @include respond-phone
+            {
+                padding-bottom: 0px;
+            }
+        }
+        &.center{
+            @include respond-tab{
+                height: 140px;
+                width: 140px;
+            }
+            @include respond-phone
+            {
+                height: 130px;
+                width: 130px;
+            }
+        }
+        &.last{
+            
+            @include respond-1200{
+                margin-top: -10px;
+                margin-left: 88px;
+            }
+            @include respond-tab{
+                height: 130px;
+                width: 130px;
+                margin-top: -15px;
+                margin-left: 99px;
+                margin-bottom: 28px;
+            }
+            @include respond-phone
+            {
+                height: 130px;
+                width: 130px;
+                margin-top: -15px;
+                margin-left: 99px;
+                margin-bottom: 28px;
+            }
+        }
+    }
+    
+}
+.aboutus__grid{
+    @include respond-phone
+    {
+        height: auto;
+    }
+    @include respond-tab{
+        height: auto;
+    }
+}
+
+.aboutus__click{
+    .text-m{
+        @include respond-phone
+        {
+            text-align: center;
+        }
+    }
+    &--calbtn{
+        &:hover{
+            color: $golden;
+        }
+        @include respond-phone
+        {
+            padding: 24px 6px;
+        }
     }
 }
