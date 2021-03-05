@@ -12,14 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="calc__head title-m">
-        КАЛЬКУЛЯТОР
-    </div>
     <div class="menu">
         <div class="menu__ins">
-            <div class="menu__ins--line menu__ins--up"></div>
-            <div class="menu__ins--line menu__ins--mid"></div>
-            <div class="menu__ins--line menu__ins--down"></div>
+            <div class="menu__ins--line menu__ins--up" style="    background-color: black;"></div>
+            <div class="menu__ins--line menu__ins--mid"style="    background-color: black;"></div>
+            <div class="menu__ins--line menu__ins--down"style="    background-color: black;"></div>
             <div class="menu__ins--word">menu</div>
             <div class="menu__ins--line menu__ins--x1"></div>
             <div class="menu__ins--line menu__ins--x2"></div>
@@ -27,10 +24,10 @@
 
         </div>
         <div class="menu__hid">
-            <div class="menu__hid--line menu__hid--up"></div>
-            <div class="menu__hid--line menu__hid--down"></div>
-            <div class="menu__hid--line menu__hid--left"></div>
-            <div class="menu__hid--line menu__hid--right"></div>
+            <div class="menu__hid--line menu__hid--up" style="    background-color: black;"></div>
+            <div class="menu__hid--line menu__hid--down" style="    background-color: black;"></div>
+            <div class="menu__hid--line menu__hid--left" style="    background-color: black;"></div>
+            <div class="menu__hid--line menu__hid--right" style="    background-color: black;"></div>
         </div>
     </div>
     <div class="mlist">
@@ -51,7 +48,7 @@
         </div>
     </div>
     <a href="" class="logo">
-        <img src="/imgs/logow.svg" alt="" data-black="/imgs/logob.svg" data-white="/imgs/logow.svg">
+        <img src="/imgs/logob.svg" alt="" data-black="/imgs/logob.svg" data-white="/imgs/logow.svg">
     </a>
     <style>
         body,html{
@@ -60,262 +57,331 @@
         }
     </style>
 
-    <div class="calc">
-        <div class="calc__right">
-            <div class="calc__bigimg calc__df">
-                <div class="calc__header">
-                    <div class="text-l">Модель</div>
-                </div>
-                <img class="calc__box" src="/imgs/rect.jpg" alt="rect box">
-            </div>
-            <div class="calc__choose calc__df">
-                <div class="calc__header">
-                    <div class="text-l">Элемент</div>
-                </div>
-                <div class="calc__choose--els calc__box" data-url="">
-                    <div class="el" onclick="makethisactive(this);" data-id="1">
-                        <img class="el__pig" src="/imgs/types/1pryamoy.svg" alt="">
-                        <div class="el__name">прямой</div>
+    <div class="calculator">
+        <div class="calculator__body">
+            <div class="calculator__each">
+                <div class="calculator__each--inside">
+                    <div class="calculator__each--title">
+                        <p>Модель</p>
                     </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="2">
-                        <img class="el__pig" src="/imgs/types/2otvod.svg" alt="">
-                        <div class="el__name">отвод</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="3">
-                        <img class="el__pig" src="/imgs/types/3utka.svg" alt="">
-                        <div class="el__name">утка</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="4">
-                        <img class="el__pig" src="/imgs/types/4traynik.svg" alt="">
-                        <div class="el__name">тройник</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="5">
-                        <img class="el__pig" src="/imgs/types/5perexod.svg" alt="">
-                        <div class="el__name">переход</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="6">
-                        <img class="el__pig" src="/imgs/types/6zaglushka.svg" alt="">
-                        <div class="el__name">заглушка</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="7">
-                        <img class="el__pig" src="/imgs/types/7zont.svg" alt="">
-                        <div class="el__name">зонт</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="8">
-                        <img class="el__pig" src="/imgs/types/8shtani.svg" alt="">
-                        <div class="el__name">штаны</div>
-                    </div>
-                    <div class="el" onclick="makethisactive(this);" data-id="9">
-                        <img class="el__pig" src="/imgs/types/9vrezka.svg" alt="">
-                        <div class="el__name">врезка</div>
+                    <div class="calculator__each--content" id="main_poster">
+                        <img src="./imgs/calculator/big_first.svg">
                     </div>
                 </div>
-            </div>
-            <div class="calc__type calc__df">
-                <div class="calc__header">
-                    <div class="text-l">Тип элемента</div>
-                </div>
-                <div class="calc__box type">
-                    <div class="type__btn type__btn--left">
-                        <svg style="transform: rotate(180deg);" width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 15L8 8L1 1" stroke="white"/>
-                        </svg>
+                <div class="calculator__each--inside last">
+                    <div class="calculator__each--title">
+                        <p>Стоимость</p>
                     </div>
-                    <div class="types" data-url="{ route('form_submit') }">
-                        <div class="types__el" onclick="makeitactive(this);" data-id="1">
-                            <img class="types__el--img" src="/imgs/typerect.jpg" alt="">
-                            <div class="types__el--text">прямоугольное сечение</div>
+                    <div class="calculator__each--content" id="main_price" >
+                        
+                            <div class="content-price__title"><p>Цена за m^2</p></div>
+                       
+                        <div class="calculator__each--content-price">
+                            
+                            <div class="content-price__each">
+                                
+                                <div class="content-price__value">20 000</div>
+                                <div class="content-price__undertitle"><p>Можете указать свою цену</p></div>
+                            </div>
+                            <div class="content-price__each">
+                                <div class="content-price__value last">4 800 000</div>
+                            </div>
                         </div>
-                        <div class="types__el" onclick="makeitactive(this);" data-id="2">
-                            <img class="types__el--img" src="/imgs/typeround.jpg" alt="">
-                            <div class="types__el--text">круглое сечение</div>
+                        <div class="content-price__title"><p>Цена рейки за 1 m</p></div>
+                        <div class="calculator__each--content-price">
+                            <div class="content-price__each">
+                               
+                                <div class="content-price__value">1 500</div>
+                                <div class="content-price__undertitle"><p>Можете указать свою цену</p></div>
+                            </div>
+                            <div class="content-price__each">
+                                <div class="content-price__value last">60 000</div>
+                            </div>
+                        </div>
+                        <div class="calculator__each--content-price">
+                            <div class="content-price__each empty"></div>
+                            <div class="content-price__each">
+                                <div class="content-price__title"><p>Итог</p></div>
+                                <div class="content-price__value last">4 860 000</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="type__btn type__btn--right">
-                        <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 15L8 8L1 1" stroke="white"/>
-                        </svg>
+                </div>
+            </div>
+            <div class="calculator__each">
+                <div class="calculator__each--inside">
+                    <div class="calculator__each--title">
+                        <p>Элемент</p>
+                    </div>
+                    <div class="calculator__each--content" id="element">
+                       <div class="element__img">
+                           <img src="./imgs/calculator/straight.svg">
+                       </div>
+                       <div class="element__title">
+                           <p>прямой</p>
+                       </div>
+                       <div class="element__nav">
+                            <div class="element__showAll">
+                                <img src="./imgs/calculator/scale.svg">
+                            </div>
+                            <div class="element__btnPrev">
+                                <img src="./imgs/calculator/btn_prev.svg">
+                            </div>
+                            <div class="element__counter">
+                                <p>1/9</p>
+                            </div>
+                            <div class="element__btnNext">
+                                <img src="./imgs/calculator/btn_next.svg">
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="calculator__each--inside">
+                    <div class="calculator__each--title">
+                        <p>Тип элемента</p>
+                    </div>
+                    <div class="calculator__each--content" id="element">
+                       <div class="element__img">
+                           <img src="./imgs/calculator/pryamiugol.svg">
+                       </div>
+                       <div class="element__title">
+                           <p>прямоугольное сечение</p>
+                       </div>
+                       <div class="element__nav">
+                            <div class="element__showAll">
+                                <img src="./imgs/calculator/scale.svg">
+                            </div>
+                            <div class="element__btnPrev">
+                                <img src="./imgs/calculator/btn_prev.svg">
+                            </div>
+                            <div class="element__counter">
+                                <p>1/2</p>
+                            </div>
+                            <div class="element__btnNext">
+                                <img src="./imgs/calculator/btn_next.svg">
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="calculator__each--inside last">
+                    <div class="calculator__each--title">
+                        <p>Параметры</p>
+                    </div>
+                    <div class="calculator__each--content" id="parameters">
+                        <div class="parameters__undertitle">
+                            <p>Тип сойдинение</p>
+                        </div>
+                        <div class="parameters__selections">
+                            <div class="parameters__selections--each">
+                                <label for="id1"><p>шинорейка</p>
+                                    <input type="radio" id="id1" checked name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="parameters__selections--each">
+                                <label for="id2">TDF
+                                    <input type="radio" id="id2" name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="parameters__selections--each">
+                                <label for="id3">рейечный
+                                    <input type="radio" id="id3" name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="parameters__inputs">
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>толщина металла</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <select name="" id="">
+                                        <option>0.5</option>
+                                        <option>0.6</option>
+                                        <option>0.7</option>
+                                        <option>0.8</option>
+                                        <option>0.9</option>
+                                        <option>1.0</option>
+                                        <option>1.1</option>
+                                        <option>1.2</option>
+                                    </select>
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>MM</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>ширина A</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>MM</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>высота B</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>MM</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>длина L</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>M</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>ширина A</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>MM</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>высота B</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>MM</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>длина L</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>M</p>
+                                </div>
+                            </div>
+                            <div class="parameters__inputs--each">
+                                <div class="parameters__inputs--title">
+                                    <p>ширина A</p>
+                                </div>
+                                <div class="parameters__inputs--input">
+                                    <input type="number">
+                                </div>
+                                <div class="parameters__inputs--format">
+                                    <p>MM</p>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="calculator__each">
+                <div class="calculator__each--inside">
+                    <div class="calculator__each--title">
+                        <p>Расчеты</p>
+                    </div>
+                    <div class="calculator__each--content" id="сalculations">
+                        <div class="сalculations__each" >
+                            <div class="сalculations__left">
+                                <p >площадь</p>
+                            </div>
+                            <div class="сalculations__right">
+                                <p>30 m<sup>2</sup></p>
+                            </div>
+                        </div>
+                        <div class="сalculations__each" >
+                            <div class="сalculations__left">
+                                <p >масса</p>
+                            </div>
+                            <div class="сalculations__right">
+                                <p>30 m<sup>2</sup></p>
+                            </div>
+                        </div>
+                        <div class="сalculations__each" >
+                            <div class="сalculations__left">
+                                <p >воздуховоды L = 1250 мм </p>
+                            </div>
+                            <div class="сalculations__right">
+                                <p>30 m<sup>2</sup></p>
+                            </div>
+                        </div>
+                        <div class="сalculations__each" >
+                            <div class="сalculations__left">
+                                <p >воздуховоды L = 1000 мм </p>
+                            </div>
+                            <div class="сalculations__right">
+                                <p>30 m<sup>2</sup></p>
+                            </div>
+                        </div>
+                        <div class="сalculations__each" >
+                            <div class="сalculations__left">
+                                <p >воздуховоды L = 1000 мм </p>
+                            </div>
+                            <div class="сalculations__right">
+                                <p>30 m<sup>2</sup></p>
+                            </div>
+                        </div>
+                        <div class="сalculations__each" >
+                            <div class="сalculations__left">
+                                <p >воздуховоды L = 1000 мм </p>
+                            </div>
+                            <div class="сalculations__right">
+                                <p>30 m<sup>2</sup></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculator__each--button">
+                    <div class="calculator__each--addCart" onclick="openPop()">
+                        <span>Добавить</span>
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="calculator__each--inside last" id="banner" >
+                    <img src="./imgs/calculator/banner.jpg">
+                </div>
+            </div>
+            
         </div>
-        <div class="calc__left">
-            <div class="calc__param calc__df">
-                <div class="calc__header">
-                    <div class="text-l">Параметры</div>
-                </div>
-                <div class="calc__dr">
-                    <div class="calc__params calc__box">
-                        <p class="text-s">Тип сойдинение</p>
-                        <div class="calc__dra">
-                            <div class="calc__params--radio" data-id="1" onclick="makethatactive(this);">
-                                <div class="circle"></div>
-                                <p class="text-s">шинорейка</p>
-                            </div>
-                            <div class="calc__params--radio" data-id="2" onclick="makethatactive(this);">
-                                <div class="circle"></div>
-                                <p class="text-s">TDF</p>
-                            </div>
-                            <div class="calc__params--radio" data-id="3" onclick="makethatactive(this);">
-                                <div class="circle"></div>
-                                <p class="text-s">рейечный</p>
-                            </div>
-                        </div>
-                        <div class="calc__drb">
-                            <div class="calc__params--name">
-                                толщина металла
-                            </div>
-                            <div class="calc__params--input">
-                                <input type="text" onfocus="focuser(this);">
-                                <div class="unit">
-                                    мм
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc__drb">
-                            <div class="calc__params--name">
-                                ширина A
-                            </div>
-                            <div class="calc__params--input">
-                                <input type="text" onfocus="focuser(this);">
-                                <div class="unit">
-                                    мм
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc__drb">
-                            <div class="calc__params--name">
-                                высота B
-                            </div>
-                            <div class="calc__params--input">
-                                <input type="text" onfocus="focuser(this);">
-                                <div class="unit">
-                                    мм
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc__drb">
-                            <div class="calc__params--name">
-                                длина L
-                            </div>
-                            <div class="calc__params--input">
-                                <input type="text" onfocus="focuser(this);">
-                                <div class="unit">
-                                    мм
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="help">
-                        <div class="help__up calc__box">
-                            <div class="help__up--head">
-                                <p class="text-m">Подсказки</p>
-                                <img src="/imgs/undov.svg" alt="undov">
-                            </div>
-                            <div class="help__up--body text-m">
-                                Здесь будет текст который будет объяснять, что нужно сделать, чтобы все правильно посчиталось
-                            </div>
-                        </div>
-                        <div class="help__down calc__box" onclick="chf();">
-                            <img src="/imgs/refresh.svg" alt="refresh">
-                            <p class="text-m">обновить</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="calculator__pop">
+            <div class="calculator__pop--header">
+                
             </div>
-            <div class="calc__ras calc__df">
-                <div class="calc__header">
-                    <div class="text-l">Расчеты</div>
-                </div>
-                <div class="calc__calcs calc__box">
-                    <div class="calc__calcs--rows">
-                        <div class="calc__calcs--row">
-                            <div class="rowname">
-                                площадь
-                            </div>
-                            <div class="number">
-                                30 m^2
-                            </div>
-                        </div>
-                        <div class="calc__calcs--row">
-                            <div class="rowname">
-                                масса
-                            </div>
-                            <div class="number">
-                                30 m^2
-                            </div>
-                        </div>
-                        <div class="calc__calcs--row">
-                            <div class="rowname">
-                                воздуховоды L = 1250 мм 
-                            </div>
-                            <div class="number">
-                                30 m^2
-                            </div>
-                        </div>
-                        <div class="calc__calcs--row">
-                            <div class="rowname">
-                                воздуховоды L = 1250 мм 
-                            </div>
-                            <div class="number">
-                                30 m^2
-                            </div>
-                        </div>
-                        <div class="calc__calcs--row">
-                            <div class="rowname">
-                                воздуховоды L = 1250 мм 
-                            </div>
-                            <div class="number">
-                                30 m^2
-                            </div>
-                        </div>
-                    </div>
-                    <div class="calc__calcs--load">
-                        <div class="loadup">
-                            <img src="/imgs/gold-logo.svg" alt="gold-logo">
-                        </div>
-                        <a href="" class="download">
-                            <div class="button-m">Скачать</div>
-                            <img src="/imgs/download.svg" alt="download">
-                        </a>
-                    </div>
-                </div>
-
+            <div class="calculator__pop--open" onclick="openPopFull()">
+                <img src="./imgs/calculator/popopen.svg">
             </div>
         </div>
     </div>
-    
-    <div class="page_footer">
-        <div class="page_footer__items">
-            <div class="page_footer__items-lang">
-                <a href="#" class="page_footer__items-lang__choose">
-                    <img src="imgs/lang.svg">
-                    <span>Русский</span>
-                    <img src="imgs/down.svg">
-                </a>
-            </div>
-            <div class="page_footer__items-privacy">
-                 © <span> 2020 </span> vac.uz
-            </div>
-            <div class="page_footer__items-socials">
-                <a href="#">
-                    <img src="imgs/facebook.svg">
-                </a>
-                <a href="#">
-                    <img src="imgs/instagram.svg">
-                </a>
-                <a href="#">
-                    <img src="imgs/twitter.svg">
-                </a>
-                <a href="#">
-                    <img src="imgs/pinterest.svg">
-                </a>
-                <a href="#">
-                    <img src="imgs/youtube.svg">
-                </a>
-            </div>
-        </div>
-    </div>
+    <script>
+        function openPop(){
+            document.querySelector('.calculator__pop').classList.add('active');
+        }
+        function openPopFull(){
+            document.querySelector('.calculator__pop').classList.toggle('fullWidth');
+            document.querySelector('.calculator__pop--open img').classList.toggle('active');
+        }
+    </script>
     
 </body>
 
